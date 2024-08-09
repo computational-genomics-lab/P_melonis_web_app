@@ -1,0 +1,481 @@
+{
+  "assemblies": [
+    {
+      "name": "1.Apio_malay",
+      "sequence": {
+        "type": "ReferenceSequenceTrack",
+        "trackId": "1.Apio_malay-ReferenceSequenceTrack",
+        "adapter": {
+          "type": "IndexedFastaAdapter",
+          "fastaLocation": {
+            "uri": "http://10.0.0.231:3000/SK_genomic_data/1.Apio_malay.fa",
+            "locationType": "UriLocation"
+          },
+          "faiLocation": {
+            "uri": "http://10.0.0.231:3000/SK_genomic_data/1.Apio_malay.fa.fai",
+            "locationType": "UriLocation"
+          }
+        }
+      }
+    },
+    {
+      "name": "2.Apio_Pterosperma",
+      "sequence": {
+        "type": "ReferenceSequenceTrack",
+        "trackId": "2.Apio_Pterosperma-ReferenceSequenceTrack",
+        "adapter": {
+          "type": "IndexedFastaAdapter",
+          "fastaLocation": {
+            "uri": "http://10.0.0.231:3000/SK_genomic_data/2.Apio_Pterosperma.fa",
+            "locationType": "UriLocation"
+          },
+          "faiLocation": {
+            "uri": "http://10.0.0.231:3000/SK_genomic_data/2.Apio_Pterosperma.fa.fai",
+            "locationType": "UriLocation"
+          }
+        }
+      }
+    },
+    {
+      "name": "3.Apio_sacchari",
+      "sequence": {
+        "type": "ReferenceSequenceTrack",
+        "trackId": "3.Apio_sacchari-ReferenceSequenceTrack",
+        "adapter": {
+          "type": "IndexedFastaAdapter",
+          "fastaLocation": {
+            "uri": "http://10.0.0.231:3000/SK_genomic_data/3.Apio_sacchari.fa",
+            "locationType": "UriLocation"
+          },
+          "faiLocation": {
+            "uri": "http://10.0.0.231:3000/SK_genomic_data/3.Apio_sacchari.fa.fai",
+            "locationType": "UriLocation"
+          }
+        }
+      }
+    },
+    {
+      "name": "4.Apio_rasikravin",
+      "sequence": {
+        "type": "ReferenceSequenceTrack",
+        "trackId": "4.Apio_rasikravin-ReferenceSequenceTrack",
+        "adapter": {
+          "type": "IndexedFastaAdapter",
+          "fastaLocation": {
+            "uri": "http://10.0.0.231:3000/SK_genomic_data/4.Apio_rasikravin.fa",
+            "locationType": "UriLocation"
+          },
+          "faiLocation": {
+            "uri": "http://10.0.0.231:3000/SK_genomic_data/4.Apio_rasikravin.fa.fai",
+            "locationType": "UriLocation"
+          }
+        }
+      }
+    },
+    {
+      "name": "5.Arth_kuc",
+      "sequence": {
+        "type": "ReferenceSequenceTrack",
+        "trackId": "5.Arth_kuc-ReferenceSequenceTrack",
+        "adapter": {
+          "type": "IndexedFastaAdapter",
+          "fastaLocation": {
+            "uri": "http://10.0.0.231:3000/SK_genomic_data/5.Arth_kuc.fa",
+            "locationType": "UriLocation"
+          },
+          "faiLocation": {
+            "uri": "http://10.0.0.231:3000/SK_genomic_data/5.Arth_kuc.fa.fai",
+            "locationType": "UriLocation"
+          }
+        }
+      }
+    },
+    {
+      "name": "6.Arth_phaeos",
+      "sequence": {
+        "type": "ReferenceSequenceTrack",
+        "trackId": "6.Arth_phaeos-ReferenceSequenceTrack",
+        "adapter": {
+          "type": "IndexedFastaAdapter",
+          "fastaLocation": {
+            "uri": "http://10.0.0.231:3000/SK_genomic_data/6.Arth_phaeos.fa",
+            "locationType": "UriLocation"
+          },
+          "faiLocation": {
+            "uri": "http://10.0.0.231:3000/SK_genomic_data/6.Arth_phaeos.fa.fai",
+            "locationType": "UriLocation"
+          }
+        }
+      }
+    },
+    {
+      "name": "7.Arth_Puccinioides",
+      "sequence": {
+        "type": "ReferenceSequenceTrack",
+        "trackId": "7.Arth_Puccinioides-ReferenceSequenceTrack",
+        "adapter": {
+          "type": "IndexedFastaAdapter",
+          "fastaLocation": {
+            "uri": "http://10.0.0.231:3000/SK_genomic_data/7.Arth_Puccinioides.fa",
+            "locationType": "UriLocation"
+          },
+          "faiLocation": {
+            "uri": "http://10.0.0.231:3000/SK_genomic_data/7.Arth_Puccinioides.fa.fai",
+            "locationType": "UriLocation"
+          }
+        }
+      }
+    },
+    {
+      "name": "8.Nigro_oryzae",
+      "sequence": {
+        "type": "ReferenceSequenceTrack",
+        "trackId": "8.Nigro_oryzae-ReferenceSequenceTrack",
+        "adapter": {
+          "type": "IndexedFastaAdapter",
+          "fastaLocation": {
+            "uri": "http://10.0.0.231:3000/SK_genomic_data/8.Nigro_oryzae.fa",
+            "locationType": "UriLocation"
+          },
+          "faiLocation": {
+            "uri": "http://10.0.0.231:3000/SK_genomic_data/8.Nigro_oryzae.fa.fai",
+            "locationType": "UriLocation"
+          }
+        }
+      }
+    }
+  ],
+  "configuration": {},
+  "connections": [],
+  "defaultSession": {
+    "name": "New Session"
+  },
+  "tracks": [
+    {
+      "type": "FeatureTrack",
+      "trackId": "repeats_hg38",
+      "name": "SSR file",
+      "assemblyNames": [
+        "Phytophthora_agathidicida"
+      ],
+      "category": [
+        "Annotation"
+      ],
+      "adapter": {
+        "type": "BigWigAdapter",
+        "bigBedLocation": {
+          "uri": "http://10.0.0.231:3000/Phyag_NZFS3770.bw",
+          "locationType": "UriLocation"
+        }
+      }
+    },
+    {
+      "type": "FeatureTrack",
+      "trackId": "1.Apio_malay_sorted.gff3",
+      "name": "1.Apio_malay_sorted.gff3",
+      "adapter": {
+        "type": "Gff3TabixAdapter",
+        "gffGzLocation": {
+          "uri": "http://10.0.0.231:3000/SK_genomic_data/1.Apio_malay_sorted.gff3.gz",
+          "locationType": "UriLocation"
+        },
+        "index": {
+          "location": {
+            "uri": "http://10.0.0.231:3000/SK_genomic_data/1.Apio_malay_sorted.gff3.gz.tbi",
+            "locationType": "UriLocation"
+          },
+          "indexType": "TBI"
+        }
+      },
+      "assemblyNames": [
+        "1.Apio_malay"
+      ]
+    },
+    {
+      "type": "FeatureTrack",
+      "trackId": "2.Apio_Pterosperma_sorted.gff3",
+      "name": "2.Apio_Pterosperma_sorted.gff3",
+      "adapter": {
+        "type": "Gff3TabixAdapter",
+        "gffGzLocation": {
+          "uri": "http://10.0.0.231:3000/SK_genomic_data/2.Apio_Pterosperma_sorted.gff3.gz",
+          "locationType": "UriLocation"
+        },
+        "index": {
+          "location": {
+            "uri": "http://10.0.0.231:3000/SK_genomic_data/2.Apio_Pterosperma_sorted.gff3.gz.tbi",
+            "locationType": "UriLocation"
+          },
+          "indexType": "TBI"
+        }
+      },
+      "assemblyNames": [
+        "2.Apio_Pterosperma"
+      ]
+    },
+    {
+      "type": "FeatureTrack",
+      "trackId": "3.Apio_sacchari_sorted.gff3",
+      "name": "3.Apio_sacchari_sorted.gff3",
+      "adapter": {
+        "type": "Gff3TabixAdapter",
+        "gffGzLocation": {
+          "uri": "http://10.0.0.231:3000/SK_genomic_data/3.Apio_sacchari_sorted.gff3.gz",
+          "locationType": "UriLocation"
+        },
+        "index": {
+          "location": {
+            "uri": "http://10.0.0.231:3000/SK_genomic_data/3.Apio_sacchari_sorted.gff3.gz.tbi",
+            "locationType": "UriLocation"
+          },
+          "indexType": "TBI"
+        }
+      },
+      "assemblyNames": [
+        "3.Apio_sacchari"
+      ]
+    },
+    {
+      "type": "FeatureTrack",
+      "trackId": "4.Apio_rasikravin_sorted.gff3",
+      "name": "4.Apio_rasikravin_sorted.gff3",
+      "adapter": {
+        "type": "Gff3TabixAdapter",
+        "gffGzLocation": {
+          "uri": "http://10.0.0.231:3000/SK_genomic_data/4.Apio_rasikravin_sorted.gff3.gz",
+          "locationType": "UriLocation"
+        },
+        "index": {
+          "location": {
+            "uri": "http://10.0.0.231:3000/SK_genomic_data/4.Apio_rasikravin_sorted.gff3.gz.tbi",
+            "locationType": "UriLocation"
+          },
+          "indexType": "TBI"
+        }
+      },
+      "assemblyNames": [
+        "4.Apio_rasikravin"
+      ]
+    },
+    {
+      "type": "FeatureTrack",
+      "trackId": "5.Arth_kuc_sorted.gff3",
+      "name": "5.Arth_kuc_sorted.gff3",
+      "adapter": {
+        "type": "Gff3TabixAdapter",
+        "gffGzLocation": {
+          "uri": "http://10.0.0.231:3000/SK_genomic_data/5.Arth_kuc_sorted.gff3.gz",
+          "locationType": "UriLocation"
+        },
+        "index": {
+          "location": {
+            "uri": "http://10.0.0.231:3000/SK_genomic_data/5.Arth_kuc_sorted.gff3.gz.tbi",
+            "locationType": "UriLocation"
+          },
+          "indexType": "TBI"
+        }
+      },
+      "assemblyNames": [
+        "5.Arth_kuc"
+      ]
+    },
+    {
+      "type": "FeatureTrack",
+      "trackId": "6.Arth_phaeos_sorted.gff3",
+      "name": "6.Arth_phaeos_sorted.gff3",
+      "adapter": {
+        "type": "Gff3TabixAdapter",
+        "gffGzLocation": {
+          "uri": "http://10.0.0.231:3000/SK_genomic_data/6.Arth_phaeos_sorted.gff3.gz",
+          "locationType": "UriLocation"
+        },
+        "index": {
+          "location": {
+            "uri": "http://10.0.0.231:3000/SK_genomic_data/6.Arth_phaeos_sorted.gff3.gz.tbi",
+            "locationType": "UriLocation"
+          },
+          "indexType": "TBI"
+        }
+      },
+      "assemblyNames": [
+        "6.Arth_phaeos"
+      ]
+    },
+    {
+      "type": "FeatureTrack",
+      "trackId": "7.Arth_Puccinioides_sorted.gff3",
+      "name": "7.Arth_Puccinioides_sorted.gff3",
+      "adapter": {
+        "type": "Gff3TabixAdapter",
+        "gffGzLocation": {
+          "uri": "http://10.0.0.231:3000/SK_genomic_data/7.Arth_Puccinioides_sorted.gff3.gz",
+          "locationType": "UriLocation"
+        },
+        "index": {
+          "location": {
+            "uri": "http://10.0.0.231:3000/SK_genomic_data/7.Arth_Puccinioides_sorted.gff3.gz.tbi",
+            "locationType": "UriLocation"
+          },
+          "indexType": "TBI"
+        }
+      },
+      "assemblyNames": [
+        "7.Arth_Puccinioides"
+      ]
+    },
+    {
+      "type": "FeatureTrack",
+      "trackId": "8.Nigro_oryzae_sorted.gff3",
+      "name": "8.Nigro_oryzae_sorted.gff3",
+      "adapter": {
+        "type": "Gff3TabixAdapter",
+        "gffGzLocation": {
+          "uri": "http://10.0.0.231:3000/SK_genomic_data/8.Nigro_oryzae_sorted.gff3.gz",
+          "locationType": "UriLocation"
+        },
+        "index": {
+          "location": {
+            "uri": "http://10.0.0.231:3000/SK_genomic_data/8.Nigro_oryzae_sorted.gff3.gz.tbi",
+            "locationType": "UriLocation"
+          },
+          "indexType": "TBI"
+        }
+      },
+      "assemblyNames": [
+        "8.Nigro_oryzae"
+      ]
+    },
+    {
+      "type": "AlignmentsTrack",
+      "trackId": "C1_sorted_star",
+      "name": "C1_sorted_star",
+      "adapter": {
+        "type": "BamAdapter",
+        "bamLocation": {
+          "uri": "http://10.0.0.231:3000/SK_genomic_data/C1_sorted_star.bam",
+          "locationType": "UriLocation"
+        },
+        "index": {
+          "location": {
+            "uri": "http://10.0.0.231:3000/SK_genomic_data/C1_sorted_star.bam.bai",
+            "locationType": "UriLocation"
+          },
+          "indexType": "BAI"
+        },
+        "sequenceAdapter": {
+          "type": "IndexedFastaAdapter",
+          "fastaLocation": {
+            "uri": "http://10.0.0.231:3000/SK_genomic_data/1.Apio_malay.fa",
+            "locationType": "UriLocation"
+          },
+          "faiLocation": {
+            "uri": "http://10.0.0.231:3000/SK_genomic_data/1.Apio_malay.fa.fai",
+            "locationType": "UriLocation"
+          }
+        }
+      },
+      "assemblyNames": [
+        "1.Apio_malay"
+      ]
+    },
+    {
+      "type": "AlignmentsTrack",
+      "trackId": "T1_sorted_star",
+      "name": "T1_sorted_star",
+      "adapter": {
+        "type": "BamAdapter",
+        "bamLocation": {
+          "uri": "http://10.0.0.231:3000/SK_genomic_data/T1_sorted_star.bam",
+          "locationType": "UriLocation"
+        },
+        "index": {
+          "location": {
+            "uri": "http://10.0.0.231:3000/SK_genomic_data/T1_sorted_star.bam.bai",
+            "locationType": "UriLocation"
+          },
+          "indexType": "BAI"
+        },
+        "sequenceAdapter": {
+          "type": "IndexedFastaAdapter",
+          "fastaLocation": {
+            "uri": "http://10.0.0.231:3000/SK_genomic_data/1.Apio_malay.fa",
+            "locationType": "UriLocation"
+          },
+          "faiLocation": {
+            "uri": "http://10.0.0.231:3000/SK_genomic_data/1.Apio_malay.fa.fai",
+            "locationType": "UriLocation"
+          }
+        }
+      },
+      "assemblyNames": [
+        "1.Apio_malay"
+      ]
+    },
+    {
+      "type": "AlignmentsTrack",
+      "trackId": "T2_sorted_star",
+      "name": "T2_sorted_star",
+      "adapter": {
+        "type": "BamAdapter",
+        "bamLocation": {
+          "uri": "http://10.0.0.231:3000/SK_genomic_data/T2_sorted_star.bam",
+          "locationType": "UriLocation"
+        },
+        "index": {
+          "location": {
+            "uri": "http://10.0.0.231:3000/SK_genomic_data/T2_sorted_star.bam.bai",
+            "locationType": "UriLocation"
+          },
+          "indexType": "BAI"
+        },
+        "sequenceAdapter": {
+          "type": "IndexedFastaAdapter",
+          "fastaLocation": {
+            "uri": "http://10.0.0.231:3000/SK_genomic_data/1.Apio_malay.fa",
+            "locationType": "UriLocation"
+          },
+          "faiLocation": {
+            "uri": "http://10.0.0.231:3000/SK_genomic_data/1.Apio_malay.fa.fai",
+            "locationType": "UriLocation"
+          }
+        }
+      },
+      "assemblyNames": [
+        "1.Apio_malay"
+      ]
+    },
+    {
+      "type": "AlignmentsTrack",
+      "trackId": "C2_sorted_star",
+      "name": "C2_sorted_star",
+      "adapter": {
+        "type": "BamAdapter",
+        "bamLocation": {
+          "uri": "http://10.0.0.231:3000/SK_genomic_data/C2_sorted_star.bam",
+          "locationType": "UriLocation"
+        },
+        "index": {
+          "location": {
+            "uri": "http://10.0.0.231:3000/SK_genomic_data/C2_sorted_star.bam.bai",
+            "locationType": "UriLocation"
+          },
+          "indexType": "BAI"
+        },
+        "sequenceAdapter": {
+          "type": "IndexedFastaAdapter",
+          "fastaLocation": {
+            "uri": "http://10.0.0.231:3000/SK_genomic_data/1.Apio_malay.fa",
+            "locationType": "UriLocation"
+          },
+          "faiLocation": {
+            "uri": "http://10.0.0.231:3000/SK_genomic_data/1.Apio_malay.fa.fai",
+            "locationType": "UriLocation"
+          }
+        }
+      },
+      "assemblyNames": [
+        "1.Apio_malay"
+      ]
+    }
+  ]
+}

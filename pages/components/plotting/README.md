@@ -1,0 +1,1 @@
+this directory contains the code to plot the barchart and a piechart using the data fetched by some particular component of the app. 

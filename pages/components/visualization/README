@@ -1,0 +1,5 @@
+This directory contains the files which are used to generate the jbrowse visualisation part. 
+jbrowse_inhouse.js : this generates the visualisation view for all the in-house 
+genomes (shashi kant da's data). Uses 'config_inhouse.json'.  
+jbrowse.js : this file accepts the basename of the organism files as props and is mainly used with the treeview option (on clicking a particular option or species in the treeview, the user is redirected to another window which has the Jbrowse view for that particular option)
+test_jbrowse.js : current organisms present in database are loaded to jbrowse view. 

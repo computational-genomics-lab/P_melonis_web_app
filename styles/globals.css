@@ -1,0 +1,84 @@
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family:  "Roboto",-apple-system, BlinkMacSystemFont, Segoe UI, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+ul li {
+  margin-bottom: 0.5rem;
+}
+
+.table-container {
+  position: absolute;
+  top: 100%;
+  left: 0;
+}
+.container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* Create two unequal columns that floats next to each other */
+/*left column */
+.leftcolumn {
+  float: left;
+  width: 25%;
+}
+
+/* Right column */
+.rightcolumn {
+  float: right;
+  width: 75%;
+  background-color: #f1f1f1;
+  padding-left: 20px;
+}
+/*button*/
+
+.Button {
+  background-color: rgb(209, 87, 87);
+  color: white;
+  font-size: 18px;
+  border-radius: 5px;
+  margin: 5px 5px;
+  cursor: pointer;
+  width: 150px;
+  height: 40px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.3s ease; /* smooth transition */
+}
+
+.Highlighted {
+  background-color: #502627; /* Your highlighted background color */
+  color: #fff; /* Text color for highlighted state */
+  /* Add any additional styles for the highlighted state */
+}
+/* CSS for <h1> tag */
+h1 {
+  font-size: 36px; /* Set the font size */
+  font-weight: bold; /* Set the font weight */
+  color: #333; /* Set the text color */
+  margin-bottom: 20px; /* Set margin bottom to create spacing */
+}
+
+table, th, td {
+  border: 0.8px solid;
+}

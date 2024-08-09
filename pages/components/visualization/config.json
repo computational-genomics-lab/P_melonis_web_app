@@ -1,0 +1,131 @@
+{
+  "assemblies": [
+    {
+      "name": "Phymel_CJ26.fna",
+      "sequence": {
+        "type": "ReferenceSequenceTrack",
+        "trackId": "Phymel_CJ26.fna-ReferenceSequenceTrack",
+        "adapter": {
+          "type": "IndexedFastaAdapter",
+          "fastaLocation": {
+            "uri": "http://10.0.0.234:3001/melonis_genomes/Phymel_CJ26.fna",
+            "locationType": "UriLocation"
+          },
+          "faiLocation": {
+            "uri": "http://10.0.0.234:3001/melonis_genomes/Phymel_CJ26.fna.fai",
+            "locationType": "UriLocation"
+          }
+        }
+      }
+    },
+    {
+      "name": "Phymel_CPHST_BL23.fna",
+      "sequence": {
+        "type": "ReferenceSequenceTrack",
+        "trackId": "Phymel_CPHST_BL23.fna-ReferenceSequenceTrack",
+        "adapter": {
+          "type": "IndexedFastaAdapter",
+          "fastaLocation": {
+            "uri": "http://10.0.0.234:3001/melonis_genomes/Phymel_CPHST_BL23.fna",
+            "locationType": "UriLocation"
+          },
+          "faiLocation": {
+            "uri": "http://10.0.0.234:3001/melonis_genomes/Phymel_CPHST_BL23.fna.fai",
+            "locationType": "UriLocation"
+          }
+        }
+      }
+    },
+    {
+      "name": "Phymel_Pmelo_OSU-2014.fna",
+      "sequence": {
+        "type": "ReferenceSequenceTrack",
+        "trackId": "Phymel_Pmelo_OSU-2014.fna-ReferenceSequenceTrack",
+        "adapter": {
+          "type": "IndexedFastaAdapter",
+          "fastaLocation": {
+            "uri": "http://10.0.0.234:3001/melonis_genomes/Phymel_Pmelo_OSU-2014.fna",
+            "locationType": "UriLocation"
+          },
+          "faiLocation": {
+            "uri": "http://10.0.0.234:3001/melonis_genomes/Phymel_Pmelo_OSU-2014.fna.fai",
+            "locationType": "UriLocation"
+          }
+        }
+      }
+    }
+  ],
+  "configuration": {},
+  "connections": [],
+  "defaultSession": {
+    "name": "New Session"
+  },
+  "tracks": [
+    {
+      "type": "FeatureTrack",
+      "trackId": "Phymel_CJ26_with_product_name.sorted.gff3",
+      "name": "Phymel_CJ26_with_product_name.sorted.gff3",
+      "adapter": {
+        "type": "Gff3TabixAdapter",
+        "gffGzLocation": {
+          "uri": "http://10.0.0.234:3001/melonis_genomes/Phymel_CJ26_with_product_name.sorted.gff3.gz",
+          "locationType": "UriLocation"
+        },
+        "index": {
+          "location": {
+            "uri": "http://10.0.0.234:3001/melonis_genomes/Phymel_CJ26_with_product_name.sorted.gff3.gz.tbi",
+            "locationType": "UriLocation"
+          },
+          "indexType": "TBI"
+        }
+      },
+      "assemblyNames": [
+        "Phymel_CJ26.fna"
+      ]
+    },
+    {
+      "type": "FeatureTrack",
+      "trackId": "Phymel_CPHST_BL23_with_product_name.sorted.gff3",
+      "name": "Phymel_CPHST_BL23_with_product_name.sorted.gff3",
+      "adapter": {
+        "type": "Gff3TabixAdapter",
+        "gffGzLocation": {
+          "uri": "http://10.0.0.234:3001/melonis_genomes/Phymel_CPHST_BL23_with_product_name.sorted.gff3.gz",
+          "locationType": "UriLocation"
+        },
+        "index": {
+          "location": {
+            "uri": "http://10.0.0.234:3001/melonis_genomes/Phymel_CPHST_BL23_with_product_name.sorted.gff3.gz.tbi",
+            "locationType": "UriLocation"
+          },
+          "indexType": "TBI"
+        }
+      },
+      "assemblyNames": [
+        "Phymel_CPHST_BL23.fna"
+      ]
+    },
+    {
+      "type": "FeatureTrack",
+      "trackId": "Phymel_Pmelo_OSU-2014_with_product_name.sorted.gff3",
+      "name": "Phymel_Pmelo_OSU-2014_with_product_name.sorted.gff3",
+      "adapter": {
+        "type": "Gff3TabixAdapter",
+        "gffGzLocation": {
+          "uri": "http://10.0.0.234:3001/melonis_genomes/Phymel_Pmelo_OSU-2014_with_product_name.sorted.gff3.gz",
+          "locationType": "UriLocation"
+        },
+        "index": {
+          "location": {
+            "uri": "http://10.0.0.234:3001/melonis_genomes/Phymel_Pmelo_OSU-2014_with_product_name.sorted.gff3.gz.tbi",
+            "locationType": "UriLocation"
+          },
+          "indexType": "TBI"
+        }
+      },
+      "assemblyNames": [
+        "Phymel_Pmelo_OSU-2014.fna"
+      ]
+    }
+  ]
+}
