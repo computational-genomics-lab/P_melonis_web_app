@@ -38,6 +38,27 @@ const TableView = ({ data }) => {
       dataIndex: key,
       key: key,
       render: (text) => {
+        //for KEGG ids
+        if (key === 'KEGG_ko' && text) {
+          const keggIds = text.split(','); // Split by comma
+          const urls = keggIds.map(id => (
+            <a key={id} href={`https://www.kegg.jp/entry/${id.replace('ko:', '')}`} target="_blank" rel="noopener noreferrer">
+              {id}
+            </a>
+          ));
+          return <div>{urls.reduce((prev, curr) => [prev, ', ', curr])}</div>;
+        }
+        if ((key === 'KEGG_Pathway' || key === 'KEGG_rclass') && text) {
+          const keggIds = text.split(','); // Split by comma
+          const urls = keggIds.map(id => (
+            <a key={id} href={`https://www.kegg.jp/entry/${id}`} target="_blank" rel="noopener noreferrer">
+              {id}
+            </a>
+          ));
+          return <div>{urls.reduce((prev, curr) => [prev, ', ', curr])}</div>;
+        }
+
+
         if (text && text.length > 50) {
           const truncatedText = text.substring(0, 50) + '...';
           return (
@@ -50,6 +71,7 @@ const TableView = ({ data }) => {
             </div>
           );
         }
+
         return text;
       },
     };

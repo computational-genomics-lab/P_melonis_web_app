@@ -5,15 +5,12 @@ import styles from 'styles/query.module.css'
 import { useState } from 'react';
 
 //import all the functions which will be shown in the query navigation bar
-//import SignalPOthers from '../components/query_components/secretome_and_other_annot/signalP_others';
 import SearchPage from '../components/query_components/gene_NAME';
+import KEGG_Page from '../components/query_components/KEGG_ids';
 import SetOperations from '../components/query_components/set_Operations/set_operations';
-//import Cluster from '../components/query_components/gene_cluster';
 import Primary from '../components/query_components/primary_annotation';
 import Genome_location from '../components/query_components/genome_location';
-//import Conserved_regions from '../components/query_components/conserved_regions';
-//import KeggOrtho from '../components/query_components/kegg_ids';
-//import Cluster_Description from '../components/query_components/cluster_description';
+
 import Protein_domain from '../components/query_components/protein_domain';
 
 function Query() {
@@ -25,6 +22,8 @@ function Query() {
         return <Primary />;
       case 'gene_name':
         return <SearchPage />;
+      case 'kegg_page':
+        return <KEGG_Page />;
       // case 'cluster_id':
       //   return <Cluster />;
       // case 'signalP_others':
@@ -56,6 +55,13 @@ function Query() {
             onClick={() => setActiveTab('gene_name')}
           >
             Search by Gene Name
+          </li>
+          <li
+            tabIndex={0}
+            className={activeTab === 'kegg_page' ? styles.active : ''}
+            onClick={() => setActiveTab('kegg_page')}
+          >
+            Search by KEGG IDs
           </li>
           <li
             tabIndex={0}

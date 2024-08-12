@@ -24,8 +24,8 @@ const Checktree = () => {
             for (const item of items) {
               const order = item.orders;
               const genus = item.genus;
-              const species = `${item.species} ${item.strain} (V${item.version})`;
-      
+              // const species = `${item.species} ${item.strain} (V${item.version})`;
+              const species = `${item.species} ${item.strain}`
               const orderNode = {
                 key: order,
                 title: order,
