@@ -37,6 +37,8 @@ const TableView = ({ data }) => {
       title: key.toUpperCase(),
       dataIndex: key,
       key: key,
+
+      //creating clickable links 
       render: (text) => {
         //for KEGG ids
         if (key === 'KEGG_ko' && text) {
@@ -58,6 +60,16 @@ const TableView = ({ data }) => {
           return <div>{urls.reduce((prev, curr) => [prev, ', ', curr])}</div>;
         }
 
+        //for PFAM ids
+        if ((key === 'PFAMs') && text) {
+          const keggIds = text.split(','); // Split by comma
+          const urls = keggIds.map(id => (
+            <a key={id} href={`https://www.ebi.ac.uk/interpro/search/text/${id}`} target="_blank" rel="noopener noreferrer">
+              {id}
+            </a>
+          ));
+          return <div>{urls.reduce((prev, curr) => [prev, ', ', curr])}</div>;
+        }        
 
         if (text && text.length > 50) {
           const truncatedText = text.substring(0, 50) + '...';

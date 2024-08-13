@@ -34,10 +34,6 @@ function Query() {
         return <Genome_location />;
       case 'conserved_regions':
         return <Conserved_regions />;
-     // case 'kegg_ortho':
-      //  return <KeggOrtho />;
-      // case 'cluster_desc':
-      //  return <Cluster_Description />;
       case 'protein_domain':
         return <Protein_domain />;
       default:
@@ -61,7 +57,7 @@ function Query() {
             className={activeTab === 'kegg_page' ? styles.active : ''}
             onClick={() => setActiveTab('kegg_page')}
           >
-            Search by KEGG IDs
+            Search All Protein Instance Features
           </li>
           <li
             tabIndex={0}
