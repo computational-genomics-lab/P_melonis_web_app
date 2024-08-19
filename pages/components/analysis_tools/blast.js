@@ -93,7 +93,7 @@ export default function MyBlastForm() {
     e.preventDefault();
     setIsLoading(true); //show the loading message
     try {
-      const response = await fetch(`/api/analysis_tools/blast?sequence=${sequence}&organisms=${selectedOrganisms.join(',')}`);
+      const response = await fetch(`/api/analysis_tools/blast?sequence=${sequence}&organisms=${selectedOrganisms}`);
       const data = await response.json();
       
           // Convert data.results to a string
@@ -133,8 +133,10 @@ export default function MyBlastForm() {
   <div>
     
     <h2>BLAST Results:</h2>
+    <h3>selected organism is {selectedOrganisms}</h3>
    
-    {results.length > 0 && (
+    {
+    results.length > 0 && (
     <BlastVisualization blastResults={results}/>
 
       )}
