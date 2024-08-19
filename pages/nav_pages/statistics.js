@@ -7,7 +7,8 @@ const Statistics = () => {
   const [isLoading, setIsLoading] = useState(false); 
   //is loading state is only changed by the Gene_details function because it will take more time to 
   //fetch the gene details than the scaffold details obviously
-  const [selectedOrganism, setSelectedOrganism] = useState("");
+  const [taxonID, setTaxonID] = useState("");
+  const [strainNumber, setStrainNumber] = useState("");
   const [geneData, setGenedata] = useState([]);
   const [scaffoldData, setScaffolDdata] = useState([]);
 
@@ -17,7 +18,7 @@ const Statistics = () => {
     setIsLoading(true);
     try {
       const response = await fetch(
-        `/api/statistics_calls/gene_details?id=${selectedOrganism}`
+        `/api/statistics_calls/gene_details?taxon_id=${taxonID}&strain_number=${strainNumber}`
       );
       const data = await response.json();
       setGenedata(data.data);
@@ -32,7 +33,7 @@ const Statistics = () => {
   const Scaffold_details = async () => {
     try {
       const response = await fetch(
-        `/api/statistics_calls/scaffold_details?id=${selectedOrganism}`
+        `/api/statistics_calls/scaffold_details?taxon_id=${taxonID}&strain_number=${strainNumber}`
       );
       const data = await response.json();
       setScaffolDdata(data.data);
@@ -43,15 +44,18 @@ const Statistics = () => {
 
   useEffect(() => {
     // Call the Gene_details function here to trigger the API call when the component mounts.
-    if (selectedOrganism) {
+    if (taxonID) {
       Gene_details();
       Scaffold_details(); 
     }
-  }, [selectedOrganism]);
+  }, [taxonID, strainNumber]);
+
 
   const handleOrganismChange = (event) => {
-    setSelectedOrganism(event.target.value);
-    setShowTable(false); // Reset showTable to false when the organism is changed.
+    // setIsButtonClicked(false);
+    const [selectedTaxonID, selectedStrainNumber] = event.target.value.split(',');
+    setTaxonID(selectedTaxonID);
+    setStrainNumber(selectedStrainNumber);
   };
 
   return (
@@ -59,13 +63,14 @@ const Statistics = () => {
       <h1>Statistics Page</h1>
       <h2>Select the organism whose statistics you want to check:</h2>
       <p>
-        <select value={selectedOrganism} onChange={handleOrganismChange}>
+        <select onChange={handleOrganismChange}>
           <option value="">Select an organism</option>
           {data.map((item) => (
-            <option key={item.id} value={item.taxon_id}>
-              {item.species} {item.strain}
+            <option key={item.organism_ID} value={`${item.taxon_ID},${item.strain_number}`}>
+              {item.species} {item.strain} 
             </option>
           ))}
+
         </select>
       </p>
       {isLoading && <p>Loading...</p>}

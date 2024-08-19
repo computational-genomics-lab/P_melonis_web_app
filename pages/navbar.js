@@ -16,7 +16,7 @@ import Link from 'next/link'
       
           <Link href="/"><li>Home</li></Link>
          <Link href="/nav_pages/query"><li>Query </li></Link>
-         {/* <Link href="/nav_pages/statistics"><li>Statistics</li></Link> */}
+         <Link href="/nav_pages/statistics"><li>Statistics</li></Link>
          <Link href="/nav_pages/tools"><li>Tools</li></Link>
           <Link href="/nav_pages/contact"><li> JBrowse2 </li></Link>
           <Link href="/nav_pages/about"><li>About Us</li></Link>
