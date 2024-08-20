@@ -16,6 +16,7 @@ const Statistics = () => {
 
   const Gene_details = async () => {
     setIsLoading(true);
+    setShowTable(false);
     try {
       const response = await fetch(
         `/api/statistics_calls/gene_details?taxon_id=${taxonID}&strain_number=${strainNumber}`
@@ -52,7 +53,6 @@ const Statistics = () => {
 
 
   const handleOrganismChange = (event) => {
-    // setIsButtonClicked(false);
     const [selectedTaxonID, selectedStrainNumber] = event.target.value.split(',');
     setTaxonID(selectedTaxonID);
     setStrainNumber(selectedStrainNumber);

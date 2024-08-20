@@ -20,7 +20,8 @@ export default function handler(req, res) {
 // (nl.start_min between '${start}' and '${end}' or nl.end_min between '${start}' and '${end}')
 // order by nl.start_min`;
 
-const query=`select nf.na_feature_ID,nf.name, nl.start_min,nl.end_min,ens.source_ID,nf.na_sequence_ID from externalnasequence ens, nalocation nl,nafeatureimp nf where ens.taxon_ID=${taxon_ID} 
+const query=`select nf.na_feature_ID,nf.name, nl.start_min AS START_POSITION ,nl.end_min AS END_POSITION,
+ens.source_ID,nf.na_sequence_ID from externalnasequence ens, nalocation nl,nafeatureimp nf where ens.taxon_ID=${taxon_ID} 
 and ens.strain_number=${strain_number} and ens.source_ID='${scaffold}' and ens.sequence_type_ID != 1 
 and nf.subclass_view not like '%CDS%' and nf.subclass_view not like '%GeneFeature%' and 
 nf.subclass_view not like '%exonfeature%' and nf.na_sequence_ID=ens.na_sequence_ID and
