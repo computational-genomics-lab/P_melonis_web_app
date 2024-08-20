@@ -6,7 +6,8 @@ const Genome_location = () => {
     const [name, setName] = useState("");
     const [isLoading, setIsLoading] = useState(false); 
 
-    const [selectedOrganism, setSelectedOrganism] = useState("");
+    const [taxonID, setTaxonID] = useState("");
+    const [strainNumber, setStrainNumber] = useState("");
     const [organismdata, setOrganismdata] = useState([]);
     const [isButtonClicked, setIsButtonClicked] = useState(false);
     const { data} = useContext(DataContext);  
@@ -18,13 +19,15 @@ const Genome_location = () => {
 
       const handleOrganismChange = (event) => {
         setIsButtonClicked(false);
-        setSelectedOrganism(event.target.value);
+        const [selectedTaxonID, selectedStrainNumber] = event.target.value.split(',');
+        setTaxonID(selectedTaxonID);
+        setStrainNumber(selectedStrainNumber);
       };
       const handleFormSubmit = async (event) => {
         event.preventDefault();
         setIsLoading(true);
         try {
-          const response = await fetch(`/api/querypage_calls/genome_location?location=${name}&id=${selectedOrganism}`);
+          const response = await fetch(`/api/querypage_calls/genome_location?location=${name}&taxon_ID=${taxonID}&strain_number=${strainNumber}`);
           const data = await response.json();
           setOrganismdata(data.data);
           setIsButtonClicked(true); // Set the flag indicating that the button is clicked
@@ -42,10 +45,10 @@ const Genome_location = () => {
           <h4> List of organisms </h4>
 
         <p>
-        <select value={selectedOrganism} onChange={handleOrganismChange}>
+        <select onChange={handleOrganismChange}>
           <option value=''>Select an organism</option>
           {data.map((item) => (
-            <option key={item.id} value={item.taxon_id}>
+            <option key={item.id} value={`${item.taxon_ID},${item.strain_number}`}>
               {item.species} {item.strain}
             </option>
           ))}
