@@ -28,7 +28,6 @@ const Cluster_Description = () => {
  return (
     <div>
       <h2> Search by Cluster Description: </h2>
-      <h4> List of organisms </h4>
       <form onSubmit={handleFormSubmit}>
         <input type="text" value={name} onChange={handleInputChange} />
         <button type="submit">Submit</button>

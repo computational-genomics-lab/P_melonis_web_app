@@ -10,7 +10,7 @@ import KEGG_Page from '../components/query_components/KEGG_ids';
 import SetOperations from '../components/query_components/set_Operations/set_operations';
 import Primary from '../components/query_components/primary_annotation';
 import Genome_location from '../components/query_components/genome_location';
-
+import Cluster_Description from '../components/query_components/cluster_description';
 import Protein_domain from '../components/query_components/protein_domain';
 
 function Query() {
@@ -24,6 +24,9 @@ function Query() {
         return <SearchPage />;
       case 'kegg_page':
         return <KEGG_Page />;
+
+      case 'cluster_desc':
+        return <Cluster_Description />
       // case 'cluster_id':
       //   return <Cluster />;
       // case 'signalP_others':
@@ -58,6 +61,13 @@ function Query() {
             onClick={() => setActiveTab('kegg_page')}
           >
             Search All Protein Instance Features
+          </li>
+          <li
+            tabIndex={0}
+            className={activeTab === 'cluster_desc' ? styles.active : ''}
+            onClick={() => setActiveTab('cluster_desc')}
+          >
+            Search by Cluster Description
           </li>
           <li
             tabIndex={0}
