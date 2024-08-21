@@ -1,8 +1,11 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useContext } from "react";
 import TableView from "../viewTypes/tableview";
+import VizButton from "../visualization/viz_button";
 import { DataContext } from '../context_provider/Datafetcher';
 
 const Genome_location = () => {
+
+    const [location, setLocation] = useState("");    
     const [name, setName] = useState("");
     const [isLoading, setIsLoading] = useState(false); 
 
@@ -14,20 +17,29 @@ const Genome_location = () => {
 
     const handleInputChange = (event) => {
         setIsButtonClicked(false);
-        setName(event.target.value);
+        setLocation(event.target.value);
       };
 
       const handleOrganismChange = (event) => {
         setIsButtonClicked(false);
-        const [selectedTaxonID, selectedStrainNumber] = event.target.value.split(',');
+        const [selectedTaxonID, selectedStrainNumber, species, strain] = event.target.value.split(',');
+        const speciesWords = species.split(' ');
+        //there is a blank space before the strings stored in the species and strain variables respectively
+        const speciesAbbreviation = speciesWords[1].substring(0, 3) + speciesWords[2].substring(0, 3) + '_' + strain.replace(/\s+/g, '');
+        setName(speciesAbbreviation);
         setTaxonID(selectedTaxonID);
         setStrainNumber(selectedStrainNumber);
       };
+
       const handleFormSubmit = async (event) => {
         event.preventDefault();
         setIsLoading(true);
+
         try {
-          const response = await fetch(`/api/querypage_calls/genome_location?location=${name}&taxon_ID=${taxonID}&strain_number=${strainNumber}`);
+          const [scaffold, range] = location.split(":");
+          const [start, end] = range.split("-");
+          
+          const response = await fetch(`/api/querypage_calls/genome_location?scaffold=${scaffold}&taxon_ID=${taxonID}&strain_number=${strainNumber}&start=${start}&end=${end}`);
           const data = await response.json();
           setOrganismdata(data.data);
           setIsButtonClicked(true); // Set the flag indicating that the button is clicked
@@ -43,31 +55,34 @@ const Genome_location = () => {
         <div>
           <h2> Search by genome location: </h2>
           <h4> List of organisms </h4>
-
-        <p>
+          <h5>{location}, {taxonID}, {strainNumber}</h5>
+         <p>
         <select onChange={handleOrganismChange}>
           <option value=''>Select an organism</option>
           {data.map((item) => (
-            <option key={item.id} value={`${item.taxon_ID},${item.strain_number}`}>
+            <option key={item.id} value={`${item.taxon_ID},${item.strain_number}, ${item.species}, ${item.strain}`}>
               {item.species} {item.strain}
             </option>
           ))}
         </select></p>
                      
-        Enter genome location : <form onSubmit={handleFormSubmit}>
-            <input type="text" value={name} onChange={handleInputChange} />
+      Enter genome location : <form onSubmit={handleFormSubmit}>
+            <input type="text" value={location} onChange={handleInputChange} />
             <button type="submit">Submit</button>
           </form>
-{isLoading && <p>Loading...</p>} 
+ {isLoading && <p>Loading...</p>} 
           {isButtonClicked ? (
   organismdata !== undefined ? (
     organismdata.length > 0 ? (
-      <TableView data={organismdata} />
+      <>
+      <VizButton name={name} location={location}/>
+      <TableView data={organismdata} /></>
     ) : (
       <p>No data found </p>
     )
   ) : (
-    <p>Out of range of scaffold.</p>
+    <p>Please choose the organism and enter in the correct input format </p>
+   
   )
 ) : null}
 

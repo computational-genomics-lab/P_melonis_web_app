@@ -130,6 +130,7 @@
 // config.js
 
 const getConfig = (props) => {
+
   return {
     assemblies: [
             {
@@ -194,15 +195,19 @@ const getConfig = (props) => {
         minimized: false,
         type: `LinearGenomeView`,
         // offsetPx: 191980240,
-        // bpPerPx: 0.1554251851851852,
+        bpPerPx: (props.end - props.start)/1500,
         displayedRegions: [
           {
             //LGTS01000002.1:62,300..66,307 (-)
 
 
-            refName: `JAMXKT010000007.1`,
-            start: 6230,
-            end: 66307,
+            refName: `${props.scaffold}`,
+            //refName: "JAMXKT010000007.1",
+            // start: 6230,
+            // end: 66307,
+            start: props.start,
+            //end: end,
+            end: props.end,
             reversed: false,
             assemblyName: `${props.name}`,
           },
@@ -228,7 +233,7 @@ const getConfig = (props) => {
           },
           {
             type: `FeatureTrack`,
-            height: 180,
+            height: 1480,
             configuration: `genes`,
             displays: [
               {

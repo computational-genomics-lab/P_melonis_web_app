@@ -14,13 +14,18 @@ import getConfig from './config.js';
 
 function View(props) {
   const router = useRouter();
-  const { name } = router.query;
+  const { name, scaffold, start, end } = router.query;
 
-  const [viewState, setViewState] = useState();
-  const [stateSnapshot, setStateSnapshot] = useState('');
+    // Convert the `end` variable to an integer
+    const startInteger = parseInt(start,10);
+    const endInteger = parseInt(end, 10);
 
- // const config = getConfig(props);
-  const config = getConfig({ ...props, name });
+   
+    const [viewState, setViewState] = useState();
+    const [stateSnapshot, setStateSnapshot] = useState('');
+  
+    const config = getConfig({ ...props, name, scaffold, start:startInteger, end: endInteger });
+  
 
   // useEffect(() => {
   //   const state = createViewState({
@@ -33,7 +38,7 @@ function View(props) {
       config,
     });
     setViewState(state);
-  }, [name]);
+  }, [name, scaffold, end]);
   if (!viewState) {
     return null;
   }
@@ -42,7 +47,7 @@ function View(props) {
     <>
       <h1> Jbrowse2 integrated directly into the nextJS app</h1>
       <JBrowseApp viewState={viewState} />
-      <h3>Code</h3>
+      <h3>Code {typeof endInteger}</h3>
       <p>
         The code for this app is available at{' '}
         <a

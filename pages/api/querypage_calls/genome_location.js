@@ -1,9 +1,9 @@
 import pool from "../database";
 
 export default function handler(req, res) {
-  const { location, taxon_ID, strain_number} = req.query;
-  const [scaffold, range] = location.split(":");
-  const [start, end] = range.split("-");
+  const { scaffold, start, end, taxon_ID, strain_number} = req.query;
+  // const [scaffold, range] = location.split(":");
+  // const [start, end] = range.split("-");
 // const query = `select nf.na_feature_id,nf.name, nl.start_min,nl.end_min,
 // ens.description, ens.taxon_id,ens.source_id,ens.sequence_version,nf.na_sequence_id,nf.string8,nf.string13
 // from externalnasequence ens, nalocation nl,nafeatureimp nf
