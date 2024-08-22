@@ -7,14 +7,14 @@ export default async function handler(req, res) {
     const { sequence } = req.query;
 
     // Create a temporary FASTA file to store the sequence
-    const fastaFilePath = join('/home/sutripa/next_app_backup/pages/nav_pages', 'temp.fasta');
+    const fastaFilePath = join('temp.fasta');
     const fastaFileContent = `>UserSequence\n${sequence}\n`;
 
     try {
       fs.writeFileSync(fastaFilePath, fastaFileContent);
 
       // Run the dipeptide freq script
-      const blastProcess = spawn('perl', ['/home/sutripa/scripts/dipeptidefreq.pl', fastaFilePath, 'dipeptide_freq.txt']);
+      const blastProcess = spawn('perl', ['/home/ajaya/scripts/dipeptidefreq.pl', fastaFilePath, 'dipeptide_freq.txt']);
 
       blastProcess.on('error', (error) => {
         console.error('Error running Dipeptide frequency perl script:', error);

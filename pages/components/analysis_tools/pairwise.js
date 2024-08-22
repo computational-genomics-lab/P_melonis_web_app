@@ -21,6 +21,8 @@ function Pairwise() {
   return (
     <div>
       <h3>Enter the sequences</h3>
+      <p>Compare two sequences, typically a nucleotide sequence and a protein sequence,
+      using either the blastn (nucleotide-nucleotide) or blastp (protein-protein) algorithm </p>
       <form onSubmit={handleSubmit}>
         <textarea
           rows="8"
@@ -43,6 +45,7 @@ function Pairwise() {
       </form>
       <div>
         <pre>{result}</pre>
+
       </div>
     </div>
   );

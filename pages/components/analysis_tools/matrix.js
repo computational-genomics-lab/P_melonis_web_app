@@ -27,6 +27,11 @@ export default function Matrix () {
   return (
     <div>
         <h3> Build Position Specific Scoring Matrix </h3>
+        <p>
+Position specific scoring matrices are the central features for
+motif finding, gene prediction, and also determining conserved-ness
+of sequences. This tool takes sequences in single lines and calculates
+the position specific scoring matrices for them.</p>
       <form onSubmit={handleFormSubmit}>
         <textarea
           rows="8"
@@ -42,12 +47,6 @@ export default function Matrix () {
         </select> <p></p>
         <button type="submit"> Submit </button>
       </form>
-      <h3>Help </h3>
-      <p>
-Position specific scoring matrices are the central features for
-motif finding, gene prediction, and also determining conserved-ness
-of sequences. This tool takes sequences in single lines and calculates
-the position specific scoring matrices for them.</p>
       {results && (
         <div>
           <h3> Results:</h3>

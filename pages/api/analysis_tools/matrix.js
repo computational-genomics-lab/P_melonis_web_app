@@ -1,20 +1,19 @@
 import { spawn } from 'child_process';
 import fs from 'fs';
-import { join } from 'path';
 
 export default async function handler(req, res) {
   if (req.method === 'GET') {
     const { sequence, type } = req.query;
 
     // Create a temporary FASTA file to store the sequence
-    const fastaFilePath = join('/home/sutripa/next_app_backup/pages/nav_pages', 'temp.fasta');
+    const fastaFilePath = 'temp.fasta';
     const fastaFileContent = `>UserSequence\n${sequence}\n`;
 
     try {
       fs.writeFileSync(fastaFilePath, fastaFileContent);
 
       // Run the BLAST algorithm using blastall
-      const blastProcess = spawn('perl', ['/home/sutripa/scripts/pssm2.pl', fastaFilePath, type, 'matrix_results.txt']);
+      const blastProcess = spawn('perl', ['/home/ajaya/scripts/pssm2.pl', fastaFilePath, type, 'matrix_results.txt']);
 
       blastProcess.on('error', (error) => {
         console.error('Error running BLAST:', error);

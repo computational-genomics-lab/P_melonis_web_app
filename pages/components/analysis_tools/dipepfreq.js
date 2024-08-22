@@ -27,6 +27,10 @@ export default function Dipeptide () {
   return (
     <div>
         <h3> Compute Dipeptide Frequency </h3>
+        <p>Dipeptide frequency is the number of times a dipeptide
+ occurs divided by the total number of dipeptides in the sequence.
+ The output appears as a 20 X 20 matrix.
+</p>
       <form onSubmit={handleFormSubmit}>
         <textarea
           rows="8"
@@ -43,6 +47,7 @@ export default function Dipeptide () {
           <pre>{results}</pre>
         </div>
       )}
+
     </div>
   );
 }

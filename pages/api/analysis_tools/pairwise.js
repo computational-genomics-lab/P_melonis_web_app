@@ -1,5 +1,4 @@
 import { spawn } from 'child_process';
-import { join } from 'path';
 import fs from 'fs';
 
 export default async function handler(req, res) {
@@ -7,8 +6,8 @@ export default async function handler(req, res) {
     const { sequence1, sequence2 } = req.query;
 
     // Create temporary FASTA files to store the sequences
-    const fastaFilePath1 = join('/home/sutripa/next_app_backup/pages/nav_pages', 'temp_sequence1.fasta');
-    const fastaFilePath2 = join('/home/sutripa/next_app_backup/pages/nav_pages', 'temp_sequence2.fasta');
+    const fastaFilePath1 = 'temp_sequence1.fasta';
+    const fastaFilePath2 = 'temp_sequence2.fasta';
 
     const fastaFileContent1 = `>UserSequence1\n${sequence1}\n`;
     const fastaFileContent2 = `>UserSequence2\n${sequence2}\n`;
