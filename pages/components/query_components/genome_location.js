@@ -75,8 +75,10 @@ const Genome_location = () => {
   organismdata !== undefined ? (
     organismdata.length > 0 ? (
       <>
+      <br></br>
       <VizButton name={name} location={location}/>
-      <TableView data={organismdata} /></>
+      <TableView data={organismdata} />
+     </>
     ) : (
       <p>No data found </p>
     )

@@ -16,7 +16,8 @@
 // export default TableView;
 
 import React, { useState } from 'react';
-import { Table, Modal } from 'antd';
+import { Table, Modal, Button} from 'antd';
+import * as XLSX from 'xlsx';
 
 const TableView = ({ data }) => {
   const [modalVisible, setModalVisible] = useState(false);
@@ -31,7 +32,19 @@ const TableView = ({ data }) => {
     setModalVisible(false);
     setModalContent('');
   };
+  const downloadExcel = () => {
+    const worksheetData = [
+      columns.map(col => col.title), // Headers
+      ...data.map(row => columns.map(col => row[col.dataIndex])) // Data rows
+    ];
 
+    const worksheet = XLSX.utils.aoa_to_sheet(worksheetData);
+    const workbook = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(workbook, worksheet, 'Table Data');
+
+    // Generate Excel file and trigger download
+    XLSX.writeFile(workbook, 'table_data.xlsx');
+  };
   const columns = Object.keys(data[0]).map((key) => {
     return {
       title: key.toUpperCase(),
@@ -91,7 +104,8 @@ const TableView = ({ data }) => {
 
   return (
     <>
-      <Table columns={columns} dataSource={data} />
+     <Button onClick={downloadExcel} style={{ marginBottom: '16px' }}>Download Table</Button>
+      <Table columns={columns} dataSource={data} />  
       <Modal visible={modalVisible} onOk={handleCloseModal} onCancel={handleCloseModal} title="Full Value">
         <pre>{modalContent}</pre>
       </Modal>

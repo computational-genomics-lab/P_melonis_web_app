@@ -48,13 +48,21 @@ function Query() {
     <div>
       <nav className={styles.verticalNav}>
         <ul>
-          <li
+          {/* <li
             tabIndex={0}
             className={activeTab === 'gene_name' ? styles.active : ''}
             onClick={() => setActiveTab('gene_name')}
           >
             Search by Gene Name
+          </li> */}
+          <li
+            tabIndex={0}
+            className={activeTab === 'genome_location' ? styles.active : ''}
+            onClick={() => setActiveTab('genome_location')}
+          >
+            Search by Genome location
           </li>
+   
           <li
             tabIndex={0}
             className={activeTab === 'kegg_page' ? styles.active : ''}
@@ -69,36 +77,29 @@ function Query() {
           >
             Search by Cluster Description
           </li>
-          <li
+          {/* <li
             tabIndex={0}
             className={activeTab === 'primary' ? styles.active : ''}
             onClick={() => setActiveTab('primary')}
           >
             Search by Primary Annotation
-          </li>
-          <li
-            tabIndex={0}
-            className={activeTab === 'genome_location' ? styles.active : ''}
-            onClick={() => setActiveTab('genome_location')}
-          >
-            Search by Genome location
-          </li>
-   
-          <li
+          </li> */}
+
+          {/* <li
             tabIndex={0}
             className={activeTab === 'protein_domain' ? styles.active : ''}
             onClick={() => setActiveTab('protein_domain')}
           >
             Quick Search for Protein Domain/motif/function
           </li>
-          
-          <li
+           */}
+          {/* <li
             tabIndex={0}
             className={activeTab === 'gene_details' ? styles.active : ''}
             onClick={() => setActiveTab('gene_details')}
           >
             Perform Set Operations
-          </li>
+          </li> */}
         </ul>
       </nav>
       <div className='rightcolumn'>{renderComponent()}</div>

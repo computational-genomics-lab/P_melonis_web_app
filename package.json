@@ -32,7 +32,8 @@
     "react-dom": "18.2.0",
     "react-simple-tree-menu": "^1.1.18",
     "recharts": "^2.5.0",
-    "vue-axios": "^3.5.2"
+    "vue-axios": "^3.5.2",
+    "xlsx": "^0.18.5"
   },
   "devDependencies": {
     "file-loader": "^6.2.0",
