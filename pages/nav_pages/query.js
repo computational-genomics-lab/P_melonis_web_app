@@ -31,6 +31,8 @@ function Query() {
       //   return <Cluster />;
       // case 'signalP_others':
       //   return <SignalPOthers />;
+      case 'primary':
+        return <Primary />;
       case 'gene_details':
         return <SetOperations />;
       case 'genome_location':
@@ -62,20 +64,27 @@ function Query() {
           >
             Search by Genome location
           </li>
-   
           <li
             tabIndex={0}
-            className={activeTab === 'kegg_page' ? styles.active : ''}
-            onClick={() => setActiveTab('kegg_page')}
+            className={activeTab === 'primary' ? styles.active : ''}
+            onClick={() => setActiveTab('primary')}
           >
-            Search All Protein Instance Features
+            Search by Primary Annotation
           </li>
           <li
             tabIndex={0}
             className={activeTab === 'cluster_desc' ? styles.active : ''}
             onClick={() => setActiveTab('cluster_desc')}
           >
-            Search by Cluster Description
+            Search by Domain Name
+          </li>          
+          
+          <li
+            tabIndex={0}
+            className={activeTab === 'kegg_page' ? styles.active : ''}
+            onClick={() => setActiveTab('kegg_page')}
+          >
+            Bulk View/Download KEGG/COG/PFAM data
           </li>
           {/* <li
             tabIndex={0}
