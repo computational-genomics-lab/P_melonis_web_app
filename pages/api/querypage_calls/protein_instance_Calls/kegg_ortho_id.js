@@ -1,4 +1,4 @@
-import pool from "../database";
+import pool from "../../database";
 
 export default function handler(req, res) {
   const { taxon_id, strain_number} = req.query;

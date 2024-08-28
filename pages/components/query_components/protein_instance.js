@@ -61,7 +61,7 @@ import React, { useState, useContext } from "react";
 import TableView from "../viewTypes/tableview";
 import { DataContext } from '../context_provider/Datafetcher';
 
-const KEGG_Page = () => {
+const Protein_Instances = () => {
   const [taxonID, setTaxonID] = useState("");
   const [strainNumber, setStrainNumber] = useState("");
   const [selectedOption, setSelectedOption] = useState(""); // New state for the second dropdown
@@ -83,11 +83,11 @@ const KEGG_Page = () => {
 
     let apiUrl = '';
     if (selectedOption === 'KEGG') {
-      apiUrl = `/api/querypage_calls/kegg_ortho_id?taxon_id=${taxonID}&strain_number=${strainNumber}`;
+      apiUrl = `/api/querypage_calls/protein_instance_Calls/kegg_ortho_id?taxon_id=${taxonID}&strain_number=${strainNumber}`;
     } else if (selectedOption === 'COG') {
-      apiUrl = `/api/querypage_calls/cog?taxon_id=${taxonID}&strain_number=${strainNumber}`;
+      apiUrl = `/api/querypage_calls/protein_instance_Calls/cog?taxon_id=${taxonID}&strain_number=${strainNumber}`;
     } else if (selectedOption === 'PFAM') {
-      apiUrl = `/api/querypage_calls/pfam?taxon_id=${taxonID}&strain_number=${strainNumber}`;
+      apiUrl = `/api/querypage_calls/protein_instance_Calls/pfam?taxon_id=${taxonID}&strain_number=${strainNumber}`;
     }
 
     if (apiUrl) {
@@ -149,4 +149,4 @@ const KEGG_Page = () => {
   );
 };
 
-export default KEGG_Page;
+export default Protein_Instances;

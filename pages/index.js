@@ -40,24 +40,24 @@ export default function Home() {
        </div>
      
         <div className='rightcolumn'>
-        <h3> There are 4 strains of Phytophthora melonis </h3>
+        <h3> There are 4 strains of <i>Phytophthora melonis</i> </h3>
         <br></br>
         <h4>these are the number of scaffolds in each : </h4>
         <p>
           
-        Phytophthora melonis strain CJ26: 94 <br></br>
-        Phytophthora melonis strain CPHST: 2091 <br></br>
-        Phytophthora melonis strain Pmelo_OSU-2014: 11350 <br></br>
-        Phytophthora melonis strain WB_scaffolded: 158 <br></br>
+        <i>Phytophthora melonis</i> strain CJ26: 94 <br></br>
+        <i>Phytophthora melonis</i> strain CPHST: 2091 <br></br>
+        <i>Phytophthora melonis</i> strain Pmelo_OSU-2014: 11350 <br></br>
+        <i>Phytophthora melonis</i> strain WB: 158 <br></br>
 
         </p>
         <h4>these are the sizes of each : </h4>
         <p>
           
-        Phytophthora melonis strain CJ26: 102M <br></br>
-        Phytophthora melonis strain CPHST: 109M <br></br>
-        Phytophthora melonis strain Pmelo_OSU-2014: 73M <br></br>
-        Phytophthora melonis strain WB_scaffolded: 60M <br></br>
+        <i>Phytophthora melonis</i> strain CJ26: 102M <br></br>
+        <i>Phytophthora melonis</i> strain CPHST: 109M <br></br>
+        <i>Phytophthora melonis</i> strain Pmelo_OSU-2014: 73M <br></br>
+        <i>Phytophthora melonis</i> strain WB: 60M <br></br>
 
         </p>
         </div>

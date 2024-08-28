@@ -6,12 +6,13 @@ import { useState } from 'react';
 
 //import all the functions which will be shown in the query navigation bar
 import SearchPage from '../components/query_components/gene_NAME';
-import KEGG_Page from '../components/query_components/KEGG_ids';
+import Protein_Instances from '../components/query_components/protein_instance';
 import SetOperations from '../components/query_components/set_Operations/set_operations';
 import Primary from '../components/query_components/primary_annotation';
 import Genome_location from '../components/query_components/genome_location';
 import Cluster_Description from '../components/query_components/cluster_description';
 import Protein_domain from '../components/query_components/protein_domain';
+import KEGG_Page from '../components/query_components/kegg_ortho_ids';
 
 function Query() {
   const [activeTab, setActiveTab] = useState('genome_location');
@@ -24,6 +25,8 @@ function Query() {
         return <SearchPage />;
       case 'kegg_page':
         return <KEGG_Page />;
+      case 'protein_instances':
+        return <Protein_Instances />;
 
       case 'cluster_desc':
         return <Cluster_Description />
@@ -71,11 +74,17 @@ function Query() {
           >
             Search by Primary Annotation
           </li>
-      
           <li
             tabIndex={0}
             className={activeTab === 'kegg_page' ? styles.active : ''}
             onClick={() => setActiveTab('kegg_page')}
+          >
+            Query by KEGG orthology id
+          </li>
+          <li
+            tabIndex={0}
+            className={activeTab === 'protein_instances' ? styles.active : ''}
+            onClick={() => setActiveTab('protein_instances')}
           >
             Bulk View/Download KEGG/COG/PFAM data
           </li>

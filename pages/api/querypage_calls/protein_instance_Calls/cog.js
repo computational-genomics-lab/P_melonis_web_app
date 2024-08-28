@@ -1,11 +1,11 @@
-import pool from "../database";
+import pool from "../../database";
 
 export default function handler(req, res) {
   const { taxon_id, strain_number} = req.query;
 
-//fetch all the PFAM ids for a particular strain of an organism (denoted by its taxonomy ID)
+//fetch all the COG ids for a particular strain of an organism (denoted by its taxonomy ID)
 
-const query = `SELECT PFAMs FROM Pfam WHERE taxonomy_id=${taxon_id} AND strain_number=${strain_number}`;
+const query = `SELECT COG, prediction_id FROM COG WHERE taxonomy_id=${taxon_id} AND strain_number=${strain_number}`;
 
   pool.query(query, (error, results) => {
     if (error) {

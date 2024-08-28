@@ -60,7 +60,6 @@ const Statistics = () => {
 
   return (
     <div>
-      <h1>Statistics Page</h1>
       <h2>Select the organism whose statistics you want to check:</h2>
       <p>
         <select onChange={handleOrganismChange}>
