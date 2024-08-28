@@ -55,7 +55,6 @@ const Genome_location = () => {
         <div>
           <h2> Search by genome location: </h2>
           <h4> List of organisms </h4>
-          <h5>{location}, {taxonID}, {strainNumber}</h5>
          <p>
         <select onChange={handleOrganismChange}>
           <option value=''>Select an organism</option>

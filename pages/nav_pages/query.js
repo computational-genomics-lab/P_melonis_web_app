@@ -62,7 +62,7 @@ function Query() {
             className={activeTab === 'genome_location' ? styles.active : ''}
             onClick={() => setActiveTab('genome_location')}
           >
-            Search by Genome location
+            Search by and visualise Genome location
           </li>
           <li
             tabIndex={0}
@@ -71,14 +71,7 @@ function Query() {
           >
             Search by Primary Annotation
           </li>
-          <li
-            tabIndex={0}
-            className={activeTab === 'cluster_desc' ? styles.active : ''}
-            onClick={() => setActiveTab('cluster_desc')}
-          >
-            Search by Domain Name
-          </li>          
-          
+      
           <li
             tabIndex={0}
             className={activeTab === 'kegg_page' ? styles.active : ''}

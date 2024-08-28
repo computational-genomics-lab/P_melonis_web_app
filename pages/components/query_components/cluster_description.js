@@ -27,7 +27,7 @@ const Cluster_Description = () => {
 
  return (
     <div>
-      <h2> Search by Domain name: </h2>
+      <h3> Bulk Search by Domain name: </h3>
       <form onSubmit={handleFormSubmit}>
         <input type="text" value={name} onChange={handleInputChange} />
         <button type="submit">Submit</button>
@@ -44,6 +44,7 @@ const Cluster_Description = () => {
     <p>Enter a valid domain name.</p>
   )
 ) : null}
+<p> Bulk search of a particular domain name across all species </p>
     </div>
     )
     

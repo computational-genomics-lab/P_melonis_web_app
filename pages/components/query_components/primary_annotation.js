@@ -1,6 +1,7 @@
 import React, { useState, useContext } from "react";
 import TableView from "../viewTypes/tableview";
 import { DataContext } from '../context_provider/Datafetcher';
+import Cluster_Description from "./cluster_description";
 
 const Primary = () => {
 
@@ -84,6 +85,8 @@ const Primary = () => {
         primary annotations are derived from the blast hits of the protein sequences with nr database having greater than 50% identity over 50% of the query length. If the first hit matches with a un-named protein product, then the annotation of the subsequent qualified hit is assigned as the primary annotation for the query sequence.
         Input Example: Transcript keyword: actin
         </p>
+      
+  <Cluster_Description/>
       
 </div>
           )
