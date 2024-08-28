@@ -47,7 +47,7 @@ function View(props) {
     <>
       <h1> Jbrowse2 integrated directly into the nextJS app</h1>
       <JBrowseApp viewState={viewState} />
-      <h3>Code {typeof endInteger}</h3>
+      {/* <h3>Code {typeof endInteger}</h3>
       <p>
         The code for this app is available at{' '}
         <a
@@ -76,7 +76,7 @@ function View(props) {
           Show session
         </button>
       </div>
-      <textarea value={stateSnapshot} readOnly rows={20} cols={80} />
+      <textarea value={stateSnapshot} readOnly rows={20} cols={80} /> */}
     </>
   );
 }

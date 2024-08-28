@@ -27,7 +27,7 @@ const Cluster_Description = () => {
 
  return (
     <div>
-      <h2> Search by Cluster Description: </h2>
+      <h2> Search by Domain name: </h2>
       <form onSubmit={handleFormSubmit}>
         <input type="text" value={name} onChange={handleInputChange} />
         <button type="submit">Submit</button>
@@ -38,10 +38,10 @@ const Cluster_Description = () => {
     clusterData.length > 0 ? (
       <TableView data={clusterData} />
     ) : (
-      <p>Data not available. An invalid cluster description was probably entered</p>
+      <p>Data not available. An invalid domain name was probably entered</p>
     )
   ) : (
-    <p>Enter a valid cluster description.</p>
+    <p>Enter a valid domain name.</p>
   )
 ) : null}
     </div>

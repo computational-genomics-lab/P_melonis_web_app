@@ -26,10 +26,9 @@ export default function Home() {
     
         <div>
         <h1 className={styles.title}>
-        &emsp;  In-house <i>Phytophthora melonis</i> genomes
+         <i>Phytophthora melonis</i> genomes
           </h1>
 
-          <h2> Organisms available in database </h2>
           {/* <button title={title} className='Button' onClick={handleClick}>{isTreeView ? 'List' : 'Tree'}</button> */}
            <button className={`Button ${view === 'list' ? 'Highlighted' : ''}`} onClick={listClick}>List </button>
            <button className={`Button ${view === 'tree' ? 'Highlighted' : ''}`} onClick={treeClick}>Tree</button>
@@ -41,7 +40,7 @@ export default function Home() {
        </div>
      
         <div className='rightcolumn'>
-        <h3> There are 3 strains of Phytophthora melonis </h3>
+        <h3> There are 4 strains of Phytophthora melonis </h3>
         <br></br>
         <h4>these are the number of scaffolds in each : </h4>
         <p>
@@ -49,6 +48,16 @@ export default function Home() {
         Phytophthora melonis strain CJ26: 94 <br></br>
         Phytophthora melonis strain CPHST: 2091 <br></br>
         Phytophthora melonis strain Pmelo_OSU-2014: 11350 <br></br>
+        Phytophthora melonis strain WB_scaffolded: 158 <br></br>
+
+        </p>
+        <h4>these are the sizes of each : </h4>
+        <p>
+          
+        Phytophthora melonis strain CJ26: 102M <br></br>
+        Phytophthora melonis strain CPHST: 109M <br></br>
+        Phytophthora melonis strain Pmelo_OSU-2014: 73M <br></br>
+        Phytophthora melonis strain WB_scaffolded: 60M <br></br>
 
         </p>
         </div>

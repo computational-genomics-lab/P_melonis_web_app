@@ -53,6 +53,24 @@
           }
         }
       }
+    },
+    {
+      "name": "Phymel_WB_scaffolded.fna",
+      "sequence": {
+        "type": "ReferenceSequenceTrack",
+        "trackId": "Phymel_WB_scaffolded.fna-ReferenceSequenceTrack",
+        "adapter": {
+          "type": "IndexedFastaAdapter",
+          "fastaLocation": {
+            "uri": "http://10.0.0.234:3001/melonis_genomes/Phymel_WB_scaffolded.fna",
+            "locationType": "UriLocation"
+          },
+          "faiLocation": {
+            "uri": "http://10.0.0.234:3001/melonis_genomes/Phymel_WB_scaffolded.fna.fai",
+            "locationType": "UriLocation"
+          }
+        }
+      }
     }
   ],
   "configuration": {},
@@ -125,6 +143,28 @@
       },
       "assemblyNames": [
         "Phymel_Pmelo_OSU-2014.fna"
+      ]
+    },
+    {
+      "type": "FeatureTrack",
+      "trackId": "Phymel_WB_scaffolded_with_product_name.sorted.gff3",
+      "name": "Phymel_WB_scaffolded_with_product_name.sorted.gff3",
+      "adapter": {
+        "type": "Gff3TabixAdapter",
+        "gffGzLocation": {
+          "uri": "http://10.0.0.234:3001/melonis_genomes/Phymel_WB_scaffolded_with_product_name.sorted.gff3.gz",
+          "locationType": "UriLocation"
+        },
+        "index": {
+          "location": {
+            "uri": "http://10.0.0.234:3001/melonis_genomes/Phymel_WB_scaffolded_with_product_name.sorted.gff3.gz.tbi",
+            "locationType": "UriLocation"
+          },
+          "indexType": "TBI"
+        }
+      },
+      "assemblyNames": [
+        "Phymel_WB_scaffolded.fna"
       ]
     }
   ]
