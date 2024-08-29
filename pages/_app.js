@@ -27,6 +27,17 @@ function MyApp({ Component, pageProps }) {
   <Component {...pageProps} />
   </SelectedValuesProvider>
   </DataProvider> 
+  <footer className="footer">
+        <a
+          href="https://sites.google.com/view/stlab-iicb/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Maintained by{' '}
+          <img src="/CGLabLogo.jpg" alt="Vercel" className="logo"/>
+          CG-Lab, CSIR-IICB
+        </a>
+      </footer>
 
   </>
 }

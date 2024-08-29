@@ -1,6 +1,6 @@
 import OrganismList from './components/viewTypes/listview'
 import Treeviewer from './components/viewTypes/newtree'
-import { useState, useEffect} from 'react'
+import { useState} from 'react'
 import styles from '../styles/Home.module.css';
 
 
@@ -61,7 +61,7 @@ export default function Home() {
 
         </p>
         </div>
-     
+
       </main>
     </>
   )
