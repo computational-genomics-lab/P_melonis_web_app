@@ -14,6 +14,8 @@ import Cluster_Description from '../components/query_components/cluster_descript
 import Protein_domain from '../components/query_components/protein_domain';
 import KEGG_Page from '../components/query_components/kegg_ortho_ids';
 
+
+
 function Query() {
   const [activeTab, setActiveTab] = useState('genome_location');
 
@@ -113,6 +115,7 @@ function Query() {
           </li> */}
         </ul>
       </nav>
+
       <div className='rightcolumn'>{renderComponent()}</div>
     </div>
   );

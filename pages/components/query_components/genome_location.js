@@ -77,6 +77,7 @@ const Genome_location = () => {
       <br></br>
       <VizButton name={name} location={location}/>
       <TableView data={organismdata} />
+	{console.log(organismdata, typeof(organismdata))} 
      </>
     ) : (
       <p>No data found </p>

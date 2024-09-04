@@ -2,14 +2,14 @@ import React from 'react'
 import styles from '../styles/Home.module.css'
 import Link from 'next/link'
 
+
   function Navbar() {
 
     const mystyle = {
       fontFamily: 'Sans-serif', padding: '20px', fontSize: '35px', marginBottom: '30px'
     }
     return (
-   
-  
+   <>
         <nav style= {mystyle} className={styles.mainnav}>
 
             <ul>
@@ -21,10 +21,10 @@ import Link from 'next/link'
           <Link href="/nav_pages/contact"><li> JBrowse2 </li></Link>
           {/* <Link href="/nav_pages/about"><li>About Us</li></Link> */}
           
-          </ul>
-       
+          </ul>       
       </nav>
       
+      </>
     )}
   
 export default Navbar

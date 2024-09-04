@@ -8,11 +8,11 @@
         "adapter": {
           "type": "IndexedFastaAdapter",
           "fastaLocation": {
-            "uri": "http://10.0.0.234:3001/melonis_genomes/Phymel_CJ26.fna",
+            "uri": "http://eumicrobedb.org:3001/melonis_genomes/Phymel_CJ26.fna",
             "locationType": "UriLocation"
           },
           "faiLocation": {
-            "uri": "http://10.0.0.234:3001/melonis_genomes/Phymel_CJ26.fna.fai",
+            "uri": "http://eumicrobedb.org:3001/melonis_genomes/Phymel_CJ26.fna.fai",
             "locationType": "UriLocation"
           }
         }
@@ -26,11 +26,11 @@
         "adapter": {
           "type": "IndexedFastaAdapter",
           "fastaLocation": {
-            "uri": "http://10.0.0.234:3001/melonis_genomes/Phymel_CPHST_BL23.fna",
+            "uri": "http://eumicrobedb.org:3001/melonis_genomes/Phymel_CPHST_BL23.fna",
             "locationType": "UriLocation"
           },
           "faiLocation": {
-            "uri": "http://10.0.0.234:3001/melonis_genomes/Phymel_CPHST_BL23.fna.fai",
+            "uri": "http://eumicrobedb.org:3001/melonis_genomes/Phymel_CPHST_BL23.fna.fai",
             "locationType": "UriLocation"
           }
         }
@@ -44,11 +44,11 @@
         "adapter": {
           "type": "IndexedFastaAdapter",
           "fastaLocation": {
-            "uri": "http://10.0.0.234:3001/melonis_genomes/Phymel_Pmelo_OSU-2014.fna",
+            "uri": "http://eumicrobedb.org:3001/melonis_genomes/Phymel_Pmelo_OSU-2014.fna",
             "locationType": "UriLocation"
           },
           "faiLocation": {
-            "uri": "http://10.0.0.234:3001/melonis_genomes/Phymel_Pmelo_OSU-2014.fna.fai",
+            "uri": "http://eumicrobedb.org:3001/melonis_genomes/Phymel_Pmelo_OSU-2014.fna.fai",
             "locationType": "UriLocation"
           }
         }
@@ -62,11 +62,11 @@
         "adapter": {
           "type": "IndexedFastaAdapter",
           "fastaLocation": {
-            "uri": "http://10.0.0.234:3001/melonis_genomes/Phymel_WB_scaffolded.fna",
+            "uri": "http://eumicrobedb.org:3001/melonis_genomes/Phymel_WB_scaffolded.fna",
             "locationType": "UriLocation"
           },
           "faiLocation": {
-            "uri": "http://10.0.0.234:3001/melonis_genomes/Phymel_WB_scaffolded.fna.fai",
+            "uri": "http://eumicrobedb.org:3001/melonis_genomes/Phymel_WB_scaffolded.fna.fai",
             "locationType": "UriLocation"
           }
         }
@@ -86,12 +86,12 @@
       "adapter": {
         "type": "Gff3TabixAdapter",
         "gffGzLocation": {
-          "uri": "http://10.0.0.234:3001/melonis_genomes/Phymel_CJ26_with_product_name.sorted.gff3.gz",
+          "uri": "http://eumicrobedb.org:3001/melonis_genomes/Phymel_CJ26_with_product_name.sorted.gff3.gz",
           "locationType": "UriLocation"
         },
         "index": {
           "location": {
-            "uri": "http://10.0.0.234:3001/melonis_genomes/Phymel_CJ26_with_product_name.sorted.gff3.gz.tbi",
+            "uri": "http://eumicrobedb.org:3001/melonis_genomes/Phymel_CJ26_with_product_name.sorted.gff3.gz.tbi",
             "locationType": "UriLocation"
           },
           "indexType": "TBI"
@@ -108,12 +108,12 @@
       "adapter": {
         "type": "Gff3TabixAdapter",
         "gffGzLocation": {
-          "uri": "http://10.0.0.234:3001/melonis_genomes/Phymel_CPHST_BL23_with_product_name.sorted.gff3.gz",
+          "uri": "http://eumicrobedb.org:3001/melonis_genomes/Phymel_CPHST_BL23_with_product_name.sorted.gff3.gz",
           "locationType": "UriLocation"
         },
         "index": {
           "location": {
-            "uri": "http://10.0.0.234:3001/melonis_genomes/Phymel_CPHST_BL23_with_product_name.sorted.gff3.gz.tbi",
+            "uri": "http://eumicrobedb.org:3001/melonis_genomes/Phymel_CPHST_BL23_with_product_name.sorted.gff3.gz.tbi",
             "locationType": "UriLocation"
           },
           "indexType": "TBI"
@@ -130,12 +130,12 @@
       "adapter": {
         "type": "Gff3TabixAdapter",
         "gffGzLocation": {
-          "uri": "http://10.0.0.234:3001/melonis_genomes/Phymel_Pmelo_OSU-2014_with_product_name.sorted.gff3.gz",
+          "uri": "http://eumicrobedb.org:3001/melonis_genomes/Phymel_Pmelo_OSU-2014_with_product_name.sorted.gff3.gz",
           "locationType": "UriLocation"
         },
         "index": {
           "location": {
-            "uri": "http://10.0.0.234:3001/melonis_genomes/Phymel_Pmelo_OSU-2014_with_product_name.sorted.gff3.gz.tbi",
+            "uri": "http://eumicrobedb.org:3001/melonis_genomes/Phymel_Pmelo_OSU-2014_with_product_name.sorted.gff3.gz.tbi",
             "locationType": "UriLocation"
           },
           "indexType": "TBI"
@@ -152,12 +152,12 @@
       "adapter": {
         "type": "Gff3TabixAdapter",
         "gffGzLocation": {
-          "uri": "http://10.0.0.234:3001/melonis_genomes/Phymel_WB_scaffolded_with_product_name.sorted.gff3.gz",
+          "uri": "http://eumicrobedb.org:3001/melonis_genomes/Phymel_WB_scaffolded_with_product_name.sorted.gff3.gz",
           "locationType": "UriLocation"
         },
         "index": {
           "location": {
-            "uri": "http://10.0.0.234:3001/melonis_genomes/Phymel_WB_scaffolded_with_product_name.sorted.gff3.gz.tbi",
+            "uri": "http://eumicrobedb.org:3001/melonis_genomes/Phymel_WB_scaffolded_with_product_name.sorted.gff3.gz.tbi",
             "locationType": "UriLocation"
           },
           "indexType": "TBI"
