@@ -13,7 +13,7 @@ const handleVisualize = () => {
     const [scaffold, range] = location.split(":");
     const [start, end] = range.split("-");
 
-    const url = `http://10.0.0.234:3001/components/visualization/jbrowse?name=${name}&scaffold=${scaffold}&start=${start}&end=${end}`;
+    const url = `http://eumicrobedb.org:3001/components/visualization/jbrowse?name=${name}&scaffold=${scaffold}&start=${start}&end=${end}`;
     window.open(url, '_blank');
 
       // Redirect the user to the constructed URL

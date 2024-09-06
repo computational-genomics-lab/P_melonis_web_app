@@ -71,6 +71,24 @@
           }
         }
       }
+    },
+    {
+      "name": "Phyme_zdho120.fna",
+      "sequence": {
+        "type": "ReferenceSequenceTrack",
+        "trackId": "Phyme_zdho120.fna-ReferenceSequenceTrack",
+        "adapter": {
+          "type": "IndexedFastaAdapter",
+          "fastaLocation": {
+            "uri": "http://eumicrobedb.org:3001/melonis_genomes/test/Phyme_zdho120.fna",
+            "locationType": "UriLocation"
+          },
+          "faiLocation": {
+            "uri": "http://eumicrobedb.org:3001/melonis_genomes/test/Phyme_zdho120.fna.fai",
+            "locationType": "UriLocation"
+          }
+        }
+      }
     }
   ],
   "configuration": {},
@@ -166,6 +184,67 @@
       "assemblyNames": [
         "Phymel_WB_scaffolded.fna"
       ]
+    },
+    {
+      "type": "QuantitativeTrack",
+      "trackId": "Phymel_CJ26_rxlr",
+      "name": "Phymel_CJ26_rxlr",
+      "adapter": {
+        "type": "BigWigAdapter",
+        "bigWigLocation": {
+          "uri": "http://eumicrobedb.org:3001/melonis_genomes/Phymel_CJ26_rxlr.bw",
+          "locationType": "UriLocation"
+        }
+      },
+      "assemblyNames": [
+        "Phymel_CJ26.fna"
+      ]
+    },
+    {
+      "type": "QuantitativeTrack",
+      "trackId": "Phymel_CPHST_BL23_rxlr",
+      "name": "Phymel_CPHST_BL23_rxlr",
+      "adapter": {
+        "type": "BigWigAdapter",
+        "bigWigLocation": {
+          "uri": "http://eumicrobedb.org:3001/melonis_genomes/Phymel_CPHST_BL23_rxlr.bw",
+          "locationType": "UriLocation"
+        }
+      },
+      "assemblyNames": [
+        "Phymel_CPHST_BL23.fna"
+      ]
+    },
+    {
+      "type": "QuantitativeTrack",
+      "trackId": "Phymel_Pmelo_OSU-2014_rxlr",
+      "name": "Phymel_Pmelo_OSU-2014_rxlr",
+      "adapter": {
+        "type": "BigWigAdapter",
+        "bigWigLocation": {
+          "uri": "http://eumicrobedb.org:3001/melonis_genomes/Phymel_Pmelo_OSU-2014_rxlr.bw",
+          "locationType": "UriLocation"
+        }
+      },
+      "assemblyNames": [
+        "Phymel_Pmelo_OSU-2014.fna"
+      ]
+    },
+    {
+      "type": "QuantitativeTrack",
+      "trackId": "Phymel_WB_scaffolded_rxlr",
+      "name": "Phymel_WB_scaffolded_rxlr",
+      "adapter": {
+        "type": "BigWigAdapter",
+        "bigWigLocation": {
+          "uri": "http://eumicrobedb.org:3001/melonis_genomes/Phymel_WB_scaffolded_rxlr.bw",
+          "locationType": "UriLocation"
+        }
+      },
+      "assemblyNames": [
+        "Phymel_WB_scaffolded.fna"
+      ]
     }
+  
   ]
 }

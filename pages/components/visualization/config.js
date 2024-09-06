@@ -11,11 +11,11 @@
 //           adapter: {
 //             type: `IndexedFastaAdapter`,
 //             fastaLocation: {
-//               uri: `http://10.0.0.234:3001/melonis_genomes/${props.name}..fna`,
+//               uri: `http://eumicrobedb.org:3001/melonis_genomes/${props.name}..fna`,
   
 //             },
 //             faiLocation: {
-//             uri: `http://10.0.0.234:3001/melonis_genomes/${props.name}..fna.fai`,
+//             uri: `http://eumicrobedb.org:3001/melonis_genomes/${props.name}..fna.fai`,
 //             },
 //           },    
 //         },
@@ -32,11 +32,11 @@
 //         adapter: {
 //           type: `Gff3TabixAdapter`,
 //           gffGzLocation: {
-//             uri: `http://10.0.0.234:3001/melonis_genomes/${props.name}..sorted.gff3.gz`,
+//             uri: `http://eumicrobedb.org:3001/melonis_genomes/${props.name}..sorted.gff3.gz`,
 //           },
 //           index: {
 //             location: {
-//               uri: `http://10.0.0.234:3001/melonis_genomes/${props.name}..sorted.gff3.gz.tbi`,
+//               uri: `http://eumicrobedb.org:3001/melonis_genomes/${props.name}..sorted.gff3.gz.tbi`,
 //             },
 //           },
 //         },
@@ -50,7 +50,7 @@
 //         adapter: {
 //           type: `BigWigAdapter`,
 //           bigWigLocation: {
-//             uri: `http://10.0.0.234:3001/melonis_genomes/${props.name}..bw`,
+//             uri: `http://eumicrobedb.org:3001/melonis_genomes/${props.name}..bw`,
 //             locationType: `UriLocation`,
 //           },
 //         },
@@ -142,11 +142,11 @@ const getConfig = (props) => {
                 adapter: {
                   type: `IndexedFastaAdapter`,
                   fastaLocation: {
-                    uri: `http://10.0.0.234:3001/melonis_genomes/${props.name}.fna`,
+                    uri: `http://eumicrobedb.org:3001/melonis_genomes/${props.name}.fna`,
         
                   },
                   faiLocation: {
-                  uri: `http://10.0.0.234:3001/melonis_genomes/${props.name}.fna.fai`,
+                  uri: `http://eumicrobedb.org:3001/melonis_genomes/${props.name}.fna.fai`,
                   },
                 },    
               },
@@ -162,29 +162,44 @@ const getConfig = (props) => {
         adapter: {
           type: `Gff3TabixAdapter`,
           gffGzLocation: {
-            uri: `http://10.0.0.234:3001/melonis_genomes/${props.name}_with_product_name.sorted.gff3.gz`,
+            uri: `http://eumicrobedb.org:3001/melonis_genomes/${props.name}_with_product_name.sorted.gff3.gz`,
           },
           index: {
             location: {
-              uri: `http://10.0.0.234:3001/melonis_genomes/${props.name}_with_product_name.sorted.gff3.gz.tbi`,
+              uri: `http://eumicrobedb.org:3001/melonis_genomes/${props.name}_with_product_name.sorted.gff3.gz.tbi`,
             },
           },
         },
       },
       // {
       //   type: `QuantitativeTrack`,
-      //   trackId: `repeats_hg38`,
-      //   name: `SSR file`,
-      //   assemblyNames: [`Phytophthora_agathidicida`],
-      //   category: [`Annotation`],
+      //   trackId: `effector`,
+      //   name: `RXLR file`,
+      //   assemblyNames: [`${props.name}`],
+      //   //category: [`Annotation`],
+      //   category: [`Conservation`],
       //   adapter: {
       //     type: `BigWigAdapter`,
       //     bigWigLocation: {
-      //       uri: `http://10.0.0.234:3001/melonis_genomes/${props.name}.bw`,
+      //       uri: `http://eumicrobedb.org:3001/melonis_genomes/${props.name}_rxlr.bw`,
       //       locationType: `UriLocation`,
       //     },
       //   },
-      // },
+      // },'
+      {
+        type: 'QuantitativeTrack',
+        trackId: 'hg38.100way.phyloP100way',
+        name: 'RXLR file',
+        assemblyNames: [`${props.name}`],
+        category: ['Conservation'],
+        adapter: {
+          type: 'BigWigAdapter',
+          bigWigLocation: {
+            uri: `http://eumicrobedb.org:3001/melonis_genomes/${props.name}_rxlr.bw`,
+            locationType: 'UriLocation',
+          },
+        },}
+      
     ],
      defaultSession: {
     name: `this session`,
@@ -244,6 +259,23 @@ const getConfig = (props) => {
               },
             ],
           },
+          {
+            //id: 'EUnTnpVI6',
+            type: 'QuantitativeTrack',
+            configuration: 'hg38.100way.phyloP100way',
+            minimized: false,
+            displays: [
+              {
+                //id: 'mrlawr9Wtg',
+                type: 'LinearWiggleDisplay',
+                height: 100,
+                configuration: 'hg38.100way.phyloP100way-LinearWiggleDisplay',
+                selectedRendering: '',
+                resolution: 1,
+                constraints: {},
+              },
+            ],
+          }
         ],
         hideHeader: false,
         hideHeaderOverview: false,
