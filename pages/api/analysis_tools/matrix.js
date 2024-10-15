@@ -13,7 +13,7 @@ export default async function handler(req, res) {
       fs.writeFileSync(fastaFilePath, fastaFileContent);
 
       // Run the BLAST algorithm using blastall
-      const blastProcess = spawn('perl', ['/home/ajaya/scripts/pssm2.pl', fastaFilePath, type, 'matrix_results.txt']);
+      const blastProcess = spawn('perl', ['pages/api/analysis_tools/scripts/pssm2.pl', fastaFilePath, type, 'matrix_results.txt']);
 
       blastProcess.on('error', (error) => {
         console.error('Error running BLAST:', error);

@@ -13,7 +13,7 @@ export default async function handler(req, res) {
 
     // Run the Subsequence algorithm using fastacmd
     const blastProcess = spawn('fastacmd', [
-      '-d', `/home/sutripa/BLAST_DATA/BLASTN_DATA/${organism}`,
+      '-d', `pages/components/BLAST_DATA/BLASTN_DATA/${organism}`,
       '-s', contig,
       '-L', `${start},${end}`,
       '-S', '1',

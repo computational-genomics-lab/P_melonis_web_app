@@ -14,7 +14,9 @@ export default async function handler(req, res) {
       fs.writeFileSync(fastaFilePath, fastaFileContent);
 
       // Run the dipeptide freq script
-      const blastProcess = spawn('perl', ['/home/ajaya/scripts/dipeptidefreq.pl', fastaFilePath, 'dipeptide_freq.txt']);
+
+      const blastProcess = spawn('perl', ['pages/api/analysis_tools/scripts/dipeptidefreq.pl', fastaFilePath, 'dipeptide_freq.txt']);
+
 
       blastProcess.on('error', (error) => {
         console.error('Error running Dipeptide frequency perl script:', error);

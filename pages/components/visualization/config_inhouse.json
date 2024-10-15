@@ -8,11 +8,11 @@
         "adapter": {
           "type": "IndexedFastaAdapter",
           "fastaLocation": {
-            "uri": "http://10.0.0.231:3000/SK_genomic_data/1.Apio_malay.fa",
+            "uri": "http://10.0.0.234:3001/SK_genomic_data/1.Apio_malay.fa",
             "locationType": "UriLocation"
           },
           "faiLocation": {
-            "uri": "http://10.0.0.231:3000/SK_genomic_data/1.Apio_malay.fa.fai",
+            "uri": "http://10.0.0.234:3001/SK_genomic_data/1.Apio_malay.fa.fai",
             "locationType": "UriLocation"
           }
         }
@@ -26,11 +26,11 @@
         "adapter": {
           "type": "IndexedFastaAdapter",
           "fastaLocation": {
-            "uri": "http://10.0.0.231:3000/SK_genomic_data/2.Apio_Pterosperma.fa",
+            "uri": "http://10.0.0.234:3001/SK_genomic_data/2.Apio_Pterosperma.fa",
             "locationType": "UriLocation"
           },
           "faiLocation": {
-            "uri": "http://10.0.0.231:3000/SK_genomic_data/2.Apio_Pterosperma.fa.fai",
+            "uri": "http://10.0.0.234:3001/SK_genomic_data/2.Apio_Pterosperma.fa.fai",
             "locationType": "UriLocation"
           }
         }
@@ -44,11 +44,11 @@
         "adapter": {
           "type": "IndexedFastaAdapter",
           "fastaLocation": {
-            "uri": "http://10.0.0.231:3000/SK_genomic_data/3.Apio_sacchari.fa",
+            "uri": "http://10.0.0.234:3001/SK_genomic_data/3.Apio_sacchari.fa",
             "locationType": "UriLocation"
           },
           "faiLocation": {
-            "uri": "http://10.0.0.231:3000/SK_genomic_data/3.Apio_sacchari.fa.fai",
+            "uri": "http://10.0.0.234:3001/SK_genomic_data/3.Apio_sacchari.fa.fai",
             "locationType": "UriLocation"
           }
         }
@@ -62,11 +62,11 @@
         "adapter": {
           "type": "IndexedFastaAdapter",
           "fastaLocation": {
-            "uri": "http://10.0.0.231:3000/SK_genomic_data/4.Apio_rasikravin.fa",
+            "uri": "http://10.0.0.234:3001/SK_genomic_data/4.Apio_rasikravin.fa",
             "locationType": "UriLocation"
           },
           "faiLocation": {
-            "uri": "http://10.0.0.231:3000/SK_genomic_data/4.Apio_rasikravin.fa.fai",
+            "uri": "http://10.0.0.234:3001/SK_genomic_data/4.Apio_rasikravin.fa.fai",
             "locationType": "UriLocation"
           }
         }
@@ -80,11 +80,11 @@
         "adapter": {
           "type": "IndexedFastaAdapter",
           "fastaLocation": {
-            "uri": "http://10.0.0.231:3000/SK_genomic_data/5.Arth_kuc.fa",
+            "uri": "http://10.0.0.234:3001/SK_genomic_data/5.Arth_kuc.fa",
             "locationType": "UriLocation"
           },
           "faiLocation": {
-            "uri": "http://10.0.0.231:3000/SK_genomic_data/5.Arth_kuc.fa.fai",
+            "uri": "http://10.0.0.234:3001/SK_genomic_data/5.Arth_kuc.fa.fai",
             "locationType": "UriLocation"
           }
         }
@@ -98,11 +98,11 @@
         "adapter": {
           "type": "IndexedFastaAdapter",
           "fastaLocation": {
-            "uri": "http://10.0.0.231:3000/SK_genomic_data/6.Arth_phaeos.fa",
+            "uri": "http://10.0.0.234:3001/SK_genomic_data/6.Arth_phaeos.fa",
             "locationType": "UriLocation"
           },
           "faiLocation": {
-            "uri": "http://10.0.0.231:3000/SK_genomic_data/6.Arth_phaeos.fa.fai",
+            "uri": "http://10.0.0.234:3001/SK_genomic_data/6.Arth_phaeos.fa.fai",
             "locationType": "UriLocation"
           }
         }
@@ -116,11 +116,11 @@
         "adapter": {
           "type": "IndexedFastaAdapter",
           "fastaLocation": {
-            "uri": "http://10.0.0.231:3000/SK_genomic_data/7.Arth_Puccinioides.fa",
+            "uri": "http://10.0.0.234:3001/SK_genomic_data/7.Arth_Puccinioides.fa",
             "locationType": "UriLocation"
           },
           "faiLocation": {
-            "uri": "http://10.0.0.231:3000/SK_genomic_data/7.Arth_Puccinioides.fa.fai",
+            "uri": "http://10.0.0.234:3001/SK_genomic_data/7.Arth_Puccinioides.fa.fai",
             "locationType": "UriLocation"
           }
         }
@@ -134,11 +134,11 @@
         "adapter": {
           "type": "IndexedFastaAdapter",
           "fastaLocation": {
-            "uri": "http://10.0.0.231:3000/SK_genomic_data/8.Nigro_oryzae.fa",
+            "uri": "http://10.0.0.234:3001/SK_genomic_data/8.Nigro_oryzae.fa",
             "locationType": "UriLocation"
           },
           "faiLocation": {
-            "uri": "http://10.0.0.231:3000/SK_genomic_data/8.Nigro_oryzae.fa.fai",
+            "uri": "http://10.0.0.234:3001/SK_genomic_data/8.Nigro_oryzae.fa.fai",
             "locationType": "UriLocation"
           }
         }
@@ -164,7 +164,7 @@
       "adapter": {
         "type": "BigWigAdapter",
         "bigBedLocation": {
-          "uri": "http://10.0.0.231:3000/Phyag_NZFS3770.bw",
+          "uri": "http://10.0.0.234:3001/Phyag_NZFS3770.bw",
           "locationType": "UriLocation"
         }
       }
@@ -176,12 +176,12 @@
       "adapter": {
         "type": "Gff3TabixAdapter",
         "gffGzLocation": {
-          "uri": "http://10.0.0.231:3000/SK_genomic_data/1.Apio_malay_sorted.gff3.gz",
+          "uri": "http://10.0.0.234:3001/SK_genomic_data/1.Apio_malay_sorted.gff3.gz",
           "locationType": "UriLocation"
         },
         "index": {
           "location": {
-            "uri": "http://10.0.0.231:3000/SK_genomic_data/1.Apio_malay_sorted.gff3.gz.tbi",
+            "uri": "http://10.0.0.234:3001/SK_genomic_data/1.Apio_malay_sorted.gff3.gz.tbi",
             "locationType": "UriLocation"
           },
           "indexType": "TBI"
@@ -198,12 +198,12 @@
       "adapter": {
         "type": "Gff3TabixAdapter",
         "gffGzLocation": {
-          "uri": "http://10.0.0.231:3000/SK_genomic_data/2.Apio_Pterosperma_sorted.gff3.gz",
+          "uri": "http://10.0.0.234:3001/SK_genomic_data/2.Apio_Pterosperma_sorted.gff3.gz",
           "locationType": "UriLocation"
         },
         "index": {
           "location": {
-            "uri": "http://10.0.0.231:3000/SK_genomic_data/2.Apio_Pterosperma_sorted.gff3.gz.tbi",
+            "uri": "http://10.0.0.234:3001/SK_genomic_data/2.Apio_Pterosperma_sorted.gff3.gz.tbi",
             "locationType": "UriLocation"
           },
           "indexType": "TBI"
@@ -220,12 +220,12 @@
       "adapter": {
         "type": "Gff3TabixAdapter",
         "gffGzLocation": {
-          "uri": "http://10.0.0.231:3000/SK_genomic_data/3.Apio_sacchari_sorted.gff3.gz",
+          "uri": "http://10.0.0.234:3001/SK_genomic_data/3.Apio_sacchari_sorted.gff3.gz",
           "locationType": "UriLocation"
         },
         "index": {
           "location": {
-            "uri": "http://10.0.0.231:3000/SK_genomic_data/3.Apio_sacchari_sorted.gff3.gz.tbi",
+            "uri": "http://10.0.0.234:3001/SK_genomic_data/3.Apio_sacchari_sorted.gff3.gz.tbi",
             "locationType": "UriLocation"
           },
           "indexType": "TBI"
@@ -242,12 +242,12 @@
       "adapter": {
         "type": "Gff3TabixAdapter",
         "gffGzLocation": {
-          "uri": "http://10.0.0.231:3000/SK_genomic_data/4.Apio_rasikravin_sorted.gff3.gz",
+          "uri": "http://10.0.0.234:3001/SK_genomic_data/4.Apio_rasikravin_sorted.gff3.gz",
           "locationType": "UriLocation"
         },
         "index": {
           "location": {
-            "uri": "http://10.0.0.231:3000/SK_genomic_data/4.Apio_rasikravin_sorted.gff3.gz.tbi",
+            "uri": "http://10.0.0.234:3001/SK_genomic_data/4.Apio_rasikravin_sorted.gff3.gz.tbi",
             "locationType": "UriLocation"
           },
           "indexType": "TBI"
@@ -264,12 +264,12 @@
       "adapter": {
         "type": "Gff3TabixAdapter",
         "gffGzLocation": {
-          "uri": "http://10.0.0.231:3000/SK_genomic_data/5.Arth_kuc_sorted.gff3.gz",
+          "uri": "http://10.0.0.234:3001/SK_genomic_data/5.Arth_kuc_sorted.gff3.gz",
           "locationType": "UriLocation"
         },
         "index": {
           "location": {
-            "uri": "http://10.0.0.231:3000/SK_genomic_data/5.Arth_kuc_sorted.gff3.gz.tbi",
+            "uri": "http://10.0.0.234:3001/SK_genomic_data/5.Arth_kuc_sorted.gff3.gz.tbi",
             "locationType": "UriLocation"
           },
           "indexType": "TBI"
@@ -286,12 +286,12 @@
       "adapter": {
         "type": "Gff3TabixAdapter",
         "gffGzLocation": {
-          "uri": "http://10.0.0.231:3000/SK_genomic_data/6.Arth_phaeos_sorted.gff3.gz",
+          "uri": "http://10.0.0.234:3001/SK_genomic_data/6.Arth_phaeos_sorted.gff3.gz",
           "locationType": "UriLocation"
         },
         "index": {
           "location": {
-            "uri": "http://10.0.0.231:3000/SK_genomic_data/6.Arth_phaeos_sorted.gff3.gz.tbi",
+            "uri": "http://10.0.0.234:3001/SK_genomic_data/6.Arth_phaeos_sorted.gff3.gz.tbi",
             "locationType": "UriLocation"
           },
           "indexType": "TBI"
@@ -308,12 +308,12 @@
       "adapter": {
         "type": "Gff3TabixAdapter",
         "gffGzLocation": {
-          "uri": "http://10.0.0.231:3000/SK_genomic_data/7.Arth_Puccinioides_sorted.gff3.gz",
+          "uri": "http://10.0.0.234:3001/SK_genomic_data/7.Arth_Puccinioides_sorted.gff3.gz",
           "locationType": "UriLocation"
         },
         "index": {
           "location": {
-            "uri": "http://10.0.0.231:3000/SK_genomic_data/7.Arth_Puccinioides_sorted.gff3.gz.tbi",
+            "uri": "http://10.0.0.234:3001/SK_genomic_data/7.Arth_Puccinioides_sorted.gff3.gz.tbi",
             "locationType": "UriLocation"
           },
           "indexType": "TBI"
@@ -330,12 +330,12 @@
       "adapter": {
         "type": "Gff3TabixAdapter",
         "gffGzLocation": {
-          "uri": "http://10.0.0.231:3000/SK_genomic_data/8.Nigro_oryzae_sorted.gff3.gz",
+          "uri": "http://10.0.0.234:3001/SK_genomic_data/8.Nigro_oryzae_sorted.gff3.gz",
           "locationType": "UriLocation"
         },
         "index": {
           "location": {
-            "uri": "http://10.0.0.231:3000/SK_genomic_data/8.Nigro_oryzae_sorted.gff3.gz.tbi",
+            "uri": "http://10.0.0.234:3001/SK_genomic_data/8.Nigro_oryzae_sorted.gff3.gz.tbi",
             "locationType": "UriLocation"
           },
           "indexType": "TBI"
@@ -352,12 +352,12 @@
       "adapter": {
         "type": "BamAdapter",
         "bamLocation": {
-          "uri": "http://10.0.0.231:3000/SK_genomic_data/C1_sorted_star.bam",
+          "uri": "http://10.0.0.234:3001/SK_genomic_data/C1_sorted_star.bam",
           "locationType": "UriLocation"
         },
         "index": {
           "location": {
-            "uri": "http://10.0.0.231:3000/SK_genomic_data/C1_sorted_star.bam.bai",
+            "uri": "http://10.0.0.234:3001/SK_genomic_data/C1_sorted_star.bam.bai",
             "locationType": "UriLocation"
           },
           "indexType": "BAI"
@@ -365,11 +365,11 @@
         "sequenceAdapter": {
           "type": "IndexedFastaAdapter",
           "fastaLocation": {
-            "uri": "http://10.0.0.231:3000/SK_genomic_data/1.Apio_malay.fa",
+            "uri": "http://10.0.0.234:3001/SK_genomic_data/1.Apio_malay.fa",
             "locationType": "UriLocation"
           },
           "faiLocation": {
-            "uri": "http://10.0.0.231:3000/SK_genomic_data/1.Apio_malay.fa.fai",
+            "uri": "http://10.0.0.234:3001/SK_genomic_data/1.Apio_malay.fa.fai",
             "locationType": "UriLocation"
           }
         }
@@ -385,12 +385,12 @@
       "adapter": {
         "type": "BamAdapter",
         "bamLocation": {
-          "uri": "http://10.0.0.231:3000/SK_genomic_data/T1_sorted_star.bam",
+          "uri": "http://10.0.0.234:3001/SK_genomic_data/T1_sorted_star.bam",
           "locationType": "UriLocation"
         },
         "index": {
           "location": {
-            "uri": "http://10.0.0.231:3000/SK_genomic_data/T1_sorted_star.bam.bai",
+            "uri": "http://10.0.0.234:3001/SK_genomic_data/T1_sorted_star.bam.bai",
             "locationType": "UriLocation"
           },
           "indexType": "BAI"
@@ -398,11 +398,11 @@
         "sequenceAdapter": {
           "type": "IndexedFastaAdapter",
           "fastaLocation": {
-            "uri": "http://10.0.0.231:3000/SK_genomic_data/1.Apio_malay.fa",
+            "uri": "http://10.0.0.234:3001/SK_genomic_data/1.Apio_malay.fa",
             "locationType": "UriLocation"
           },
           "faiLocation": {
-            "uri": "http://10.0.0.231:3000/SK_genomic_data/1.Apio_malay.fa.fai",
+            "uri": "http://10.0.0.234:3001/SK_genomic_data/1.Apio_malay.fa.fai",
             "locationType": "UriLocation"
           }
         }
@@ -418,12 +418,12 @@
       "adapter": {
         "type": "BamAdapter",
         "bamLocation": {
-          "uri": "http://10.0.0.231:3000/SK_genomic_data/T2_sorted_star.bam",
+          "uri": "http://10.0.0.234:3001/SK_genomic_data/T2_sorted_star.bam",
           "locationType": "UriLocation"
         },
         "index": {
           "location": {
-            "uri": "http://10.0.0.231:3000/SK_genomic_data/T2_sorted_star.bam.bai",
+            "uri": "http://10.0.0.234:3001/SK_genomic_data/T2_sorted_star.bam.bai",
             "locationType": "UriLocation"
           },
           "indexType": "BAI"
@@ -431,11 +431,11 @@
         "sequenceAdapter": {
           "type": "IndexedFastaAdapter",
           "fastaLocation": {
-            "uri": "http://10.0.0.231:3000/SK_genomic_data/1.Apio_malay.fa",
+            "uri": "http://10.0.0.234:3001/SK_genomic_data/1.Apio_malay.fa",
             "locationType": "UriLocation"
           },
           "faiLocation": {
-            "uri": "http://10.0.0.231:3000/SK_genomic_data/1.Apio_malay.fa.fai",
+            "uri": "http://10.0.0.234:3001/SK_genomic_data/1.Apio_malay.fa.fai",
             "locationType": "UriLocation"
           }
         }
@@ -451,12 +451,12 @@
       "adapter": {
         "type": "BamAdapter",
         "bamLocation": {
-          "uri": "http://10.0.0.231:3000/SK_genomic_data/C2_sorted_star.bam",
+          "uri": "http://10.0.0.234:3001/SK_genomic_data/C2_sorted_star.bam",
           "locationType": "UriLocation"
         },
         "index": {
           "location": {
-            "uri": "http://10.0.0.231:3000/SK_genomic_data/C2_sorted_star.bam.bai",
+            "uri": "http://10.0.0.234:3001/SK_genomic_data/C2_sorted_star.bam.bai",
             "locationType": "UriLocation"
           },
           "indexType": "BAI"
@@ -464,11 +464,11 @@
         "sequenceAdapter": {
           "type": "IndexedFastaAdapter",
           "fastaLocation": {
-            "uri": "http://10.0.0.231:3000/SK_genomic_data/1.Apio_malay.fa",
+            "uri": "http://10.0.0.234:3001/SK_genomic_data/1.Apio_malay.fa",
             "locationType": "UriLocation"
           },
           "faiLocation": {
-            "uri": "http://10.0.0.231:3000/SK_genomic_data/1.Apio_malay.fa.fai",
+            "uri": "http://10.0.0.234:3001/SK_genomic_data/1.Apio_malay.fa.fai",
             "locationType": "UriLocation"
           }
         }

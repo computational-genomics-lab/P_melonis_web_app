@@ -98,7 +98,7 @@ export default async function handler(req, res) {
         const blastProcess = spawn('blastall', [
           '-p', 'blastn',
           '-i', fastaFilePath,
-          '-d', `/home/ajaya/BLAST_DATA/BLASTN_DATA/${organism}`,
+          '-d', `pages/components/BLAST_DATA/BLASTN_DATA/${organism}`,
           
           '>>', 'blast_results.txt'
         ], { shell: true });

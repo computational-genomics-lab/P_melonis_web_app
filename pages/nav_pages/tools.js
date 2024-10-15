@@ -53,7 +53,7 @@ const Tools =() => {
             className={activeTab === 'blast' ? styles.active : ''}
             onClick={() => setActiveTab('blast')}
           >
-            Local Multi-BLAST 
+            Local BLAST 
           </li>
           <li
             tabIndex={0}
