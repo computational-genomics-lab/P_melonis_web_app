@@ -18,7 +18,10 @@ export default function handler(req, res) {
     ena.source_ID AS parent_scaffold, 
     nl.start_min AS START_POSITION,
     nl.end_min AS END_POSITION, 
-    ena.length 
+    ((ena.a_count + ena.t_count)/(ena.a_count + ena.t_count + ena.g_count + ena.c_count) * 100) AS at_percentage,
+    ((ena.g_count + ena.c_count)/(ena.a_count + ena.t_count + ena.g_count + ena.c_count) * 100) AS gc_percentage,
+    ena.length ,
+    ena.sequence
   FROM 
     externalnasequence ena
   JOIN 
@@ -47,3 +50,7 @@ export default function handler(req, res) {
     }
   });
 }
+
+//for getting further information of a particular gene name 
+// SELECT ns.na_sequence_ID, nf.na_feature_ID, ns.sequence, ns.length FROM `nasequenceimp` ns, `nafeatureimp` nf WHERE nf.name="Phyme_g1" and nf.na_sequence_ID = ns.na_sequence_ID
+//there are some genes with same name across organisms hence the strain_number needs to be specified
