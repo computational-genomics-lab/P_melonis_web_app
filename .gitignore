@@ -33,3 +33,7 @@ yarn-error.log*
 
 #Public data will not be uploaded
 /public
+
+#the blastable data will not be uploaded
+/pages/components/BLAST_DATA/BLASTN_DATA/*
+
