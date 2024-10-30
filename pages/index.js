@@ -27,7 +27,7 @@ export default function Home() {
         <div>
         <h1 className={styles.title}>
         <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?mode=Info&id=120023&lvl=3&keep=1&srchmode=1&unlock&mod=1&log_op=modifier_toggle" target="_blank" rel="noopener noreferrer"> 
-	  <i>Phytophthora melonis</i></a> genomes
+	  <i>Phytophthora melonis </i></a> genomes
           </h1>
           {/* <button title={title} className='Button' onClick={handleClick}>{isTreeView ? 'List' : 'Tree'}</button> */}
            <button className={`Button ${view === 'list' ? 'Highlighted' : ''}`} onClick={listClick}>List </button>
@@ -50,22 +50,22 @@ export default function Home() {
           </thead>
           <tbody>
             <tr>
-              <td>Phytophthora melonis strain CJ26</td>
+              <td><i><i>Phytophthora melonis </i> </i>strain CJ26</td>
               <td>94</td>
               <td>102M</td>
             </tr>
             <tr>
-              <td>Phytophthora melonis strain CPHST</td>
+              <td><i>Phytophthora melonis </i> strain CPHST</td>
               <td>2091</td>
               <td>109M</td>
             </tr>
             <tr>
-              <td>Phytophthora melonis strain Pmelo_OSU-2014</td>
+              <td><i>Phytophthora melonis </i> strain Pmelo_OSU-2014</td>
               <td>11350</td>
               <td>73M</td>
             </tr>
             <tr>
-              <td>Phytophthora melonis strain WB</td>
+              <td><i>Phytophthora melonis </i> strain WB</td>
               <td>158</td>
               <td>60M</td>
             </tr>

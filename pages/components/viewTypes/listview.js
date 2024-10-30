@@ -34,7 +34,7 @@ const OrganismList = () => {
               onClick={() => handleDownload(item.species, item.strain)} // Make the list item clickable
               style={{ cursor: 'pointer', color: 'blue', textDecoration: 'underline' }} // Add some basic styling to indicate clickable items
             >
-              {item.species} {item.strain}
+             <i>{item.species} </i> {item.strain}
             </li>
           ))}
         </ul>
