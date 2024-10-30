@@ -19,14 +19,13 @@ export default async function handler(req, res) {
   const zipFilePath = path.join(publicDir, zipFilename);
 
   try {
-    // Find all files that contain the basename in their filename in the melonis_genomes directory
     const files = fs.readdirSync(publicDir).filter(file => file.includes(basename));
 
     if (files.length === 0) {
       return res.status(404).json({ error: 'No files found with the specified basename' });
     }
 
-    // Create a zip file with Archiver
+    // Create a zip file
     const output = fs.createWriteStream(zipFilePath);
     const archive = archiver('zip', { zlib: { level: 9 } });
 
@@ -39,18 +38,17 @@ export default async function handler(req, res) {
 
     await archive.finalize();
 
-    // Send the zip file to the client
     res.setHeader('Content-Type', 'application/zip');
     res.setHeader('Content-Disposition', `attachment; filename=${zipFilename}`);
 
-    // Stream the zip file to the response
     await pipelineAsync(fs.createReadStream(zipFilePath), res);
 
-    // Delete the zip file after sending it to the client
-    await fsExtra.remove(zipFilePath);
   } catch (error) {
     console.error('Error creating zip file:', error);
     res.status(500).json({ error: 'Error creating zip file' });
+  } finally {
+    if (fsExtra.pathExists(zipFilePath)) {
+      await fsExtra.remove(zipFilePath); // Clean up zip file
+    }
   }
 }
-
