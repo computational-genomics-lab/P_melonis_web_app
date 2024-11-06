@@ -112,6 +112,7 @@ export default function MyBlastForm() {
   return (
     <div>
       <h2>Local BLAST </h2>
+      <h4> Just provide the sequence, not the fasta header </h4>
 
       <h3>List of organisms: </h3>
               <Checktree />
@@ -127,7 +128,6 @@ export default function MyBlastForm() {
         /> <br></br>
         <button type="submit">Run BLAST</button>
       </form>
-
       {isLoading && <p>Loading...</p>} 
 {results && (
   <div>

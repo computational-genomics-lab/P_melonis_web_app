@@ -52,12 +52,12 @@ export default function Home() {
             <tr>
               <td><i><i>Phytophthora melonis </i> </i>strain CJ26</td>
               <td>94</td>
-              <td>102M</td>
+              <td>105M</td>
             </tr>
             <tr>
               <td><i>Phytophthora melonis </i> strain CPHST</td>
               <td>2091</td>
-              <td>109M</td>
+              <td>112M</td>
             </tr>
             <tr>
               <td><i>Phytophthora melonis </i> strain Pmelo_OSU-2014</td>
@@ -67,7 +67,7 @@ export default function Home() {
             <tr>
               <td><i>Phytophthora melonis </i> strain WB</td>
               <td>158</td>
-              <td>60M</td>
+              <td>63M</td>
             </tr>
           </tbody>
         </table>

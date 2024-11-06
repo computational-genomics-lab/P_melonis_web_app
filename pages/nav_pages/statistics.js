@@ -76,10 +76,10 @@ const Statistics = () => {
       {showTable && (
         <>
           <div className="rightcolumn"><h2>Gene details</h2>
-          <p>No. of records found: {geneData.length}</p>
+          <p>No. of genes found: {geneData.length}</p>
           <TableView data={geneData} /></div>
           <div className="leftcolumn"><h2>Scaffold details</h2>
-          <p>No of records found: {scaffoldData.length}</p>
+          <p>No of unfragmented scaffolds found: {scaffoldData.length}</p>
           <TableView data={scaffoldData} /></div>
         </>
       )}
