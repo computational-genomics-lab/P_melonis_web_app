@@ -18,11 +18,14 @@ export default function handler(req, res) {
 //  and orr.taxon_id= ns.taxon_id and orr.version = ns.sequence_version
 //  and (${f_string})`;
 
- const query = `SELECT ns.name, gi.description AS product, orr.species, orr.strain
-  FROM externalnasequence ns JOIN transcript tr ON ns.na_sequence_ID = tr.na_sequence_id JOIN
-   organism orr ON orr.taxon_ID = ns.taxon_ID AND orr.strain_number = ns.strain_number JOIN
-    geneinstance gi ON gi.na_feature_ID = tr.na_feature_id WHERE gi.description LIKE "%${name}%" 
-    AND ns.taxon_ID = ${taxon_ID} AND ns.strain_number = ${strain_number}`;
+
+  const query = `SELECT ns.name, gi.description AS product, orr.species, orr.strain, ns.source_ID AS scaffold,
+   nl.start_min AS start, nl.end_min AS end, ns.sequence 
+   FROM externalnasequence ns JOIN transcript tr ON ns.na_sequence_ID = tr.na_sequence_id 
+   JOIN organism orr ON orr.taxon_ID = ns.taxon_ID AND orr.strain_number = ns.strain_number 
+   JOIN geneinstance gi ON gi.na_feature_ID = tr.na_feature_id JOIN nalocation nl ON nl.na_feature_ID = tr.na_feature_id 
+   WHERE gi.description LIKE "%${name}%" AND ns.taxon_ID = ${taxon_ID} AND ns.strain_number = ${strain_number}`;
+
   pool.query(query, (error, results) => {
     if (error) {
       res.status(500).json({ error });
