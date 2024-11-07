@@ -77,7 +77,7 @@ const Statistics = () => {
         <>
           <div className="rightcolumn"><h2>Gene details</h2>
           <p>No. of genes found: {geneData.length}</p>
-          <TableView data={geneData} /></div>
+          <TableView data={geneData} taxonID={taxonID} strainNumber={strainNumber}  /></div>
           <div className="leftcolumn"><h2>Scaffold details</h2>
           <p>No of unfragmented scaffolds found: {scaffoldData.length}</p>
           <TableView data={scaffoldData} /></div>
