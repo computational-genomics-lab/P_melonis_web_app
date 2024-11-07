@@ -70,7 +70,7 @@ const Primary = () => {
     organismdata.length > 0 ? (
       <>
       <br></br>
-      <TableView data={organismdata} />
+      <TableView data={organismdata} taxonID={taxonID} strainNumber={strainNumber} />
      </>
     ) : (
       <p>No data found </p>

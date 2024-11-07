@@ -19,11 +19,10 @@ export default function handler(req, res) {
 //  and (${f_string})`;
 
 
-  const query = `SELECT ns.name, gi.description AS product, orr.species, orr.strain, ns.source_ID AS scaffold,
-   nl.start_min AS start, nl.end_min AS end, ns.sequence 
+  const query = `SELECT ns.name AS gene_name, gi.description AS product, orr.species, orr.strain, ns.source_ID AS scaffold
    FROM externalnasequence ns JOIN transcript tr ON ns.na_sequence_ID = tr.na_sequence_id 
    JOIN organism orr ON orr.taxon_ID = ns.taxon_ID AND orr.strain_number = ns.strain_number 
-   JOIN geneinstance gi ON gi.na_feature_ID = tr.na_feature_id JOIN nalocation nl ON nl.na_feature_ID = tr.na_feature_id 
+   JOIN geneinstance gi ON gi.na_feature_ID = tr.na_feature_id 
    WHERE gi.description LIKE "%${name}%" AND ns.taxon_ID = ${taxon_ID} AND ns.strain_number = ${strain_number}`;
 
   pool.query(query, (error, results) => {
