@@ -20,7 +20,7 @@ function View() {
   }
 
   return (
-    <>
+    <div style={{ width: '100%', height: '2800px', maxWidth: '2800px', margin: '0 auto', fontSize: '5.2rem' }}>
       <JBrowseApp viewState={viewState} />
       {/* <h3>Code</h3>
       <p>
@@ -53,7 +53,7 @@ function View() {
       </div> */}
 
       {/* <textarea value={stateSnapshot} readOnly rows={20} cols={80} /> */}
-    </>
+    </div>
   );
 }
 
