@@ -11,11 +11,19 @@ export default function handler(req, res) {
     // and gi.description like '${desc}' AND
     //  orr.taxon_id = pc.taxon_id and orr.version=ns.sequence_version`
 
-    const query = `SELECT gi.description, orr.species, orr.strain, ns.name, ns.source_ID 
-    AS parent_scaffold FROM organism orr, geneinstance gi, externalnasequence ns, nafeatureimp nf 
-    WHERE nf.na_feature_ID=gi.na_feature_ID and ns.na_sequence_ID= nf.na_sequence_ID and 
-    gi.description like '%${desc}%' AND orr.taxon_ID = ns.taxon_ID and 
-    orr.strain_number=ns.strain_number order by orr.strain`    
+    // const query = `SELECT gi.description, orr.species, orr.strain, ns.name, ns.source_ID 
+    // AS parent_scaffold FROM organism orr, geneinstance gi, externalnasequence ns, nafeatureimp nf 
+    // WHERE nf.na_feature_ID=gi.na_feature_ID and ns.na_sequence_ID= nf.na_sequence_ID and 
+    // gi.description like '%${desc}%' AND orr.taxon_ID = ns.taxon_ID and 
+    // orr.strain_number=ns.strain_number order by orr.strain`    
+
+
+  const query = `SELECT ns.name AS gene_name, gi.description AS product, orr.species, orr.strain, ns.source_ID AS scaffold
+  FROM externalnasequence ns JOIN transcript tr ON ns.na_sequence_ID = tr.na_sequence_id 
+  JOIN organism orr ON orr.taxon_ID = ns.taxon_ID AND orr.strain_number = ns.strain_number 
+  JOIN geneinstance gi ON gi.na_feature_ID = tr.na_feature_id 
+  WHERE gi.description LIKE "%${desc}%"`;
+
 
      pool.query(query, (error, results) => {
         if (error) {
