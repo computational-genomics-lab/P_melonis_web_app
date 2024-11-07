@@ -83,7 +83,15 @@ const TableView = ({ data }) => {
           ));
           return <div>{urls.reduce((prev, curr) => [prev, ', ', curr])}</div>;
         }        
+        
+        //for gene_ids
+        if (key === 'gene_name' && text) {
 
+          return <div>{<a href={`https://www.google.com/`} target="_blank" rel="noopener noreferrer">{text}</a>}</div>;
+        }
+
+        
+        //takes a long string and truncates it. primarily for nucleotide sequence information
         if (text && text.length > 50) {
           const truncatedText = text.substring(0, 50) + '...';
           return (

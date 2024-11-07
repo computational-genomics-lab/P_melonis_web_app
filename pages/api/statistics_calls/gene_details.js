@@ -5,7 +5,7 @@ import pool from "../database";
 export default function handler(req, res) {
   const { taxon_id, strain_number} = req.query; //accepts taxon_ID of particular organism
 
-const query = `SELECT ena.name, ena.source_ID as parent_scaffold, nl.start_min AS START_POSITION ,
+const query = `SELECT ena.name AS gene_name, ena.source_ID as parent_scaffold, nl.start_min AS START_POSITION ,
 nl.end_min AS END_POSITION, ena.length FROM externalnasequence ena,nalocation nl,nafeatureimp nf 
 WHERE ena.sequence_type_ID=6 AND nf.subclass_view="gene" AND
   nf.na_sequence_ID=ena.na_sequence_ID and nl.na_feature_ID=nf.na_feature_ID AND 
