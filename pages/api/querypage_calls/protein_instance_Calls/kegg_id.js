@@ -9,9 +9,9 @@ if (!taxon_id) {
   }
 
  const query=`SELECT k.KEGG_ko, k.KEGG_Pathway, k.KEGG_Module, k.KEGG_rclass, ena.name AS gene_name,
- nl.start_min AS start, nl.end_min AS end, ena.source_ID AS Scaffold, ena.sequence FROM KEGG k JOIN protein pr ON 
+  ena.source_ID AS Scaffold FROM KEGG k JOIN protein pr ON 
  k.protein_instance_id = pr.protein_ID JOIN geneinstance gi ON pr.gene_instance_ID = gi.gene_instance_ID JOIN 
- nalocation nl ON gi.na_feature_ID = nl.na_feature_ID JOIN nafeatureimp nf ON gi.na_feature_ID = nf.na_feature_ID 
+ nafeatureimp nf ON gi.na_feature_ID = nf.na_feature_ID 
  JOIN externalnasequence ena ON nf.na_sequence_ID = ena.na_sequence_ID WHERE k.taxonomy_id = ${taxon_id} AND 
  k.strain_number = ${strain_number} AND k.KEGG_ko LIKE "%${name}%"`;
 

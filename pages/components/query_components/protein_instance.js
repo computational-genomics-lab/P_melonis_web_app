@@ -136,7 +136,7 @@ const Protein_Instances = () => {
             <>
             
             <h3>No of records found : {organismdata.length} </h3>
-            <TableView data={organismdata} />
+            <TableView data={organismdata} taxonID={taxonID} strainNumber={strainNumber}/>
             </>
           ) : (
             <p>Data not available. Probably an invalid gene ID was entered</p>
