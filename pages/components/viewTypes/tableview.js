@@ -14,16 +14,38 @@
 // };
 
 // export default TableView;
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Table, Modal, Button } from 'antd';
 import * as XLSX from 'xlsx';
 
 const TableView = ({ data, taxonID = null, strainNumber = null }) => {
   const [modalVisible, setModalVisible] = useState(false);
   const [modalContent, setModalContent] = useState('');
-  const [geneDetails, setGeneDetails] = useState(null);
   const [isGeneModalVisible, setIsGeneModalVisible] = useState(false);
 
+  const [geneDetails, setGeneDetails] = useState(null);
+  const [END_POSITION, setEndPosition] = useState(null);
+  const [START_POSITION, setStartPosition] = useState(null);
+  const [at_percentage, setAtPercentage] = useState(null);
+  const [gc_percentage, setGcPercentage] = useState(null);
+  const [gene_sequence, setGeneSequence] = useState(null);
+  const [length, setLength] = useState(null);
+  const [name, setName] = useState(null);
+  const [parent_scaffold, setParentScaffold] = useState(null);
+
+  useEffect(() => {
+    if (geneDetails && geneDetails.length > 0) {
+      const details = geneDetails[0];
+      setEndPosition(details.END_POSITION);
+      setStartPosition(details.START_POSITION);
+      setAtPercentage(details.at_percentage);
+      setGcPercentage(details.gc_percentage);
+      setGeneSequence(details.gene_sequence);
+      setLength(details.length);
+      setName(details.name);
+      setParentScaffold(details.parent_scaffold);
+    }
+  }, [geneDetails]);
   // Handle double-click to show full text in modal
   const handleDoubleClick = (text) => {
     setModalContent(text);
@@ -111,17 +133,7 @@ const TableView = ({ data, taxonID = null, strainNumber = null }) => {
     },
   }));
 
-  // Destructure properties from geneDetails object
-  const {
-    END_POSITION,
-    START_POSITION,
-    at_percentage,
-    gc_percentage,
-    gene_sequence,
-    length,
-    name,
-    parent_scaffold,
-  } = geneDetails || {};
+ 
 
   return (
     <>
@@ -135,11 +147,21 @@ const TableView = ({ data, taxonID = null, strainNumber = null }) => {
 
       {/* Modal to show gene details if available */}
       <Modal visible={isGeneModalVisible} onOk={handleCloseGeneModal} onCancel={handleCloseGeneModal} title="Gene Details">
-        {geneDetails ? (
-                     <pre>{JSON.stringify(geneDetails, null, 2)}</pre> 
-        ) : (
-          <p>Loading...</p>
-        )}
+ 
+      {geneDetails ? (
+        <div>
+          <p>Name: {name}</p>
+          <p>Parent Scaffold: {parent_scaffold}</p>
+          <p>Start Position: {START_POSITION}</p>
+          <p>End Position: {END_POSITION}</p>
+          <p>AT Percentage: {at_percentage}</p>
+          <p>GC Percentage: {gc_percentage}</p>
+          <p>Length: {length}</p>
+          <p>Gene Sequence: {gene_sequence}</p>
+        </div>
+      ) : (
+        <p>Loading...</p>
+      )}
       </Modal>
     </>
   );
