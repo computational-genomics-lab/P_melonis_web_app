@@ -84,11 +84,46 @@ const TableView = ({ data, taxonID = null, strainNumber = null }) => {
   };
 
   // Define table columns with render functions
-  const columns = Object.keys(data[0] || {}).map((key) => ({
+   const columns = Object.keys(data[0] || {}).map((key) => ({
     title: key.toUpperCase(),
     dataIndex: key,
     key,
     render: (text) => {
+      // Render KEGG Pathway or KEGG rclass links with truncation
+      if ((key === 'KEGG_Pathway' || key === 'KEGG_rclass') && text) {
+        const links = text.split(',');
+        const MAX_DISPLAY_LINKS = 3; // Number of links to show initially
+  
+        // Show only the first few links, with a "Show more" option if there are additional links
+        return (
+          <div>
+            {links.slice(0, MAX_DISPLAY_LINKS).map((id, index) => (
+              <a
+                key={id + index}
+                href={`https://www.kegg.jp/entry/${id}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ display: 'block' }} // Display each link on a new line for better readability
+              >
+                {id}
+              </a>
+            ))}
+            {links.length > MAX_DISPLAY_LINKS && (
+              <a
+                href="#"
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleDoubleClick(text); // Opens a modal with the full list of links
+                }}
+                style={{ color: '#1890ff', textDecoration: 'underline', cursor: 'pointer' }}
+              >
+                Show more
+              </a>
+            )}
+          </div>
+        );
+      }
+  
       if (key === 'KEGG_ko' && text) {
         return text.split(',').map((id) => (
           <a key={id} href={`https://www.kegg.jp/entry/${id.replace('ko:', '')}`} target="_blank" rel="noopener noreferrer">
@@ -96,20 +131,8 @@ const TableView = ({ data, taxonID = null, strainNumber = null }) => {
           </a>
         ));
       }
-      if ((key === 'KEGG_Pathway' || key === 'KEGG_rclass') && text) {
-        return text.split(',').map((id) => (
-          <a key={id} href={`https://www.kegg.jp/entry/${id}`} target="_blank" rel="noopener noreferrer">
-            {id}
-          </a>
-        ));
-      }
-      if (key === 'PFAMs' && text) {
-        return text.split(',').map((id) => (
-          <a key={id} href={`https://www.ebi.ac.uk/interpro/search/text/${id}`} target="_blank" rel="noopener noreferrer">
-            {id}
-          </a>
-        ));
-      }
+      
+      // for gene additional details page
       if (key === 'gene_name' && text && taxonID && strainNumber) {
         return (
           <a href="#" onClick={(e) => { e.preventDefault(); fetchGeneDetails(text); }}>
@@ -117,6 +140,7 @@ const TableView = ({ data, taxonID = null, strainNumber = null }) => {
           </a>
         );
       }
+      // Default text truncation for long values
       if (text && text.length > 50) {
         const truncatedText = text.substring(0, 50) + '...';
         return (
@@ -125,15 +149,14 @@ const TableView = ({ data, taxonID = null, strainNumber = null }) => {
             onDoubleClick={() => handleDoubleClick(text)}
             title={text}
           >
-            {truncatedText} (Hover or Double click to view full record)
+            {truncatedText}
           </div>
         );
       }
       return text;
     },
   }));
-
- 
+  
 
   return (
     <>
