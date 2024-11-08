@@ -8,7 +8,7 @@ export default function handler(req, res) {
 //const query = `SELECT PFAMs FROM Pfam WHERE taxonomy_id=${taxon_id} AND strain_number=${strain_number}`;
 
 
-const query = `SELECT p.PFAMs, pr.name AS gene_name, ena.source_ID AS scaffold FROM Pfam p JOIN protein pr ON 
+const query = `SELECT p.PFAMs, pr.name AS gene_name, nf.name as transcript, ena.source_ID AS scaffold FROM Pfam p JOIN protein pr ON 
 p.protein_instance_id = pr.protein_ID JOIN geneinstance gi ON pr.gene_instance_ID = gi.gene_instance_ID 
 JOIN nafeatureimp nf ON gi.na_feature_ID = nf.na_feature_ID 
 JOIN externalnasequence ena ON nf.na_sequence_ID = ena.na_sequence_ID WHERE p.taxonomy_id = ${taxon_id} AND p.strain_number = ${strain_number}`;
