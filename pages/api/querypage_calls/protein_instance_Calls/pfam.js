@@ -11,9 +11,11 @@ export default function handler(req, res) {
 const query = `SELECT p.PFAMs, pr.name AS gene_name, nf.name as transcript, ena.source_ID AS scaffold FROM Pfam p JOIN protein pr ON 
 p.protein_instance_id = pr.protein_ID JOIN geneinstance gi ON pr.gene_instance_ID = gi.gene_instance_ID 
 JOIN nafeatureimp nf ON gi.na_feature_ID = nf.na_feature_ID 
-JOIN externalnasequence ena ON nf.na_sequence_ID = ena.na_sequence_ID WHERE p.taxonomy_id = ${taxon_id} AND p.strain_number = ${strain_number}`;
+JOIN externalnasequence ena ON nf.na_sequence_ID = ena.na_sequence_ID WHERE p.taxonomy_id = ?
+ AND p.strain_number = ?`;
 
-  pool.query(query, (error, results) => {
+ const params = [ taxon_id, strain_number];
+  pool.query(query, params, (error, results) => {
     if (error) {
       res.status(500).json({ error});
     } else {
