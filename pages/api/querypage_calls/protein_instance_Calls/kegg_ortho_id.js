@@ -17,8 +17,12 @@ const query = `SELECT k.KEGG_ko, k.KEGG_Pathway, k.KEGG_Module, k.KEGG_rclass, p
  ena.source_ID AS scaffold FROM KEGG k JOIN protein pr ON 
 k.protein_instance_id = pr.protein_ID JOIN geneinstance gi ON pr.gene_instance_ID = gi.gene_instance_ID 
 JOIN nafeatureimp nf ON gi.na_feature_ID = nf.na_feature_ID 
-JOIN externalnasequence ena ON nf.na_sequence_ID = ena.na_sequence_ID WHERE k.taxonomy_id = ${taxon_id} AND k.strain_number = ${strain_number}`;
-  pool.query(query, (error, results) => {
+JOIN externalnasequence ena ON nf.na_sequence_ID = ena.na_sequence_ID WHERE k.taxonomy_id = ? 
+AND k.strain_number = ?`;
+
+const params = [taxon_id, strain_number];
+
+  pool.query(query, params, (error, results) => {
     if (error) {
       res.status(500).json({ error});
     } else {
