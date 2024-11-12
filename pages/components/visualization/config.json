@@ -19,18 +19,18 @@
       }
     },
     {
-      "name": "Phymel_CPHST_BL23.fna",
+      "name": "Phymel_CPHST.fna",
       "sequence": {
         "type": "ReferenceSequenceTrack",
-        "trackId": "Phymel_CPHST_BL23.fna-ReferenceSequenceTrack",
+        "trackId": "Phymel_CPHST.fna-ReferenceSequenceTrack",
         "adapter": {
           "type": "IndexedFastaAdapter",
           "fastaLocation": {
-            "uri": "http://eumicrobedb.org:3001/melonis_genomes/Phymel_CPHST_BL23.fna",
+            "uri": "http://eumicrobedb.org:3001/melonis_genomes/Phymel_CPHST.fna",
             "locationType": "UriLocation"
           },
           "faiLocation": {
-            "uri": "http://eumicrobedb.org:3001/melonis_genomes/Phymel_CPHST_BL23.fna.fai",
+            "uri": "http://eumicrobedb.org:3001/melonis_genomes/Phymel_CPHST.fna.fai",
             "locationType": "UriLocation"
           }
         }
@@ -140,24 +140,24 @@
     },
     {
       "type": "FeatureTrack",
-      "trackId": "Phymel_CPHST_BL23_with_product_name.sorted.gff3",
-      "name": "Phymel_CPHST_BL23_with_product_name.sorted.gff3",
+      "trackId": "Phymel_CPHST_with_product_name.sorted.gff3",
+      "name": "Phymel_CPHST_with_product_name.sorted.gff3",
       "adapter": {
         "type": "Gff3TabixAdapter",
         "gffGzLocation": {
-          "uri": "http://eumicrobedb.org:3001/melonis_genomes/Phymel_CPHST_BL23_with_product_name.sorted.gff3.gz",
+          "uri": "http://eumicrobedb.org:3001/melonis_genomes/Phymel_CPHST_with_product_name.sorted.gff3.gz",
           "locationType": "UriLocation"
         },
         "index": {
           "location": {
-            "uri": "http://eumicrobedb.org:3001/melonis_genomes/Phymel_CPHST_BL23_with_product_name.sorted.gff3.gz.tbi",
+            "uri": "http://eumicrobedb.org:3001/melonis_genomes/Phymel_CPHST_with_product_name.sorted.gff3.gz.tbi",
             "locationType": "UriLocation"
           },
           "indexType": "TBI"
         }
       },
       "assemblyNames": [
-        "Phymel_CPHST_BL23.fna"
+        "Phymel_CPHST.fna"
       ]
     },
     {
@@ -221,17 +221,17 @@
     },
     {
       "type": "QuantitativeTrack",
-      "trackId": "Phymel_CPHST_BL23_rxlr",
-      "name": "Phymel_CPHST_BL23_rxlr",
+      "trackId": "Phymel_CPHST_rxlr",
+      "name": "Phymel_CPHST_rxlr",
       "adapter": {
         "type": "BigWigAdapter",
         "bigWigLocation": {
-          "uri": "http://eumicrobedb.org:3001/melonis_genomes/Phymel_CPHST_BL23_rxlr.bw",
+          "uri": "http://eumicrobedb.org:3001/melonis_genomes/Phymel_CPHST_rxlr.bw",
           "locationType": "UriLocation"
         }
       },
       "assemblyNames": [
-        "Phymel_CPHST_BL23.fna"
+        "Phymel_CPHST.fna"
       ]
     },
     {
