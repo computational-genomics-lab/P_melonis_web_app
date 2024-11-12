@@ -76,7 +76,7 @@ const Genome_location = () => {
       <>
       <br></br>
       <VizButton name={name} location={location}/>
-      <TableView data={organismdata} />
+      <TableView data={organismdata} taxonID={taxonID} strainNumber={strainNumber} />
 	{console.log(organismdata, typeof(organismdata))} 
      </>
     ) : (

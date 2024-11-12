@@ -20,15 +20,35 @@ export default function handler(req, res) {
 // (nl.start_min between '${start}' and '${end}' or nl.end_min between '${start}' and '${end}')
 // order by nl.start_min`;
 
-const query=`select nf.na_feature_ID,nf.name, nl.start_min AS START_POSITION ,nl.end_min AS END_POSITION,
-ens.source_ID,nf.na_sequence_ID from externalnasequence ens, nalocation nl,nafeatureimp nf where ens.taxon_ID=${taxon_ID} 
-and ens.strain_number=${strain_number} and ens.source_ID='${scaffold}' and ens.sequence_type_ID != 1 
-and nf.subclass_view not like '%CDS%' and nf.subclass_view not like '%GeneFeature%' and 
-nf.subclass_view not like '%exonfeature%' and nf.na_sequence_ID=ens.na_sequence_ID and
- nl.na_feature_ID=nf.na_feature_ID and (nl.start_min between ${start} and ${end} or nl.end_min 
- between ${start} and ${end}) order by nl.start_min`;
+const query = `
+  SELECT 
+    nf.name AS gene_name, 
+    nl.start_min AS START_POSITION, 
+    nl.end_min AS END_POSITION,
+    ens.source_ID
+  FROM 
+    externalnasequence ens
+    JOIN nafeatureimp nf ON nf.na_sequence_ID = ens.na_sequence_ID
+    JOIN nalocation nl ON nl.na_feature_ID = nf.na_feature_ID 
+  WHERE 
+    ens.taxon_ID = ? 
+    AND ens.strain_number = ? 
+    AND ens.source_ID = ? 
+    AND ens.sequence_type_ID != 1 
+    AND nf.subclass_view NOT LIKE '%CDS%' 
+    AND nf.subclass_view NOT LIKE '%GeneFeature%' 
+    AND nf.subclass_view NOT LIKE '%exonfeature%' 
+    AND (
+      nl.start_min BETWEEN ? AND ? 
+      OR nl.end_min BETWEEN ? AND ?
+    ) 
+  ORDER BY 
+    nl.start_min
+`;
 
-  pool.query(query, (error, results) => {
+const params = [taxon_ID, strain_number, scaffold, start, end, start, end];
+
+  pool.query(query, params, (error, results) => {
     if (error) {
       res.status(500).json({ error });
     } else {
