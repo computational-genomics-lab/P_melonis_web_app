@@ -9,8 +9,9 @@ const query = `SELECT ena.name AS gene_name, ena.source_ID as parent_scaffold, n
 nl.end_min AS END_POSITION, ena.length FROM externalnasequence ena,nalocation nl,nafeatureimp nf 
 WHERE ena.sequence_type_ID=6 AND nf.subclass_view="gene" AND
   nf.na_sequence_ID=ena.na_sequence_ID and nl.na_feature_ID=nf.na_feature_ID AND 
-  ena.strain_number=${strain_number} AND ena.taxon_ID=${taxon_id}`;
+  ena.strain_number=? AND ena.taxon_ID=?`;
 
+  const params = [strain_number, taxon_id];
 //the full query, while it is defined, is not called as it will take a long time to render all of it
   // const query = `
   // SELECT DISTINCT 
@@ -57,7 +58,7 @@ WHERE ena.sequence_type_ID=6 AND nf.subclass_view="gene" AND
  //ena.strain_number='1' and ena.sequence_type_ID='6' and nf.na_sequence_ID=ena.na_sequence_ID 
  //and nf.subclass_view='gene' and gi.na_feature_ID=nf.na_feature_id`
  
- pool.query(query, (error, results) => {
+ pool.query(query, params, (error, results) => {
     if (error) {
       res.status(500).json({ error });
     } else {
