@@ -23,9 +23,11 @@ export default function handler(req, res) {
    FROM externalnasequence ns JOIN transcript tr ON ns.na_sequence_ID = tr.na_sequence_id 
    JOIN organism orr ON orr.taxon_ID = ns.taxon_ID AND orr.strain_number = ns.strain_number 
    JOIN geneinstance gi ON gi.na_feature_ID = tr.na_feature_id 
-   WHERE gi.description LIKE "%${name}%" AND ns.taxon_ID = ${taxon_ID} AND ns.strain_number = ${strain_number}`;
+   WHERE gi.description LIKE ? AND ns.taxon_ID = ? AND ns.strain_number = ?`;
 
-  pool.query(query, (error, results) => {
+   const params = [`%${name || ''}%`, taxon_ID, strain_number];
+
+  pool.query(query, params, (error, results) => {
     if (error) {
       res.status(500).json({ error });
     } else {
