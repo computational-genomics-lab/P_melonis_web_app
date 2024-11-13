@@ -68,5 +68,6 @@ WHERE ena.sequence_type_ID=6 AND nf.subclass_view="gene" AND
 }
 
 //for getting further information of a particular gene name 
-// SELECT ns.na_sequence_ID, nf.na_feature_ID, ns.sequence, ns.length FROM `nasequenceimp` ns, `nafeatureimp` nf WHERE nf.name="Phyme_g1" and nf.na_sequence_ID = ns.na_sequence_ID
+// SELECT ns.na_sequence_ID, nf.na_feature_ID, ns.sequence, ns.length FROM `nasequenceimp` ns, `nafeatureimp` nf 
+// WHERE nf.name="Phyme_g1" and nf.na_sequence_ID = ns.na_sequence_ID
 //there are some genes with same name across organisms hence the strain_number needs to be specified
