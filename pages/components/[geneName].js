@@ -1,4 +1,5 @@
-// this is the genedetails page
+// this is the genedetails page which accepts the name of gene, taxonID and strain number and subsequently makes an API call 
+//to backend mysql database
 
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
@@ -40,8 +41,8 @@ const GeneDetailsPage = () => {
   if (!geneDetails) return <p>No gene details found for this entry.</p>;
 
   return (
-    <div>
-      <h2>Gene Details for {geneName} gene </h2>
+    <div style={{ paddingLeft: '20px',  paddingRight: '20px'}} >
+      <h2>Gene Details for {geneName} gene of <i>{geneDetails.species}</i> strain {geneDetails.strain}</h2>
       <p>Name: {geneDetails.name}</p>
       <p>Parent Scaffold: {geneDetails.parent_scaffold}</p>
       <p>Start Position: {geneDetails.START_POSITION}</p>
@@ -51,7 +52,7 @@ const GeneDetailsPage = () => {
       <p>Length: {geneDetails.length}</p>
       {/* <p>Gene Sequence: {geneDetails.gene_sequence}</p> */}
       <p style={{ whiteSpace: 'pre-wrap', wordWrap: 'break-word' }}>
-      Gene Sequence: {geneDetails.gene_sequence}
+        Gene Sequence: {geneDetails.gene_sequence}
       </p>
     </div>
   );
