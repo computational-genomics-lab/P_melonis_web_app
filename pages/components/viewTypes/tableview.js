@@ -200,13 +200,20 @@ const TableView = ({ data, taxonID = null, strainNumber = null }) => {
   const router = useRouter();
 
   // Redirect to Gene Details Page with required parameters
+  // const fetchGeneDetails = (geneName) => {
+  //   if (!taxonID || !strainNumber) return;
+  //   router.push({
+  //     pathname: `/components/${geneName}`,
+  //     query: { taxonID, strainNumber },
+  //   });
+  // };
+
   const fetchGeneDetails = (geneName) => {
     if (!taxonID || !strainNumber) return;
-    router.push({
-      pathname: `/components/${geneName}`,
-      query: { taxonID, strainNumber },
-    });
+    const url = `/components/${geneName}?taxonID=${taxonID}&strainNumber=${strainNumber}`;
+    window.open(url, '_blank');
   };
+  
 
   // Dummy function for handleDoubleClick and downloadExcel as placeholders
   const handleDoubleClick = (text) => {
