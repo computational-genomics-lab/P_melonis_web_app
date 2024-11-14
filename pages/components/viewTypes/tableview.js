@@ -225,7 +225,7 @@ const TableView = ({ data, taxonID = null, strainNumber = null }) => {
     render: (text) => {
       if (key === 'gene_name' && text && taxonID && strainNumber) {
         return (
-          <a href="#" onClick={(e) => { e.preventDefault(); fetchGeneDetails(text); }}>
+          <a href="#" target="_blank" onClick={(e) => { e.preventDefault(); fetchGeneDetails(text); }}>
             {text}
           </a>
         );
