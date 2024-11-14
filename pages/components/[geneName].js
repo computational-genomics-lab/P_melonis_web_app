@@ -3,6 +3,7 @@
 
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
+import VizButton from './visualization/viz_button';
 
 const GeneDetailsPage = () => {
   const router = useRouter();
@@ -40,9 +41,16 @@ const GeneDetailsPage = () => {
   if (loading) return <p>Loading...</p>;
   if (!geneDetails) return <p>No gene details found for this entry.</p>;
 
+  // Derive variables from geneDetails
+  const location = `${geneDetails.parent_scaffold}:${geneDetails.START_POSITION}-${geneDetails.END_POSITION}`;
+  
+  const speciesWords = geneDetails.species.split(' ');
+  const name = `${speciesWords[0].substring(0, 3)}${speciesWords[1].substring(0, 3)}_${geneDetails.strain.replace(/\s+/g, '')}`;
+
   return (
     <div style={{ paddingLeft: '20px',  paddingRight: '20px'}} >
       <h2>Gene Details for {geneName} gene of <i>{geneDetails.species}</i> strain {geneDetails.strain}</h2>
+      <p>{location} {geneDetails.species} {typeof(geneDetails.species)}</p>
       <p>Name: {geneDetails.name}</p>
       <p>Parent Scaffold: {geneDetails.parent_scaffold}</p>
       <p>Start Position: {geneDetails.START_POSITION}</p>
@@ -54,6 +62,8 @@ const GeneDetailsPage = () => {
       <p style={{ whiteSpace: 'pre-wrap', wordWrap: 'break-word' }}>
         Gene Sequence: {geneDetails.gene_sequence}
       </p>
+            {/* Pass the derived variables to VizButton */}
+            <VizButton name={name} location={location} />
     </div>
   );
 };
