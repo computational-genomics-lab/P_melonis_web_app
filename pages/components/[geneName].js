@@ -50,7 +50,6 @@ const GeneDetailsPage = () => {
   return (
     <div style={{ paddingLeft: '20px',  paddingRight: '20px'}} >
       <h2>Gene Details for {geneName} gene of <i>{geneDetails.species}</i> strain {geneDetails.strain}</h2>
-      <p>{location} {geneDetails.species} {typeof(geneDetails.species)}</p>
       <p>Name: {geneDetails.name}</p>
       <p>Parent Scaffold: {geneDetails.parent_scaffold}</p>
       <p>Start Position: {geneDetails.START_POSITION}</p>

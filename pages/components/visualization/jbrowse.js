@@ -45,7 +45,6 @@ function View(props) {
 
   return (
     <>
-      <h1> Jbrowse2 integrated directly into the nextJS app</h1>
       <JBrowseApp viewState={viewState} />
       {/* <h3>Code {typeof endInteger}</h3>
       <p>
