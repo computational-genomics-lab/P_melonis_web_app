@@ -11,11 +11,11 @@
 //           adapter: {
 //             type: `IndexedFastaAdapter`,
 //             fastaLocation: {
-//               uri: `http://eumicrobedb.org:3001/melonis_genomes/${props.name}..fna`,
+//               uri: `http://eumicrobedb.org:3001/genomes/${props.name}..fna`,
   
 //             },
 //             faiLocation: {
-//             uri: `http://eumicrobedb.org:3001/melonis_genomes/${props.name}..fna.fai`,
+//             uri: `http://eumicrobedb.org:3001/genomes/${props.name}..fna.fai`,
 //             },
 //           },    
 //         },
@@ -32,11 +32,11 @@
 //         adapter: {
 //           type: `Gff3TabixAdapter`,
 //           gffGzLocation: {
-//             uri: `http://eumicrobedb.org:3001/melonis_genomes/${props.name}..sorted.gff3.gz`,
+//             uri: `http://eumicrobedb.org:3001/genomes/${props.name}..sorted.gff3.gz`,
 //           },
 //           index: {
 //             location: {
-//               uri: `http://eumicrobedb.org:3001/melonis_genomes/${props.name}..sorted.gff3.gz.tbi`,
+//               uri: `http://eumicrobedb.org:3001/genomes/${props.name}..sorted.gff3.gz.tbi`,
 //             },
 //           },
 //         },
@@ -50,7 +50,7 @@
 //         adapter: {
 //           type: `BigWigAdapter`,
 //           bigWigLocation: {
-//             uri: `http://eumicrobedb.org:3001/melonis_genomes/${props.name}..bw`,
+//             uri: `http://eumicrobedb.org:3001/genomes/${props.name}..bw`,
 //             locationType: `UriLocation`,
 //           },
 //         },
@@ -142,11 +142,11 @@ const getConfig = (props) => {
                 adapter: {
                   type: `IndexedFastaAdapter`,
                   fastaLocation: {
-                    uri: `http://eumicrobedb.org:3001/melonis_genomes/${props.name}.fna`,
+                    uri: `http://eumicrobedb.org:3001/genomes/${props.name}.fna`,
         
                   },
                   faiLocation: {
-                  uri: `http://eumicrobedb.org:3001/melonis_genomes/${props.name}.fna.fai`,
+                  uri: `http://eumicrobedb.org:3001/genomes/${props.name}.fna.fai`,
                   },
                 },    
               },
@@ -162,11 +162,11 @@ const getConfig = (props) => {
         adapter: {
           type: `Gff3TabixAdapter`,
           gffGzLocation: {
-            uri: `http://eumicrobedb.org:3001/melonis_genomes/${props.name}_with_product_name.sorted.gff3.gz`,
+            uri: `http://eumicrobedb.org:3001/genomes/${props.name}_with_product_name.sorted.gff3.gz`,
           },
           index: {
             location: {
-              uri: `http://eumicrobedb.org:3001/melonis_genomes/${props.name}_with_product_name.sorted.gff3.gz.tbi`,
+              uri: `http://eumicrobedb.org:3001/genomes/${props.name}_with_product_name.sorted.gff3.gz.tbi`,
             },
           },
         },
@@ -181,7 +181,7 @@ const getConfig = (props) => {
       //   adapter: {
       //     type: `BigWigAdapter`,
       //     bigWigLocation: {
-      //       uri: `http://eumicrobedb.org:3001/melonis_genomes/${props.name}_rxlr.bw`,
+      //       uri: `http://eumicrobedb.org:3001/genomes/${props.name}_rxlr.bw`,
       //       locationType: `UriLocation`,
       //     },
       //   },
@@ -195,7 +195,7 @@ const getConfig = (props) => {
         adapter: {
           type: 'BigWigAdapter',
           bigWigLocation: {
-            uri: `http://eumicrobedb.org:3001/melonis_genomes/${props.name}_rxlr.bw`,
+            uri: `http://eumicrobedb.org:3001/genomes/${props.name}_rxlr.bw`,
             locationType: 'UriLocation',
           },
         },}

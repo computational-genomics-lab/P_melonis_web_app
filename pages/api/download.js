@@ -14,7 +14,7 @@ export default async function handler(req, res) {
     return res.status(400).json({ error: 'basename query parameter is required' });
   }
 
-  const publicDir = path.join(process.cwd(), 'public', 'melonis_genomes');
+  const publicDir = path.join(process.cwd(), 'public', 'genomes');
   const zipFilename = `${basename}.zip`;
   const zipFilePath = path.join(publicDir, zipFilename);
 
