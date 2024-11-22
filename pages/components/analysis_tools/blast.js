@@ -68,6 +68,88 @@
 //   );
 // }
 
+// import React, { useState, useContext } from 'react';
+// import 'rc-tree/assets/index.css';
+// import Checktree from '../viewTypes/checkbox_tree';
+// import { SelectedValuesContext } from '../context_provider/selectedvaluescontext';
+// import BlastVisualization from './blaster_vis';
+
+// export default function MyBlastForm() {
+  
+//   const {selectedOrganisms} = useContext(SelectedValuesContext); //contains modified names from the
+//   //checkbox tree which then update these names to selectedvaluescontext.js for global state management
+//   const [sequence, setSequence] = useState('');
+//   const [results, setResults] = useState(null);
+//   const [isLoading, setIsLoading] = useState(false); 
+
+//   const handleFormChange = async(e) => {
+//     setResults(null);
+//     setSequence(e.target.value)
+//   }
+// //Upon clicking on submit button the following function is triggered. The API request
+// //is made
+//   const handleFormSubmit = async (e) => {
+//     setResults(null);
+//     e.preventDefault();
+//     setIsLoading(true); //show the loading message
+//     try {
+//       const response = await fetch(`/api/analysis_tools/blast?sequence=${sequence}&organisms=${selectedOrganisms}`);
+//       const data = await response.json();
+      
+//           // Convert data.results to a string
+//     // const resultsString = JSON.stringify(data.results);
+//     // console.log(resultsString, selectedOrganisms);
+//     // setResults(resultsString); // Store the stringified results
+//       setResults(data.results); // Assuming the response structure has a 'results' field
+//     } catch (error) {
+//       console.error('Error running BLAST:', error);
+//     } finally {setIsLoading(false)}
+//   };
+
+  
+//   // const inputFile = 'blast_results.txt';
+
+//   return (
+//     <div>
+//       <h2>Local BLAST </h2>
+//       <h4> Just provide the sequence, not the fasta header </h4>
+
+//       <h3>List of organisms: </h3>
+//               <Checktree />
+
+//         <p></p>
+//       <form onSubmit={handleFormSubmit}>
+//         <textarea
+//           rows="8"
+//           cols="100"
+//           value={sequence}
+//           onChange={handleFormChange}
+//           placeholder="Enter DNA sequence..."
+//         /> <br></br>
+//         <button type="submit">Run BLAST</button>
+//       </form>
+//       {isLoading && <p>Loading...</p>} 
+// {results && (
+//   <div>
+    
+//     <h2>BLAST Results:</h2>
+//     <h3>selected organism is {selectedOrganisms}</h3>
+   
+//     {
+//     results.length > 0 && (
+//     <BlastVisualization blastResults={results}/>
+
+//       )}
+   
+//     {/* <BlasterJS blastData={results} /> */}
+
+//   </div>
+// )}
+
+//     </div>
+//   );
+// }
+
 import React, { useState, useContext } from 'react';
 import 'rc-tree/assets/index.css';
 import Checktree from '../viewTypes/checkbox_tree';
@@ -75,49 +157,46 @@ import { SelectedValuesContext } from '../context_provider/selectedvaluescontext
 import BlastVisualization from './blaster_vis';
 
 export default function MyBlastForm() {
-  
-  const {selectedOrganisms} = useContext(SelectedValuesContext); //contains modified names from the
-  //checkbox tree which then update these names to selectedvaluescontext.js for global state management
+  const { selectedOrganisms } = useContext(SelectedValuesContext); // Global state
   const [sequence, setSequence] = useState('');
+  const [blastType, setBlastType] = useState('blastn'); // State for BLAST type
   const [results, setResults] = useState(null);
-  const [isLoading, setIsLoading] = useState(false); 
+  const [isLoading, setIsLoading] = useState(false);
 
-  const handleFormChange = async(e) => {
+  const handleFormChange = (e) => {
     setResults(null);
-    setSequence(e.target.value)
-  }
-//Upon clicking on submit button the following function is triggered. The API request
-//is made
-  const handleFormSubmit = async (e) => {
-    setResults(null);
-    e.preventDefault();
-    setIsLoading(true); //show the loading message
-    try {
-      const response = await fetch(`/api/analysis_tools/blast?sequence=${sequence}&organisms=${selectedOrganisms}`);
-      const data = await response.json();
-      
-          // Convert data.results to a string
-    // const resultsString = JSON.stringify(data.results);
-    // console.log(resultsString, selectedOrganisms);
-    // setResults(resultsString); // Store the stringified results
-      setResults(data.results); // Assuming the response structure has a 'results' field
-    } catch (error) {
-      console.error('Error running BLAST:', error);
-    } finally {setIsLoading(false)}
+    setSequence(e.target.value);
   };
 
-  
-  // const inputFile = 'blast_results.txt';
+  const handleBlastTypeChange = (e) => {
+    setBlastType(e.target.value);
+  };
+
+  const handleFormSubmit = async (e) => {
+    e.preventDefault();
+    setIsLoading(true);
+    setResults(null);
+    try {
+      const response = await fetch(
+        `/api/analysis_tools/blast?sequence=${sequence}&organisms=${selectedOrganisms}&type=${blastType}`
+      );
+      const data = await response.json();
+      setResults(data.results); // Assuming the API returns a `results` field
+    } catch (error) {
+      console.error('Error running BLAST:', error);
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
   return (
     <div>
-      <h2>Local BLAST </h2>
-      <h4> Just provide the sequence, not the fasta header </h4>
+      <h2>Local BLAST</h2>
+      <h4>Just provide the sequence, not the FASTA header</h4>
 
-      <h3>List of organisms: </h3>
-              <Checktree />
+      <h3>List of organisms:</h3>
+      <Checktree />
 
-        <p></p>
       <form onSubmit={handleFormSubmit}>
         <textarea
           rows="8"
@@ -125,27 +204,29 @@ export default function MyBlastForm() {
           value={sequence}
           onChange={handleFormChange}
           placeholder="Enter DNA sequence..."
-        /> <br></br>
+        />
+        <br />
+
+        {/* BLAST Type Selection */}
+        <label htmlFor="blastType">Select BLAST Type:</label>
+        <select id="blastType" value={blastType} onChange={handleBlastTypeChange}>
+          <option value="blastn">BLASTN</option>
+          <option value="tblastn">TBLASTN</option>
+          <option value="tblastx">TBLASTX</option>
+        </select>
+        <br />
+
         <button type="submit">Run BLAST</button>
       </form>
-      {isLoading && <p>Loading...</p>} 
-{results && (
-  <div>
-    
-    <h2>BLAST Results:</h2>
-    <h3>selected organism is {selectedOrganisms}</h3>
-   
-    {
-    results.length > 0 && (
-    <BlastVisualization blastResults={results}/>
 
+      {isLoading && <p>Loading...</p>}
+      {results && (
+        <div>
+          <h2>BLAST Results:</h2>
+          <h3>Selected Organism(s): {selectedOrganisms}</h3>
+          {results.length > 0 && <BlastVisualization blastResults={results} />}
+        </div>
       )}
-   
-    {/* <BlasterJS blastData={results} /> */}
-
-  </div>
-)}
-
     </div>
   );
 }

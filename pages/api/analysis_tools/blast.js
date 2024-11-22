@@ -76,15 +76,84 @@
 // and then send the results to the frontend. 
 
 
+// import { spawn } from 'child_process';
+// import { join } from 'path';
+// import fs from 'fs';
+
+// export default async function handler(req, res) {
+//   if (req.method === 'GET') {
+//     const { sequence, organisms } = req.query;
+
+//     // Split the comma-separated list of organisms into an array
+//     const organismList = organisms.split(',');
+
+//     try {
+//       for (const organism of organismList) {
+//         // Create a temporary FASTA file to store the sequence
+//         const fastaFilePath = join('temp.fasta');
+//         const fastaFileContent = `>${organism}\n${sequence}\n`;
+//         fs.writeFileSync(fastaFilePath, fastaFileContent);
+
+//         // Run the BLAST algorithm using blastall and append results to the blast_results.txt
+//         const blastProcess = spawn('blastall', [
+//           '-p', 'blastn',
+//           '-i', fastaFilePath,
+//           '-d', `pages/components/BLAST_DATA/BLASTN_DATA/${organism}`,
+          
+//           '>>', 'blast_results.txt'
+//         ], { shell: true });
+
+//         blastProcess.on('error', (error) => {
+//           console.error('Error running BLAST:', error);
+//           res.status(500).json({ error: 'An error occurred while running BLAST', error });
+//         });
+
+//         await new Promise((resolve) => {
+//           blastProcess.on('close', (code) => {
+//             console.log(`BLAST process for ${organism} finished with code:`, code);
+//             resolve();
+//           });
+//         });
+
+//         // Clean up: delete the temporary FASTA file
+// 	      fs.unlinkSync(fastaFilePath);
+//       }
+
+//       // Read and process the results from 'blast_results.txt'
+//       const blastResults = fs.readFileSync('blast_results.txt', 'utf-8');
+//       console.log('BLAST results:', blastResults); // Log the results
+
+//       // Copy the blast_results.txt file to the public directory (done for downloading blast output file and uploading it)
+//       // const copyFilePath = join(process.cwd(), 'public', 'blast_results.txt');
+//       // fs.copyFileSync('blast_results.txt', copyFilePath);
+
+//       // Respond with the results to the frontend
+//       res.status(200).json({ results: blastResults });
+
+//       // Clean up: delete the blast_results.txt file
+//       fs.unlinkSync('blast_results.txt');
+//     } catch (error) {
+//       console.error('Error:', error);
+//       res.status(500).json({ error: 'An error occurred while processing the BLAST' });
+//     }
+//   } else {
+//     res.status(405).end();
+//   }
+// }
+
 import { spawn } from 'child_process';
 import { join } from 'path';
 import fs from 'fs';
 
 export default async function handler(req, res) {
   if (req.method === 'GET') {
-    const { sequence, organisms } = req.query;
+    const { sequence, organisms, type } = req.query;
 
-    // Split the comma-separated list of organisms into an array
+    // Validate BLAST type
+    if (!['blastn', 'tblastn', 'tblastx'].includes(type)) {
+      return res.status(400).json({ error: 'Invalid BLAST type' });
+    }
+
     const organismList = organisms.split(',');
 
     try {
@@ -94,14 +163,17 @@ export default async function handler(req, res) {
         const fastaFileContent = `>${organism}\n${sequence}\n`;
         fs.writeFileSync(fastaFilePath, fastaFileContent);
 
-        // Run the BLAST algorithm using blastall and append results to the blast_results.txt
-        const blastProcess = spawn('blastall', [
-          '-p', 'blastn',
-          '-i', fastaFilePath,
-          '-d', `pages/components/BLAST_DATA/BLASTN_DATA/${organism}`,
-          
-          '>>', 'blast_results.txt'
-        ], { shell: true });
+        // Run the selected BLAST algorithm
+        const blastProcess = spawn(
+          'blastall',
+          [
+            '-p', type, // Dynamically set BLAST type
+            '-i', fastaFilePath,
+            '-d', `pages/components/BLAST_DATA/BLASTN_DATA/${organism}`,
+            '>>', 'blast_results.txt',
+          ],
+          { shell: true }
+        );
 
         blastProcess.on('error', (error) => {
           console.error('Error running BLAST:', error);
@@ -116,16 +188,12 @@ export default async function handler(req, res) {
         });
 
         // Clean up: delete the temporary FASTA file
-	      fs.unlinkSync(fastaFilePath);
+        fs.unlinkSync(fastaFilePath);
       }
 
       // Read and process the results from 'blast_results.txt'
       const blastResults = fs.readFileSync('blast_results.txt', 'utf-8');
       console.log('BLAST results:', blastResults); // Log the results
-
-      // Copy the blast_results.txt file to the public directory (done for downloading blast output file and uploading it)
-      // const copyFilePath = join(process.cwd(), 'public', 'blast_results.txt');
-      // fs.copyFileSync('blast_results.txt', copyFilePath);
 
       // Respond with the results to the frontend
       res.status(200).json({ results: blastResults });
