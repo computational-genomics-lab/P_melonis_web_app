@@ -71,24 +71,6 @@
           }
         }
       }
-    },
-    {
-      "name": "Phyme_zdho120.fna",
-      "sequence": {
-        "type": "ReferenceSequenceTrack",
-        "trackId": "Phyme_zdho120.fna-ReferenceSequenceTrack",
-        "adapter": {
-          "type": "IndexedFastaAdapter",
-          "fastaLocation": {
-            "uri": "http://eumicrobedb.org:3001/genomes/test/Phyme_zdho120.fna",
-            "locationType": "UriLocation"
-          },
-          "faiLocation": {
-            "uri": "http://eumicrobedb.org:3001/genomes/test/Phyme_zdho120.fna.fai",
-            "locationType": "UriLocation"
-          }
-        }
-      }
     }
   ],
   "configuration": {
