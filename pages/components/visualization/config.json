@@ -19,18 +19,18 @@
       }
     },
     {
-      "name": "Phymel_CPHST.fna",
+      "name": "Phymel_CPHST_BL23.fna",
       "sequence": {
         "type": "ReferenceSequenceTrack",
-        "trackId": "Phymel_CPHST.fna-ReferenceSequenceTrack",
+        "trackId": "Phymel_CPHST_BL23.fna-ReferenceSequenceTrack",
         "adapter": {
           "type": "IndexedFastaAdapter",
           "fastaLocation": {
-            "uri": "http://eumicrobedb.org:3001/genomes/Phymel_CPHST.fna",
+            "uri": "http://eumicrobedb.org:3001/genomes/Phymel_CPHST_BL23.fna",
             "locationType": "UriLocation"
           },
           "faiLocation": {
-            "uri": "http://eumicrobedb.org:3001/genomes/Phymel_CPHST.fna.fai",
+            "uri": "http://eumicrobedb.org:3001/genomes/Phymel_CPHST_BL23.fna.fai",
             "locationType": "UriLocation"
           }
         }
@@ -55,18 +55,18 @@
       }
     },
     {
-      "name": "Phymel_WB_scaffolded.fna",
+      "name": "Phymel_WB.fna",
       "sequence": {
         "type": "ReferenceSequenceTrack",
-        "trackId": "Phymel_WB_scaffolded.fna-ReferenceSequenceTrack",
+        "trackId": "Phymel_WB.fna-ReferenceSequenceTrack",
         "adapter": {
           "type": "IndexedFastaAdapter",
           "fastaLocation": {
-            "uri": "http://eumicrobedb.org:3001/genomes/Phymel_WB_scaffolded.fna",
+            "uri": "http://eumicrobedb.org:3001/genomes/Phymel_WB.fna",
             "locationType": "UriLocation"
           },
           "faiLocation": {
-            "uri": "http://eumicrobedb.org:3001/genomes/Phymel_WB_scaffolded.fna.fai",
+            "uri": "http://eumicrobedb.org:3001/genomes/Phymel_WB.fna.fai",
             "locationType": "UriLocation"
           }
         }
@@ -140,24 +140,24 @@
     },
     {
       "type": "FeatureTrack",
-      "trackId": "Phymel_CPHST_with_product_name.sorted.gff3",
-      "name": "Phymel_CPHST_with_product_name.sorted.gff3",
+      "trackId": "Phymel_CPHST_BL23_with_product_name.sorted.gff3",
+      "name": "Phymel_CPHST_BL23_with_product_name.sorted.gff3",
       "adapter": {
         "type": "Gff3TabixAdapter",
         "gffGzLocation": {
-          "uri": "http://eumicrobedb.org:3001/genomes/Phymel_CPHST_with_product_name.sorted.gff3.gz",
+          "uri": "http://eumicrobedb.org:3001/genomes/Phymel_CPHST_BL23_with_product_name.sorted.gff3.gz",
           "locationType": "UriLocation"
         },
         "index": {
           "location": {
-            "uri": "http://eumicrobedb.org:3001/genomes/Phymel_CPHST_with_product_name.sorted.gff3.gz.tbi",
+            "uri": "http://eumicrobedb.org:3001/genomes/Phymel_CPHST_BL23_with_product_name.sorted.gff3.gz.tbi",
             "locationType": "UriLocation"
           },
           "indexType": "TBI"
         }
       },
       "assemblyNames": [
-        "Phymel_CPHST.fna"
+        "Phymel_CPHST_BL23.fna"
       ]
     },
     {
@@ -184,24 +184,24 @@
     },
     {
       "type": "FeatureTrack",
-      "trackId": "Phymel_WB_scaffolded_with_product_name.sorted.gff3",
-      "name": "Phymel_WB_scaffolded_with_product_name.sorted.gff3",
+      "trackId": "Phymel_WB_with_product_name.sorted.gff3",
+      "name": "Phymel_WB_with_product_name.sorted.gff3",
       "adapter": {
         "type": "Gff3TabixAdapter",
         "gffGzLocation": {
-          "uri": "http://eumicrobedb.org:3001/genomes/Phymel_WB_scaffolded_with_product_name.sorted.gff3.gz",
+          "uri": "http://eumicrobedb.org:3001/genomes/Phymel_WB_with_product_name.sorted.gff3.gz",
           "locationType": "UriLocation"
         },
         "index": {
           "location": {
-            "uri": "http://eumicrobedb.org:3001/genomes/Phymel_WB_scaffolded_with_product_name.sorted.gff3.gz.tbi",
+            "uri": "http://eumicrobedb.org:3001/genomes/Phymel_WB_with_product_name.sorted.gff3.gz.tbi",
             "locationType": "UriLocation"
           },
           "indexType": "TBI"
         }
       },
       "assemblyNames": [
-        "Phymel_WB_scaffolded.fna"
+        "Phymel_WB.fna"
       ]
     },
     {
@@ -221,17 +221,17 @@
     },
     {
       "type": "QuantitativeTrack",
-      "trackId": "Phymel_CPHST_rxlr",
-      "name": "Phymel_CPHST_rxlr",
+      "trackId": "Phymel_CPHST_BL23_rxlr",
+      "name": "Phymel_CPHST_BL23_rxlr",
       "adapter": {
         "type": "BigWigAdapter",
         "bigWigLocation": {
-          "uri": "http://eumicrobedb.org:3001/genomes/Phymel_CPHST_rxlr.bw",
+          "uri": "http://eumicrobedb.org:3001/genomes/Phymel_CPHST_BL23_rxlr.bw",
           "locationType": "UriLocation"
         }
       },
       "assemblyNames": [
-        "Phymel_CPHST.fna"
+        "Phymel_CPHST_BL23.fna"
       ]
     },
     {
@@ -251,17 +251,17 @@
     },
     {
       "type": "QuantitativeTrack",
-      "trackId": "Phymel_WB_scaffolded_rxlr",
-      "name": "Phymel_WB_scaffolded_rxlr",
+      "trackId": "Phymel_WB_rxlr",
+      "name": "Phymel_WB_rxlr",
       "adapter": {
         "type": "BigWigAdapter",
         "bigWigLocation": {
-          "uri": "http://eumicrobedb.org:3001/genomes/Phymel_WB_scaffolded_rxlr.bw",
+          "uri": "http://eumicrobedb.org:3001/genomes/Phymel_WB_rxlr.bw",
           "locationType": "UriLocation"
         }
       },
       "assemblyNames": [
-        "Phymel_WB_scaffolded.fna"
+        "Phymel_WB.fna"
       ]
     } 
   ]
