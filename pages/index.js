@@ -55,7 +55,7 @@ export default function Home() {
               <td>105M</td>
             </tr>
             <tr>
-              <td><i>Phytophthora melonis </i> strain CPHST</td>
+              <td><i>Phytophthora melonis </i> strain CPHST BL23</td>
               <td>2091</td>
               <td>112M</td>
             </tr>
@@ -65,7 +65,7 @@ export default function Home() {
               <td>73M</td>
             </tr>
             <tr>
-              <td><i>Phytophthora melonis </i> strain WB</td>
+              <td><i>Phytophthora melonis </i> strain MCC 9865 WB</td>
               <td>158</td>
               <td>63M</td>
             </tr>
