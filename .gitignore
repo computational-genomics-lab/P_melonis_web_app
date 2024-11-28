@@ -31,8 +31,8 @@ yarn-error.log*
 # vercel
 .vercel
 
-#Public data will not be uploaded
-/public
+#Genomic data will not be uploaded
+/public/genomes
 
 #the blastable data will not be uploaded
 /pages/components/BLAST_DATA/BLASTN_DATA/*
