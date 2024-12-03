@@ -34,6 +34,6 @@ yarn-error.log*
 #Genomic data will not be uploaded
 /public/genomes
 
-#the blastable data will not be uploaded
+#the blastable data and the configuration file for jbrowse2 will not be uploaded
 /pages/components/BLAST_DATA/BLASTN_DATA/*
-
+/pages/components/visualization/config.json
