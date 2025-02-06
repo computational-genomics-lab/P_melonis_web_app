@@ -18,9 +18,12 @@ import Link from 'next/link'
          <Link href="/nav_pages/query"><li>Query </li></Link>
          <Link href="/nav_pages/statistics"><li>Statistics</li></Link>
          <Link href="/nav_pages/tools"><li>Tools</li></Link>
-          <Link href="/nav_pages/contact"><li> JBrowse2 </li></Link>
-          {/* <Link href="/nav_pages/about"><li>About Us</li></Link> */}
-          
+        <Link href="/nav_pages/contact" legacyBehavior> 
+      <a target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none' }}>
+              JBrowse2
+            </a>
+          </Link>
+         
           </ul>       
       </nav>
       
