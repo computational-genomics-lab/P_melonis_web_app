@@ -9,7 +9,8 @@ replace_text() {
     # Create a temporary file
     tmpfile=$(mktemp)
 
-    sed "s/$old_text/$new_text/g" "$file" > "$tmpfile"
+    # Use '#' as delimiter to avoid conflicts with '/' characters in the variables
+    sed "s#$old_text#$new_text#g" "$file" > "$tmpfile"
 
     # Replace the original file with the temporary file
     mv "$tmpfile" "$file"
