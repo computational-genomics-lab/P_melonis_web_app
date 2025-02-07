@@ -15,7 +15,8 @@ import Link from 'next/link'
             <ul>
       
           <Link href="/"><li>Home</li></Link>
-         <Link href="/nav_pages/query"><li>Query </li></Link>
+         <Link href="/nav_pages/query" legacyBehavior>
+         <a target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none' }}>Query </a></Link>
          <Link href="/nav_pages/statistics" legacyBehavior>
          <a target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none' }}>
           Statistics</a></Link>
