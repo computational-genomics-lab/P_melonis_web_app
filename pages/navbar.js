@@ -20,7 +20,8 @@ import Link from 'next/link'
          <Link href="/nav_pages/statistics" legacyBehavior>
          <a target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none' }}>
           Statistics</a></Link>
-      <Link href="/nav_pages/tools"><li>Tools</li></Link>
+      <Link href="/nav_pages/tools" legacyBehavior>
+      <a target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none' }}>Tools</a></Link>
         <Link href="/nav_pages/contact" legacyBehavior> 
       <a target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none' }}>
               JBrowse2
