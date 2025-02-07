@@ -272,6 +272,7 @@
   display: flex;
   justify-content: center;
     margin-top: 50px;
+    padding: 0;
 }
 
 .mainnav ul li{
@@ -280,7 +281,17 @@
     font-weight: bold;
 } 
 
+.mainnav ul li a {
+  text-decoration: none;
+  color: inherit; /* Inherit the color from the li, or define your own */
+}
 
+
+/* Hover effect: change text color and background color as desired */
+.mainnav ul li a:hover {
+  color: #ff0000;            /* Change text color on hover (red in this example) */
+  border-radius: 4px;          /* Optional: round the corners of the background */
+}
 
 @keyframes rotate {
   from {
