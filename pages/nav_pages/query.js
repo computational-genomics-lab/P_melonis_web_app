@@ -3,36 +3,15 @@ import React, { useState, Suspense } from 'react';
 import dynamic from 'next/dynamic';
 import styles from 'styles/query.module.css';
 
-// Dynamically import each query component with a fallback using Suspense.
-// (If your Next.js version supports suspense for dynamic imports, add `suspense: true`.)
-const SearchPage = dynamic(() => import('../components/query_components/gene_NAME'), {
-  suspense: true,
-});
-const Protein_Instances = dynamic(() => import('../components/query_components/protein_instance'), {
-  suspense: true,
-});
-const SetOperations = dynamic(() => import('../components/query_components/set_Operations/set_operations'), {
-  suspense: true,
-});
-const Primary = dynamic(() => import('../components/query_components/primary_annotation'), {
-  suspense: true,
-});
-const Genome_location = dynamic(() => import('../components/query_components/genome_location'), {
-  suspense: true,
-});
-const Cluster_Description = dynamic(() => import('../components/query_components/cluster_description'), {
-  suspense: true,
-});
-const Protein_domain = dynamic(() => import('../components/query_components/protein_domain'), {
-  suspense: true,
-});
-const KEGG_Page = dynamic(() => import('../components/query_components/kegg_ortho_ids'), {
-  suspense: true,
-});
-// If you have a Conserved_regions component, import it similarly:
-// const Conserved_regions = dynamic(() => import('../components/query_components/conserved_regions'), {
-//   suspense: true,
-// });
+// Dynamically import each query component with a fallback 
+const SearchPage = dynamic(() => import('../components/query_components/gene_NAME'));
+const Protein_Instances = dynamic(() => import('../components/query_components/protein_instance'));
+const SetOperations = dynamic(() => import('../components/query_components/set_Operations/set_operations'));
+const Primary = dynamic(() => import('../components/query_components/primary_annotation'));
+const Genome_location = dynamic(() => import('../components/query_components/genome_location'));
+const Cluster_Description = dynamic(() => import('../components/query_components/cluster_description'));
+const Protein_domain = dynamic(() => import('../components/query_components/protein_domain'));
+const KEGG_Page = dynamic(() => import('../components/query_components/kegg_ortho_ids'));
 
 function Query() {
   // Set the initial active tab (default to a safe value).
