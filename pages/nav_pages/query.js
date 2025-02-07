@@ -1,53 +1,66 @@
-//a vertical navbar where all the components are called upon clicking a certain link
+// pages/query.js
+import React, { useState, Suspense } from 'react';
+import dynamic from 'next/dynamic';
+import styles from 'styles/query.module.css';
 
-import React from 'react';
-import styles from 'styles/query.module.css'
-import { useState } from 'react';
-
-//import all the functions which will be shown in the query navigation bar
-import SearchPage from '../components/query_components/gene_NAME';
-import Protein_Instances from '../components/query_components/protein_instance';
-import SetOperations from '../components/query_components/set_Operations/set_operations';
-import Primary from '../components/query_components/primary_annotation';
-import Genome_location from '../components/query_components/genome_location';
-import Cluster_Description from '../components/query_components/cluster_description';
-import Protein_domain from '../components/query_components/protein_domain';
-import KEGG_Page from '../components/query_components/kegg_ortho_ids';
-
-
+// Dynamically import each query component with a fallback using Suspense.
+// (If your Next.js version supports suspense for dynamic imports, add `suspense: true`.)
+const SearchPage = dynamic(() => import('../components/query_components/gene_NAME'), {
+  suspense: true,
+});
+const Protein_Instances = dynamic(() => import('../components/query_components/protein_instance'), {
+  suspense: true,
+});
+const SetOperations = dynamic(() => import('../components/query_components/set_Operations/set_operations'), {
+  suspense: true,
+});
+const Primary = dynamic(() => import('../components/query_components/primary_annotation'), {
+  suspense: true,
+});
+const Genome_location = dynamic(() => import('../components/query_components/genome_location'), {
+  suspense: true,
+});
+const Cluster_Description = dynamic(() => import('../components/query_components/cluster_description'), {
+  suspense: true,
+});
+const Protein_domain = dynamic(() => import('../components/query_components/protein_domain'), {
+  suspense: true,
+});
+const KEGG_Page = dynamic(() => import('../components/query_components/kegg_ortho_ids'), {
+  suspense: true,
+});
+// If you have a Conserved_regions component, import it similarly:
+// const Conserved_regions = dynamic(() => import('../components/query_components/conserved_regions'), {
+//   suspense: true,
+// });
 
 function Query() {
+  // Set the initial active tab (default to a safe value).
   const [activeTab, setActiveTab] = useState('genome_location');
 
+  // Conditionally render the component corresponding to the active tab.
   const renderComponent = () => {
     switch (activeTab) {
-      case 'primary':
-        return <Primary />;
       case 'gene_name':
         return <SearchPage />;
       case 'kegg_page':
         return <KEGG_Page />;
       case 'protein_instances':
         return <Protein_Instances />;
-
       case 'cluster_desc':
-        return <Cluster_Description />
-      // case 'cluster_id':
-      //   return <Cluster />;
-      // case 'signalP_others':
-      //   return <SignalPOthers />;
-      case 'primary':
-        return <Primary />;
+        return <Cluster_Description />;
       case 'gene_details':
         return <SetOperations />;
       case 'genome_location':
         return <Genome_location />;
-      case 'conserved_regions':
-        return <Conserved_regions />;
+      case 'primary':
+        return <Primary />;
       case 'protein_domain':
         return <Protein_domain />;
+      // case 'conserved_regions':
+      //   return <Conserved_regions />;
       default:
-        return null;
+        return <p>No component available.</p>;
     }
   };
 
@@ -55,19 +68,12 @@ function Query() {
     <div>
       <nav className={styles.verticalNav}>
         <ul>
-          {/* <li
-            tabIndex={0}
-            className={activeTab === 'gene_name' ? styles.active : ''}
-            onClick={() => setActiveTab('gene_name')}
-          >
-            Search by Gene Name
-          </li> */}
           <li
             tabIndex={0}
             className={activeTab === 'genome_location' ? styles.active : ''}
             onClick={() => setActiveTab('genome_location')}
           >
-            Search by and visualise Genome location
+            Search by and Visualise Genome Location
           </li>
           <li
             tabIndex={0}
@@ -81,42 +87,28 @@ function Query() {
             className={activeTab === 'kegg_page' ? styles.active : ''}
             onClick={() => setActiveTab('kegg_page')}
           >
-            Query by KEGG orthology id
+            Query by KEGG Orthology ID
           </li>
           <li
             tabIndex={0}
             className={activeTab === 'protein_instances' ? styles.active : ''}
             onClick={() => setActiveTab('protein_instances')}
           >
-            Bulk View/Download KEGG/COG/PFAM data
+            Bulk View/Download KEGG/COG/PFAM Data
           </li>
-          {/* <li
-            tabIndex={0}
-            className={activeTab === 'primary' ? styles.active : ''}
-            onClick={() => setActiveTab('primary')}
-          >
-            Search by Primary Annotation
-          </li> */}
-
-          {/* <li
-            tabIndex={0}
-            className={activeTab === 'protein_domain' ? styles.active : ''}
-            onClick={() => setActiveTab('protein_domain')}
-          >
-            Quick Search for Protein Domain/motif/function
-          </li>
-           */}
-          {/* <li
-            tabIndex={0}
-            className={activeTab === 'gene_details' ? styles.active : ''}
-            onClick={() => setActiveTab('gene_details')}
-          >
-            Perform Set Operations
-          </li> */}
+          {/* Uncomment or add more items as needed */}
         </ul>
       </nav>
 
-      <div className='rightcolumn'>{renderComponent()}</div>
+      <div className="rightcolumn">
+        {/* 
+          The Suspense boundary below catches any delays in loading your dynamically imported
+          components and displays a fallback. This helps avoid errors like calling .map on null.
+        */}
+        <Suspense fallback={<p>Loading component...</p>}>
+          {renderComponent()}
+        </Suspense>
+      </div>
     </div>
   );
 }
