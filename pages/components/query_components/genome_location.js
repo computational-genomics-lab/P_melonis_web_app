@@ -58,8 +58,8 @@ const Genome_location = () => {
          <p>
         <select onChange={handleOrganismChange}>
           <option value=''>Select an organism</option>
-          {data.map((item) => (
-            <option key={item.id} value={`${item.taxon_ID},${item.strain_number}, ${item.species}, ${item.strain}`}>
+        {(data || []).map(item => (
+	      <option key={item.id} value={`${item.taxon_ID},${item.strain_number}, ${item.species}, ${item.strain}`}>
               {item.species} {item.strain}
             </option>
           ))}
