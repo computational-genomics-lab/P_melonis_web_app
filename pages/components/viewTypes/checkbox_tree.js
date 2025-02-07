@@ -19,8 +19,9 @@ const Checktree = () => {
   useEffect(() => {
     const createTreeNodes = (items) => {
       const orderMap = new Map();
-
-      items.forEach((item) => {
+      
+      const safeItems = items || [] ;
+     safeItems.forEach((item) => {
         const { orders: order, genus, species, strain } = item;
         const speciesName = `${species} ${strain}`;
 
