@@ -26,8 +26,7 @@ export default function Home() {
     
         <div>
         <h1 className={styles.title}>
-        <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?mode=Info&id=120023&lvl=3&keep=1&srchmode=1&unlock&mod=1&log_op=modifier_toggle" target="_blank" rel="noopener noreferrer"> 
-	  <i>Phytophthora melonis </i></a> genomes
+        Uploaded Genomes 
           </h1>
           {/* <button title={title} className='Button' onClick={handleClick}>{isTreeView ? 'List' : 'Tree'}</button> */}
            <button className={`Button ${view === 'list' ? 'Highlighted' : ''}`} onClick={listClick}>List </button>
