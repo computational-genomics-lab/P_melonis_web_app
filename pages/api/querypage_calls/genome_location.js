@@ -22,7 +22,8 @@ export default function handler(req, res) {
 
 const query = `
   SELECT 
-    nf.name AS gene_name, 
+    ens.name AS gene_name, 
+    nf.name AS feature_name,
     nl.start_min AS START_POSITION, 
     nl.end_min AS END_POSITION,
     ens.source_ID
