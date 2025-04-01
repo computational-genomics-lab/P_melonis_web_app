@@ -11,7 +11,7 @@ const Contact = () => {
   return (
     <div>
       <h3>
-        <i>Phytophthora melonis</i> genomes visualized using JBrowse2
+        Uploaded genomes visualized using JBrowse2
       </h3>
       <View />
     </div>
