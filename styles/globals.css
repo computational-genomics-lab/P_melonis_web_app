@@ -1,11 +1,28 @@
 html,
+
 body {
-  padding: 0;
+  position: relative;
+  min-height: 100vh;
+  /* background-image: url('/Picture1.jpg'); */
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
   margin: 0;
+  padding: 0;
   font-family: "Roboto", -apple-system, BlinkMacSystemFont, Segoe UI, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-  background-color: #f9f9f9;
   color: #333;
   line-height: 1.6;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.6); /* Light white overlay */
+  z-index: -1; /* Keep it behind everything */
 }
 
 a {
@@ -69,21 +86,24 @@ ul li {
   background-color: #d15757;
   color: white;
   font-size: 18px;
-  border-radius: 5px;
+  border: none;
+  border-radius: 6px;
   margin: 5px;
   cursor: pointer;
-  width: 150px;
-  height: 40px;
+  width: 160px;
+  height: 42px;
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  transition: background-color 0.3s ease, transform 0.2s ease; /* Add transform transition */
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
 
-.Button :hover {
+.Button:hover {
   background-color: #b84747;
-  transform: scale(1.05); /* Slightly increases the size on hover */
+  transform: scale(1.05);
 }
+
 
 .Highlighted {
   background-color: #502627;
@@ -93,44 +113,43 @@ ul li {
 }
 
 /* h1 styling */
+
 h1 {
-  font-size: 36px;
-  font-weight: bold;
-  color: #333;
-  margin-bottom: 20px;
-  text-align: center; /* Center-align the heading */
+  font-size: 40px;
+  color: #2e2e2e;
+  text-align: center;
+  margin-bottom: 25px;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+
+p {
+  font-size: 18px;
+  line-height: 1.75;
+  color: #444;
 }
 
 /* Table styling */
 table {
-  width: 100%;
-  border-collapse: collapse; /* Ensures no double borders */
-  margin-bottom: 20px;
-  background-color: #fff;
-}
-
-th, td {
-  border: 1px solid #ddd;
-  padding: 12px;
-  text-align: left;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
 }
 
 th {
-  background-color: #f4f4f4;
-  font-weight: bold;
+  background-color: #e0e0e0;
+  color: #222;
 }
 
-td {
-  background-color: #fdfdfd;
-}
-
-table, th, td {
-  border: 0.8px solid #ccc; /* Softer border color */
+td, th {
+  padding: 14px;
 }
 
 tr:nth-child(even) {
-  background-color: #f9f9f9;
+  background-color: #fafafa;
 }
+
+
+
 .footer {
   width: 100%;
   height: 100px;
