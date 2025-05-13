@@ -100,17 +100,17 @@
   "tracks": [
     {
       "type": "FeatureTrack",
-      "trackId": "Phymel_CJ26.sorted.gff3",
-      "name": "Phymel_CJ26.sorted.gff3",
+      "trackId": "Phymel_CJ26.gff3",
+      "name": "Phymel_CJ26.gff3",
       "adapter": {
         "type": "Gff3TabixAdapter",
         "gffGzLocation": {
-          "uri": "http://eumicrobedb.org:3001/genomes/Phymel_CJ26.sorted.gff3.gz",
+          "uri": "http://eumicrobedb.org:3001/genomes/Phymel_CJ26.gff3.gz",
           "locationType": "UriLocation"
         },
         "index": {
           "location": {
-            "uri": "http://eumicrobedb.org:3001/genomes/Phymel_CJ26.sorted.gff3.gz.tbi",
+            "uri": "http://eumicrobedb.org:3001/genomes/Phymel_CJ26.gff3.gz.tbi",
             "locationType": "UriLocation"
           },
           "indexType": "TBI"
@@ -122,17 +122,17 @@
     },
     {
       "type": "FeatureTrack",
-      "trackId": "Phymel_CPHST_BL23.sorted.gff3",
-      "name": "Phymel_CPHST_BL23.sorted.gff3",
+      "trackId": "Phymel_CPHST_BL23.gff3",
+      "name": "Phymel_CPHST_BL23.gff3",
       "adapter": {
         "type": "Gff3TabixAdapter",
         "gffGzLocation": {
-          "uri": "http://eumicrobedb.org:3001/genomes/Phymel_CPHST_BL23.sorted.gff3.gz",
+          "uri": "http://eumicrobedb.org:3001/genomes/Phymel_CPHST_BL23.gff3.gz",
           "locationType": "UriLocation"
         },
         "index": {
           "location": {
-            "uri": "http://eumicrobedb.org:3001/genomes/Phymel_CPHST_BL23.sorted.gff3.gz.tbi",
+            "uri": "http://eumicrobedb.org:3001/genomes/Phymel_CPHST_BL23.gff3.gz.tbi",
             "locationType": "UriLocation"
           },
           "indexType": "TBI"
@@ -144,17 +144,17 @@
     },
     {
       "type": "FeatureTrack",
-      "trackId": "Phymel_Pmelo_OSU-2014.sorted.gff3",
-      "name": "Phymel_Pmelo_OSU-2014.sorted.gff3",
+      "trackId": "Phymel_Pmelo_OSU-2014.gff3",
+      "name": "Phymel_Pmelo_OSU-2014.gff3",
       "adapter": {
         "type": "Gff3TabixAdapter",
         "gffGzLocation": {
-          "uri": "http://eumicrobedb.org:3001/genomes/Phymel_Pmelo_OSU-2014.sorted.gff3.gz",
+          "uri": "http://eumicrobedb.org:3001/genomes/Phymel_Pmelo_OSU-2014.gff3.gz",
           "locationType": "UriLocation"
         },
         "index": {
           "location": {
-            "uri": "http://eumicrobedb.org:3001/genomes/Phymel_Pmelo_OSU-2014.sorted.gff3.gz.tbi",
+            "uri": "http://eumicrobedb.org:3001/genomes/Phymel_Pmelo_OSU-2014.gff3.gz.tbi",
             "locationType": "UriLocation"
           },
           "indexType": "TBI"
@@ -166,17 +166,17 @@
     },
     {
       "type": "FeatureTrack",
-      "trackId": "Phymel_WB.sorted.gff3",
-      "name": "Phymel_WB.sorted.gff3",
+      "trackId": "Phymel_WB.gff3",
+      "name": "Phymel_WB.gff3",
       "adapter": {
         "type": "Gff3TabixAdapter",
         "gffGzLocation": {
-          "uri": "http://eumicrobedb.org:3001/genomes/Phymel_WB.sorted.gff3.gz",
+          "uri": "http://eumicrobedb.org:3001/genomes/Phymel_WB.gff3.gz",
           "locationType": "UriLocation"
         },
         "index": {
           "location": {
-            "uri": "http://eumicrobedb.org:3001/genomes/Phymel_WB.sorted.gff3.gz.tbi",
+            "uri": "http://eumicrobedb.org:3001/genomes/Phymel_WB.gff3.gz.tbi",
             "locationType": "UriLocation"
           },
           "indexType": "TBI"
