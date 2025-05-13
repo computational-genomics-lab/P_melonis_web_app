@@ -32,11 +32,11 @@
 //         adapter: {
 //           type: `Gff3TabixAdapter`,
 //           gffGzLocation: {
-//             uri: `http://eumicrobedb.org:3001/genomes/${props.name}..sorted.gff3.gz`,
+//             uri: `http://eumicrobedb.org:3001/genomes/${props.name}..gff3.gz`,
 //           },
 //           index: {
 //             location: {
-//               uri: `http://eumicrobedb.org:3001/genomes/${props.name}..sorted.gff3.gz.tbi`,
+//               uri: `http://eumicrobedb.org:3001/genomes/${props.name}..gff3.gz.tbi`,
 //             },
 //           },
 //         },
@@ -162,11 +162,11 @@ const getConfig = (props) => {
         adapter: {
           type: `Gff3TabixAdapter`,
           gffGzLocation: {
-            uri: `http://eumicrobedb.org:3001/genomes/${props.name}.sorted.gff3.gz`,
+            uri: `http://eumicrobedb.org:3001/genomes/${props.name}.gff3.gz`,
           },
           index: {
             location: {
-              uri: `http://eumicrobedb.org:3001/genomes/${props.name}.sorted.gff3.gz.tbi`,
+              uri: `http://eumicrobedb.org:3001/genomes/${props.name}.gff3.gz.tbi`,
             },
           },
         },
