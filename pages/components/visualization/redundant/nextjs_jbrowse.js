@@ -38,11 +38,11 @@ import {
         adapter: {
           type: 'Gff3TabixAdapter',
           gffGzLocation: {
-            uri: 'http://10.0.0.231:3000/Phyag_NZFS3770.sorted.gff3.gz',
+            uri: 'http://10.0.0.231:3000/Phyag_NZFS3770.gff3.gz',
           },
           index: {
             location: {
-              uri: 'http://10.0.0.231:3000/Phyag_NZFS3770.sorted.gff3.gz.tbi',
+              uri: 'http://10.0.0.231:3000/Phyag_NZFS3770.gff3.gz.tbi',
             },
           },
         },
