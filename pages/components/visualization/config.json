@@ -8,11 +8,11 @@
         "adapter": {
           "type": "IndexedFastaAdapter",
           "fastaLocation": {
-            "uri": "http://eumicrobedb.org:3001/genomes/Phymel_CJ26.fna",
+            "uri": "/genomes/Phymel_CJ26.fna",
             "locationType": "UriLocation"
           },
           "faiLocation": {
-            "uri": "http://eumicrobedb.org:3001/genomes/Phymel_CJ26.fna.fai",
+            "uri": "/genomes/Phymel_CJ26.fna.fai",
             "locationType": "UriLocation"
           }
         }
@@ -26,11 +26,11 @@
         "adapter": {
           "type": "IndexedFastaAdapter",
           "fastaLocation": {
-            "uri": "http://eumicrobedb.org:3001/genomes/Phymel_CPHST_BL23.fna",
+            "uri": "/genomes/Phymel_CPHST_BL23.fna",
             "locationType": "UriLocation"
           },
           "faiLocation": {
-            "uri": "http://eumicrobedb.org:3001/genomes/Phymel_CPHST_BL23.fna.fai",
+            "uri": "/genomes/Phymel_CPHST_BL23.fna.fai",
             "locationType": "UriLocation"
           }
         }
@@ -44,11 +44,11 @@
         "adapter": {
           "type": "IndexedFastaAdapter",
           "fastaLocation": {
-            "uri": "http://eumicrobedb.org:3001/genomes/Phymel_Pmelo_OSU-2014.fna",
+            "uri": "/genomes/Phymel_Pmelo_OSU-2014.fna",
             "locationType": "UriLocation"
           },
           "faiLocation": {
-            "uri": "http://eumicrobedb.org:3001/genomes/Phymel_Pmelo_OSU-2014.fna.fai",
+            "uri": "/genomes/Phymel_Pmelo_OSU-2014.fna.fai",
             "locationType": "UriLocation"
           }
         }
@@ -62,11 +62,11 @@
         "adapter": {
           "type": "IndexedFastaAdapter",
           "fastaLocation": {
-            "uri": "http://eumicrobedb.org:3001/genomes/Phymel_WB.fna",
+            "uri": "/genomes/Phymel_WB.fna",
             "locationType": "UriLocation"
           },
           "faiLocation": {
-            "uri": "http://eumicrobedb.org:3001/genomes/Phymel_WB.fna.fai",
+            "uri": "/genomes/Phymel_WB.fna.fai",
             "locationType": "UriLocation"
           }
         }
@@ -105,12 +105,12 @@
       "adapter": {
         "type": "Gff3TabixAdapter",
         "gffGzLocation": {
-          "uri": "http://eumicrobedb.org:3001/genomes/Phymel_CJ26.gff3.gz",
+          "uri": "/genomes/Phymel_CJ26.gff3.gz",
           "locationType": "UriLocation"
         },
         "index": {
           "location": {
-            "uri": "http://eumicrobedb.org:3001/genomes/Phymel_CJ26.gff3.gz.tbi",
+            "uri": "/genomes/Phymel_CJ26.gff3.gz.tbi",
             "locationType": "UriLocation"
           },
           "indexType": "TBI"
@@ -127,12 +127,12 @@
       "adapter": {
         "type": "Gff3TabixAdapter",
         "gffGzLocation": {
-          "uri": "http://eumicrobedb.org:3001/genomes/Phymel_CPHST_BL23.gff3.gz",
+          "uri": "/genomes/Phymel_CPHST_BL23.gff3.gz",
           "locationType": "UriLocation"
         },
         "index": {
           "location": {
-            "uri": "http://eumicrobedb.org:3001/genomes/Phymel_CPHST_BL23.gff3.gz.tbi",
+            "uri": "/genomes/Phymel_CPHST_BL23.gff3.gz.tbi",
             "locationType": "UriLocation"
           },
           "indexType": "TBI"
@@ -149,12 +149,12 @@
       "adapter": {
         "type": "Gff3TabixAdapter",
         "gffGzLocation": {
-          "uri": "http://eumicrobedb.org:3001/genomes/Phymel_Pmelo_OSU-2014.gff3.gz",
+          "uri": "/genomes/Phymel_Pmelo_OSU-2014.gff3.gz",
           "locationType": "UriLocation"
         },
         "index": {
           "location": {
-            "uri": "http://eumicrobedb.org:3001/genomes/Phymel_Pmelo_OSU-2014.gff3.gz.tbi",
+            "uri": "/genomes/Phymel_Pmelo_OSU-2014.gff3.gz.tbi",
             "locationType": "UriLocation"
           },
           "indexType": "TBI"
@@ -171,12 +171,12 @@
       "adapter": {
         "type": "Gff3TabixAdapter",
         "gffGzLocation": {
-          "uri": "http://eumicrobedb.org:3001/genomes/Phymel_WB.gff3.gz",
+          "uri": "/genomes/Phymel_WB.gff3.gz",
           "locationType": "UriLocation"
         },
         "index": {
           "location": {
-            "uri": "http://eumicrobedb.org:3001/genomes/Phymel_WB.gff3.gz.tbi",
+            "uri": "/genomes/Phymel_WB.gff3.gz.tbi",
             "locationType": "UriLocation"
           },
           "indexType": "TBI"
@@ -193,7 +193,7 @@
       "adapter": {
         "type": "BigWigAdapter",
         "bigWigLocation": {
-          "uri": "http://eumicrobedb.org:3001/genomes/Phymel_CJ26_rxlr.bw",
+          "uri": "/genomes/Phymel_CJ26_rxlr.bw",
           "locationType": "UriLocation"
         }
       },
@@ -208,7 +208,7 @@
       "adapter": {
         "type": "BigWigAdapter",
         "bigWigLocation": {
-          "uri": "http://eumicrobedb.org:3001/genomes/Phymel_CPHST_BL23_rxlr.bw",
+          "uri": "/genomes/Phymel_CPHST_BL23_rxlr.bw",
           "locationType": "UriLocation"
         }
       },
@@ -223,7 +223,7 @@
       "adapter": {
         "type": "BigWigAdapter",
         "bigWigLocation": {
-          "uri": "http://eumicrobedb.org:3001/genomes/Phymel_Pmelo_OSU-2014_rxlr.bw",
+          "uri": "/genomes/Phymel_Pmelo_OSU-2014_rxlr.bw",
           "locationType": "UriLocation"
         }
       },
@@ -238,7 +238,7 @@
       "adapter": {
         "type": "BigWigAdapter",
         "bigWigLocation": {
-          "uri": "http://eumicrobedb.org:3001/genomes/Phymel_WB_rxlr.bw",
+          "uri": "/genomes/Phymel_WB_rxlr.bw",
           "locationType": "UriLocation"
         }
       },

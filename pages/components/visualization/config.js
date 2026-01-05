@@ -11,11 +11,11 @@
 //           adapter: {
 //             type: `IndexedFastaAdapter`,
 //             fastaLocation: {
-//               uri: `http://eumicrobedb.org:3001/genomes/${props.name}..fna`,
+//               uri: `${BASE}/genomes/${props.name}..fna`,
   
 //             },
 //             faiLocation: {
-//             uri: `http://eumicrobedb.org:3001/genomes/${props.name}..fna.fai`,
+//             uri: `${BASE}/genomes/${props.name}..fna.fai`,
 //             },
 //           },    
 //         },
@@ -32,11 +32,11 @@
 //         adapter: {
 //           type: `Gff3TabixAdapter`,
 //           gffGzLocation: {
-//             uri: `http://eumicrobedb.org:3001/genomes/${props.name}..gff3.gz`,
+//             uri: `${BASE}/genomes/${props.name}..gff3.gz`,
 //           },
 //           index: {
 //             location: {
-//               uri: `http://eumicrobedb.org:3001/genomes/${props.name}..gff3.gz.tbi`,
+//               uri: `${BASE}/genomes/${props.name}..gff3.gz.tbi`,
 //             },
 //           },
 //         },
@@ -50,7 +50,7 @@
 //         adapter: {
 //           type: `BigWigAdapter`,
 //           bigWigLocation: {
-//             uri: `http://eumicrobedb.org:3001/genomes/${props.name}..bw`,
+//             uri: `${BASE}/genomes/${props.name}..bw`,
 //             locationType: `UriLocation`,
 //           },
 //         },
@@ -130,6 +130,11 @@
 // config.js
 
 const getConfig = (props) => {
+  
+  const BASE =
+    typeof window !== 'undefined'
+      ? window.location.origin
+      : '';
 
   return {
     assemblies: [
@@ -142,11 +147,11 @@ const getConfig = (props) => {
                 adapter: {
                   type: `IndexedFastaAdapter`,
                   fastaLocation: {
-                    uri: `http://eumicrobedb.org:3001/genomes/${props.name}.fna`,
+                    uri: `${BASE}/genomes/${props.name}.fna`,
         
                   },
                   faiLocation: {
-                  uri: `http://eumicrobedb.org:3001/genomes/${props.name}.fna.fai`,
+                  uri: `${BASE}/genomes/${props.name}.fna.fai`,
                   },
                 },    
               },
@@ -182,11 +187,11 @@ const getConfig = (props) => {
         adapter: {
           type: `Gff3TabixAdapter`,
           gffGzLocation: {
-            uri: `http://eumicrobedb.org:3001/genomes/${props.name}.gff3.gz`,
+            uri: `${BASE}/genomes/${props.name}.gff3.gz`,
           },
           index: {
             location: {
-              uri: `http://eumicrobedb.org:3001/genomes/${props.name}.gff3.gz.tbi`,
+              uri: `${BASE}/genomes/${props.name}.gff3.gz.tbi`,
             },
           },
         },
@@ -201,7 +206,7 @@ const getConfig = (props) => {
       //   adapter: {
       //     type: `BigWigAdapter`,
       //     bigWigLocation: {
-      //       uri: `http://eumicrobedb.org:3001/genomes/${props.name}_rxlr.bw`,
+      //       uri: `${BASE}/genomes/${props.name}_rxlr.bw`,
       //       locationType: `UriLocation`,
       //     },
       //   },
@@ -215,7 +220,7 @@ const getConfig = (props) => {
         adapter: {
           type: 'BigWigAdapter',
           bigWigLocation: {
-            uri: `http://eumicrobedb.org:3001/genomes/${props.name}_rxlr.bw`,
+            uri: `${BASE}/genomes/${props.name}_rxlr.bw`,
             locationType: 'UriLocation',
           },
         },}
