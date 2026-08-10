@@ -1,210 +1,164 @@
-// import { spawn } from 'child_process';
-// import { join } from 'path';
-// import fs from 'fs';
-
-// export default async function handler(req, res) {
-//   if (req.method === 'GET') {
-//     const { sequence, organisms } = req.query;
-
-//     // Split the comma-separated list of organisms into an array
-//     const organismList = organisms.split(',');
-
-//     const blastResults = {}; //make a dictionary to hold the blast results for each organism
-
-//     // Create a temporary FASTA file to store the sequence
-//     const fastaFilePath = join('/home/sutripa/next_app_backup/pages/nav_pages', 'temp.fasta');
-//     const fastaFileContent = `>UserSequence\n${sequence}\n`;
-
-//     try {
-//       fs.writeFileSync(fastaFilePath, fastaFileContent);
-
-//       // Loop through each organism and perform BLAST
-//       for (const organism of organismList) {
-//         const organismBlastResultFile = `blast_results_${organism}.txt`;
-
-//         const blastProcess = spawn('blastall', ['-p', 'blastn', '-i', fastaFilePath, '-d', `/home/sutripa/BLAST_DATA/BLASTN_DATA/${organism}`, '-o', organismBlastResultFile]);
-
-//         await new Promise((resolve, reject) => {
-//           // Add an event listener for the `error` event.
-//           blastProcess.on('error', (error) => {
-//             console.error('Error running BLAST:', error);
-//             reject(error);
-//           });
-//           //Add an event listener for the `close` event.
-//           blastProcess.on('close', (code) => {
-//             console.log(`BLAST process for ${organism} finished with code:`, code);
-//             if (code === 0) {
-//               const blastResult = fs.readFileSync(organismBlastResultFile, 'utf-8');
-//               //we want the filereading function to be synchronous
-//               blastResults[organism] = blastResult;
-              
-//             } else {
-//               blastResults[organism] = `BLAST process failed for ${organism}`;
-//             }
-//           // after saving the results, the created file is unlinked 
-//             fs.unlinkSync(`blast_results_${organism}.txt`);
-//             resolve();
-//           });
-//         });
-//       }
-
-//       // Respond with the aggregated results to the frontend
-//       const responseArray = organismList.map((organism) => ({
-//         organism,
-//         blastResult: blastResults[organism]
-//       }));
-      
-//       res.status(200).json({ results: responseArray });
-//       // Clean up: delete the temporary FASTA file 
-      
-//       fs.unlinkSync(fastaFilePath);
-
-
-//     } catch (writeError) {
-//       console.error('Error writing FASTA file:', writeError);
-//       res.status(500).json({ error: 'An error occurred while writing the FASTA file' });
-//     }
-//   } else {
-//     res.status(405).end();
-//   }
-// }
-
-// here all the blast results are being stored in a dictionary and then the dictionary 
-// is being rendered in the frontend. in the frontend the JSON is stringified. 
-
-// i think a better idea would be to append all the blast data into a single file
-// and then send the results to the frontend. 
-
-
-// import { spawn } from 'child_process';
-// import { join } from 'path';
-// import fs from 'fs';
-
-// export default async function handler(req, res) {
-//   if (req.method === 'GET') {
-//     const { sequence, organisms } = req.query;
-
-//     // Split the comma-separated list of organisms into an array
-//     const organismList = organisms.split(',');
-
-//     try {
-//       for (const organism of organismList) {
-//         // Create a temporary FASTA file to store the sequence
-//         const fastaFilePath = join('temp.fasta');
-//         const fastaFileContent = `>${organism}\n${sequence}\n`;
-//         fs.writeFileSync(fastaFilePath, fastaFileContent);
-
-//         // Run the BLAST algorithm using blastall and append results to the blast_results.txt
-//         const blastProcess = spawn('blastall', [
-//           '-p', 'blastn',
-//           '-i', fastaFilePath,
-//           '-d', `pages/components/BLAST_DATA/BLASTN_DATA/${organism}`,
-          
-//           '>>', 'blast_results.txt'
-//         ], { shell: true });
-
-//         blastProcess.on('error', (error) => {
-//           console.error('Error running BLAST:', error);
-//           res.status(500).json({ error: 'An error occurred while running BLAST', error });
-//         });
-
-//         await new Promise((resolve) => {
-//           blastProcess.on('close', (code) => {
-//             console.log(`BLAST process for ${organism} finished with code:`, code);
-//             resolve();
-//           });
-//         });
-
-//         // Clean up: delete the temporary FASTA file
-// 	      fs.unlinkSync(fastaFilePath);
-//       }
-
-//       // Read and process the results from 'blast_results.txt'
-//       const blastResults = fs.readFileSync('blast_results.txt', 'utf-8');
-//       console.log('BLAST results:', blastResults); // Log the results
-
-//       // Copy the blast_results.txt file to the public directory (done for downloading blast output file and uploading it)
-//       // const copyFilePath = join(process.cwd(), 'public', 'blast_results.txt');
-//       // fs.copyFileSync('blast_results.txt', copyFilePath);
-
-//       // Respond with the results to the frontend
-//       res.status(200).json({ results: blastResults });
-
-//       // Clean up: delete the blast_results.txt file
-//       fs.unlinkSync('blast_results.txt');
-//     } catch (error) {
-//       console.error('Error:', error);
-//       res.status(500).json({ error: 'An error occurred while processing the BLAST' });
-//     }
-//   } else {
-//     res.status(405).end();
-//   }
-// }
-
 import { spawn } from 'child_process';
-import { join } from 'path';
+import { join, resolve, sep } from 'path';
 import fs from 'fs';
 
-export default async function handler(req, res) {
-  if (req.method === 'GET') {
-    const { sequence, organisms, type } = req.query;
+// Directory holding the formatdb-generated BLAST databases, as created by
+// modify_nextjs_app.sh. Resolved once, absolutely, so it can be used as the
+// containment root for the organism check below.
+const BLAST_DB_DIR = resolve(
+  process.cwd(),
+  'pages',
+  'components',
+  'BLAST_DATA',
+  'BLASTN_DATA'
+);
 
-    // Validate BLAST type
-    if (!['blastn', 'tblastn', 'tblastx'].includes(type)) {
-      return res.status(400).json({ error: 'Invalid BLAST type' });
-    }
+// Organism identifiers are generated by modify_nextjs_app.sh in the form
+// <3 chars genus><2 chars species>_<strain>_v1. This allowlist admits that
+// shape without admitting path separators, shell metacharacters or NUL.
+const ORGANISM_PATTERN = /^[A-Za-z0-9_.-]{1,128}$/;
 
-    const organismList = organisms.split(',');
+// IUPAC nucleotide and amino-acid codes plus gap, stop and whitespace
+// characters. The sequence is written to a FASTA file rather than a command
+// line, but it is still constrained so that it cannot forge FASTA records or
+// carry control characters into the file.
+const ALLOWED_SEQUENCE = /^[A-Za-z*\-.\s]+$/;
 
-    try {
-      for (const organism of organismList) {
-        // Create a temporary FASTA file to store the sequence
-        const fastaFilePath = join('temp.fasta');
-        const fastaFileContent = `>${organism}\n${sequence}\n`;
-        fs.writeFileSync(fastaFilePath, fastaFileContent);
+const MAX_SEQUENCE_BYTES = 1_000_000;
+const MAX_ORGANISMS = 50;
+const BLAST_TIMEOUT_MS = 120_000;
 
-        // Run the selected BLAST algorithm
-        const blastProcess = spawn(
-          'blastall',
-          [
-            '-p', type, // Dynamically set BLAST type
-            '-i', fastaFilePath,
-            '-d', `pages/components/BLAST_DATA/BLASTN_DATA/${organism}`,
-            '>>', 'blast_results.txt',
-          ],
-          { shell: true }
-        );
+// Rejects '..', absolute paths and anything that would resolve outside
+// BLAST_DB_DIR. The pattern above already excludes separators; this is the
+// second, authoritative check.
+function resolveDatabasePath(organism) {
+  if (!ORGANISM_PATTERN.test(organism)) return null;
+  const candidate = resolve(BLAST_DB_DIR, organism);
+  if (candidate !== BLAST_DB_DIR && !candidate.startsWith(BLAST_DB_DIR + sep)) {
+    return null;
+  }
+  return candidate;
+}
 
-        blastProcess.on('error', (error) => {
-          console.error('Error running BLAST:', error);
-          res.status(500).json({ error: 'An error occurred while running BLAST', error });
-        });
+function runBlast(type, fastaFilePath, dbPath) {
+  return new Promise((resolvePromise) => {
+    // No shell. The argument array is passed to execve directly, so no element
+    // is parsed as a redirect, pipe, substitution or separator. Output is
+    // captured from stdout instead of being redirected by the shell.
+    const child = spawn('blastall', ['-p', type, '-i', fastaFilePath, '-d', dbPath], {
+      shell: false,
+    });
 
-        await new Promise((resolve) => {
-          blastProcess.on('close', (code) => {
-            console.log(`BLAST process for ${organism} finished with code:`, code);
-            resolve();
-          });
-        });
+    let stdout = '';
+    let stderr = '';
+    let settled = false;
 
-        // Clean up: delete the temporary FASTA file
-        fs.unlinkSync(fastaFilePath);
+    const timer = setTimeout(() => child.kill('SIGKILL'), BLAST_TIMEOUT_MS);
+
+    const settle = (result) => {
+      if (settled) return;
+      settled = true;
+      clearTimeout(timer);
+      resolvePromise(result);
+    };
+
+    child.stdout.on('data', (chunk) => {
+      stdout += chunk;
+    });
+    child.stderr.on('data', (chunk) => {
+      stderr += chunk;
+    });
+
+    child.on('error', (error) => {
+      console.error(`blastall spawn failed: ${error.message}`);
+      settle({ ok: false, output: '' });
+    });
+
+    child.on('close', (code, signal) => {
+      if (signal === 'SIGKILL') {
+        console.error('blastall timed out');
+        return settle({ ok: false, output: '' });
       }
+      if (code !== 0) {
+        console.error(`blastall exited ${code}: ${stderr}`);
+      }
+      // Preserves the previous behaviour of returning whatever was produced
+      // regardless of exit status. See the note in docs/security-findings.md.
+      settle({ ok: code === 0, output: stdout });
+    });
+  });
+}
 
-      // Read and process the results from 'blast_results.txt'
-      const blastResults = fs.readFileSync('blast_results.txt', 'utf-8');
-      console.log('BLAST results:', blastResults); // Log the results
+export default async function handler(req, res) {
+  if (req.method !== 'GET') {
+    return res.status(405).end();
+  }
 
-      // Respond with the results to the frontend
-      res.status(200).json({ results: blastResults });
+  const { sequence, organisms, type } = req.query;
 
-      // Clean up: delete the blast_results.txt file
-      fs.unlinkSync('blast_results.txt');
-    } catch (error) {
-      console.error('Error:', error);
-      res.status(500).json({ error: 'An error occurred while processing the BLAST' });
+  if (!['blastn', 'tblastn', 'tblastx'].includes(type)) {
+    return res.status(400).json({ error: 'Invalid BLAST type' });
+  }
+
+  if (typeof sequence !== 'string' || sequence.length === 0) {
+    return res.status(400).json({ error: 'Sequence data is required' });
+  }
+
+  if (Buffer.byteLength(sequence, 'utf8') > MAX_SEQUENCE_BYTES) {
+    return res.status(413).json({ error: 'Sequence too large' });
+  }
+
+  if (!ALLOWED_SEQUENCE.test(sequence)) {
+    return res
+      .status(400)
+      .json({ error: 'Sequence contains unsupported characters' });
+  }
+
+  if (typeof organisms !== 'string' || organisms.length === 0) {
+    return res.status(400).json({ error: 'At least one organism is required' });
+  }
+
+  const organismList = organisms.split(',').filter((o) => o.length > 0);
+
+  if (organismList.length === 0 || organismList.length > MAX_ORGANISMS) {
+    return res.status(400).json({ error: 'Invalid organism selection' });
+  }
+
+  // Resolve and validate every organism before running anything, so a bad
+  // identifier fails the request instead of failing partway through the loop.
+  const targets = [];
+  for (const organism of organismList) {
+    const dbPath = resolveDatabasePath(organism);
+    if (dbPath === null) {
+      return res.status(400).json({ error: 'Unknown organism' });
     }
-  } else {
-    res.status(405).end();
+    targets.push({ organism, dbPath });
+  }
+
+  // NOTE: fixed-name temp file in the process working directory, unchanged from
+  // the previous implementation. This is a concurrency defect -- see F-011 in
+  // docs/security-findings.md -- and is deliberately left alone here so this
+  // diff contains only the injection fix.
+  const fastaFilePath = join('temp.fasta');
+
+  try {
+    let combinedOutput = '';
+
+    for (const { organism, dbPath } of targets) {
+      fs.writeFileSync(fastaFilePath, `>${organism}\n${sequence}\n`);
+      const { output } = await runBlast(type, fastaFilePath, dbPath);
+      combinedOutput += output;
+    }
+
+    res.status(200).json({ results: combinedOutput });
+  } catch (error) {
+    console.error('Error:', error);
+    res.status(500).json({ error: 'An error occurred while processing the BLAST' });
+  } finally {
+    try {
+      fs.unlinkSync(fastaFilePath);
+    } catch {
+      // Already removed or never created.
+    }
   }
 }
